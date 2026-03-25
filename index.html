@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Quimica</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">PV <span>Química</span></div>
+        <nav>
+            <button class="nav-btn active" onclick="cambiarSeccion('sec-tabla')">Tabla Periódica</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-conf')">Conf. Electrónica</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-modelos')">Modelos Atómicos</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-enlaces')">Enlaces Químicos</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-radiacion')">Espectro</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-lab')">Laboratorio</button>
+            <button class="nav-btn" id="btn-letra" onclick="toggleTamanoLetra()" style="border-left: 1px solid var(--glass-border); border-radius: 0 8px 8px 0; margin-left: 10px;">A⁺</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="sec-tabla" class="seccion active">
+            <div class="leyenda interactiva">
+                <span class="badge alc" onclick="filtrarCategoria('alc')">Metales alcalinos</span>
+                <span class="badge alct" onclick="filtrarCategoria('alct')">Metales alcalinotérreos</span>
+                <span class="badge tran" onclick="filtrarCategoria('tran')">Metales transicionales</span>
+                <span class="badge post" onclick="filtrarCategoria('post')">Metales postransicionales</span>
+                <span class="badge meta" onclick="filtrarCategoria('meta')">Metaloides</span>
+                <span class="badge nomet" onclick="filtrarCategoria('nomet')">No metales reactivos</span>
+                <span class="badge gas" onclick="filtrarCategoria('gas')">Gases nobles</span>
+                <span class="badge lant" onclick="filtrarCategoria('lant')">Lantánidos</span>
+                <span class="badge acti" onclick="filtrarCategoria('acti')">Actinoides</span>
+                <span class="badge desc" onclick="filtrarCategoria('desc')">Propiedades desconocidas</span>
+                <button class="btn-reset" onclick="filtrarCategoria('todos')">Mostrar Todos</button>
+            </div>
+            <div id="tabla-periodica" class="grid-tabla"></div>
+        </section>
+
+        <section id="sec-conf" class="seccion hidden">
+            <div class="glass-panel text-center">
+                <h2 class="section-title">Diagrama de Moeller Clásico</h2>
+                <p>Pasa el ratón sobre un orbital para ver la secuencia exacta de llenado.</p>
+                
+                <div class="moeller-container-fixed">
+                    <svg class="moeller-arrows" viewBox="0 0 500 720">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+                                <polygon points="0 0, 8 3, 0 6" fill="#fff" />
+                            </marker>
+                        </defs>
+                        <line x1="200" y1="90" x2="100" y2="190" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="200" y1="170" x2="100" y2="270" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="300" y1="170" x2="100" y2="370" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="300" y1="250" x2="100" y2="450" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="400" y1="250" x2="100" y2="550" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="400" y1="330" x2="100" y2="630" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="500" y1="330" x2="150" y2="680" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                        <line x1="500" y1="410" x2="250" y2="660" stroke="#fff" stroke-width="3" marker-end="url(#arrowhead)"/>
+                    </svg>
+
+                    <div class="moeller-grid">
+                        <div class="m-head" style="grid-area: 1 / 1;">Nivel<br>energético</div>
+                        <div class="m-head c-s" style="grid-area: 1 / 2;">Subnivel s<br><span style="font-size: 25px;">2 e⁻</span></div>
+                        <div class="m-head c-p" style="grid-area: 1 / 3;">Subnivel p<br><span style="font-size: 25px;">6 e⁻</span></div>
+                        <div class="m-head c-d" style="grid-area: 1 / 4;">Subnivel d<br><span style="font-size: 25px;">10 e⁻</span></div>
+                        <div class="m-head c-f" style="grid-area: 1 / 5;">Subnivel f<br><span style="font-size: 25px;">14 e⁻</span></div>
+
+                        <div class="m-lvl" style="grid-area: 2 / 1;">1</div>
+                        <div class="m-cell" style="grid-area: 2 / 2;"><div class="m-orb r1" data-orden="1">1s</div></div>
+
+                        <div class="m-lvl" style="grid-area: 3 / 1;">2</div>
+                        <div class="m-cell" style="grid-area: 3 / 2;"><div class="m-orb r2" data-orden="2">2s</div></div>
+                        <div class="m-cell" style="grid-area: 3 / 3;"><div class="m-orb r2" data-orden="3">2p</div></div>
+
+                        <div class="m-lvl" style="grid-area: 4 / 1;">3</div>
+                        <div class="m-cell" style="grid-area: 4 / 2;"><div class="m-orb r3" data-orden="4">3s</div></div>
+                        <div class="m-cell" style="grid-area: 4 / 3;"><div class="m-orb r3" data-orden="5">3p</div></div>
+                        <div class="m-cell" style="grid-area: 4 / 4;"><div class="m-orb r3" data-orden="7">3d</div></div>
+
+                        <div class="m-lvl" style="grid-area: 5 / 1;">4</div>
+                        <div class="m-cell" style="grid-area: 5 / 2;"><div class="m-orb r4" data-orden="6">4s</div></div>
+                        <div class="m-cell" style="grid-area: 5 / 3;"><div class="m-orb r4" data-orden="8">4p</div></div>
+                        <div class="m-cell" style="grid-area: 5 / 4;"><div class="m-orb r4" data-orden="10">4d</div></div>
+                        <div class="m-cell" style="grid-area: 5 / 5;"><div class="m-orb r4" data-orden="13">4f</div></div>
+
+                        <div class="m-lvl" style="grid-area: 6 / 1;">5</div>
+                        <div class="m-cell" style="grid-area: 6 / 2;"><div class="m-orb r5" data-orden="9">5s</div></div>
+                        <div class="m-cell" style="grid-area: 6 / 3;"><div class="m-orb r5" data-orden="11">5p</div></div>
+                        <div class="m-cell" style="grid-area: 6 / 4;"><div class="m-orb r5" data-orden="14">5d</div></div>
+                        <div class="m-cell" style="grid-area: 6 / 5;"><div class="m-orb r5" data-orden="17">5f</div></div>
+
+                        <div class="m-lvl" style="grid-area: 7 / 1;">6</div>
+                        <div class="m-cell" style="grid-area: 7 / 2;"><div class="m-orb r6" data-orden="12">6s</div></div>
+                        <div class="m-cell" style="grid-area: 7 / 3;"><div class="m-orb r6" data-orden="15">6p</div></div>
+                        <div class="m-cell" style="grid-area: 7 / 4;"><div class="m-orb r6" data-orden="18">6d</div></div>
+
+                        <div class="m-lvl" style="grid-area: 8 / 1;">7</div>
+                        <div class="m-cell" style="grid-area: 8 / 2;"><div class="m-orb r7" data-orden="16">7s</div></div>
+                        <div class="m-cell" style="grid-area: 8 / 3;"><div class="m-orb r7" data-orden="19">7p</div></div>
+                    </div>
+                </div>
+
+                <div class="secuencia-container">
+                    <div class="secuencia-label">Secuencia de Llenado:</div>
+                    <div class="secuencia-pista" id="secuencia-texto">
+                        1s → 2s → 2p → 3s → 3p → 4s → 3d → 4p → 5s → 4d → 5p → 6s → 4f → 5d → 6p → 7s → 5f → 6d → 7p
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-modelos" class="seccion hidden">
+            <h2 class="section-title">Evolución del Modelo Atómico</h2>
+            <div class="modelos-timeline">
+                <div class="modelo-card active" onclick="cargarModeloHistorico('dalton', this)">
+                    <h3>1. Dalton (1803)</h3><p>Átomo como una esfera maciza e indivisible.</p>
+                </div>
+                <div class="modelo-card" onclick="cargarModeloHistorico('thomson', this)">
+                    <h3>2. Thomson (1897)</h3><p>Descubrió el electrón. "Budín de pasas".</p>
+                </div>
+                <div class="modelo-card" onclick="cargarModeloHistorico('rutherford', this)">
+                    <h3>3. Rutherford (1911)</h3><p>Núcleo denso positivo, electrones girando lejos.</p>
+                </div>
+                <div class="modelo-card" onclick="cargarModeloHistorico('bohr', this)">
+                    <h3>4. Bohr (1913)</h3><p>Niveles de energía cuantizados (órbitas circulares).</p>
+                </div>
+                <div class="modelo-card" onclick="cargarModeloHistorico('sommerfeld', this)">
+                    <h3>5. Sommerfeld (1916)</h3><p>Órbitas elípticas y subniveles energéticos.</p>
+                </div>
+                <div class="modelo-card" onclick="cargarModeloHistorico('cuantico', this)">
+                    <h3>6. Schrödinger (1926)</h3><p>Nubes de probabilidad (orbitales).</p>
+                </div>
+            </div>
+            <div class="visor-3d-principal">
+                <button class="btn-pausa" id="btn-pausa-modelos" onclick="togglePausaModelos()">Pausar Animación</button>
+                <div class="visor-modelos-3d" id="canvas-modelos-historicos"></div>
+            </div>
+        </section>
+
+        <section id="sec-enlaces" class="seccion hidden">
+            <h2 class="section-title">Tipos de Enlaces e Interacciones</h2>
+            <div class="grid-enlaces-ultra">
+                
+                <div class="enlace-box ionico-box">
+                    <div class="enlace-glow"></div>
+                    <div class="enlace-header">
+                        <div class="animacion-enlace anim-ionico">
+                            <div class="atomo at-metal">Na</div><div class="atomo at-nometal">Cl</div><div class="electron-transfer">e⁻</div>
+                        </div>
+                        <div class="header-text"><h3>Iónico</h3><span class="sub-bond">Transferencia Total</span></div>
+                    </div>
+                    <div class="enlace-body">
+                        <p>Un metal cede electrones a un no metal, creando iones (cationes + y aniones -). Forman redes cristalinas sólidas.</p>
+                        <div class="enlace-stats">
+                            <div class="stat"><span class="label">Dif. Electroneg.</span><span class="value">> 1.7</span></div>
+                            <div class="stat"><span class="label">Ejemplo</span><span class="value">NaCl (Sal)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enlace-box polar-box">
+                    <div class="enlace-glow"></div>
+                    <div class="enlace-header">
+                        <div class="animacion-enlace anim-polar">
+                            <div class="atomo at-hidro">H</div><div class="atomo at-oxi">Cl</div><div class="nube-polar"></div>
+                        </div>
+                        <div class="header-text"><h3>Covalente Polar</h3><span class="sub-bond">Compartición Desigual</span></div>
+                    </div>
+                    <div class="enlace-body">
+                        <p>No metales comparten electrones, pero el más electronegativo los atrae más, creando polos parciales (dipolos).</p>
+                        <div class="enlace-stats">
+                            <div class="stat"><span class="label">Dif. Electroneg.</span><span class="value">0.4 - 1.7</span></div>
+                            <div class="stat"><span class="label">Ejemplo</span><span class="value">HCl / H₂O</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enlace-box apolar-box">
+                    <div class="enlace-glow"></div>
+                    <div class="enlace-header">
+                        <div class="animacion-enlace anim-apolar">
+                            <div class="atomo at-oxi">O</div><div class="atomo at-oxi">O</div><div class="nube-apolar"></div>
+                        </div>
+                        <div class="header-text"><h3>Covalente Apolar</h3><span class="sub-bond">Compartición Equitativa</span></div>
+                    </div>
+                    <div class="enlace-body">
+                        <p>Átomos idénticos o con electronegatividad similar comparten electrones por igual. Suelen ser gases o líquidos.</p>
+                        <div class="enlace-stats">
+                            <div class="stat"><span class="label">Dif. Electroneg.</span><span class="value">< 0.4</span></div>
+                            <div class="stat"><span class="label">Ejemplo</span><span class="value">O₂ (Oxígeno)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enlace-box metalico-box">
+                    <div class="enlace-glow"></div>
+                    <div class="enlace-header">
+                        <div class="animacion-enlace anim-metalico">
+                            <div class="ion-metal">+</div><div class="ion-metal">+</div><div class="ion-metal">+</div>
+                            <div class="mar-elec e1">e⁻</div><div class="mar-elec e2">e⁻</div><div class="mar-elec e3">e⁻</div>
+                        </div>
+                        <div class="header-text"><h3>Metálico</h3><span class="sub-bond">Mar de Electrones</span></div>
+                    </div>
+                    <div class="enlace-body">
+                        <p>Iones positivos inmersos en una nube de electrones libres que fluyen. Da brillo y altísima conductividad.</p>
+                        <div class="enlace-stats">
+                            <div class="stat"><span class="label">Propiedad</span><span class="value">Conductividad</span></div>
+                            <div class="stat"><span class="label">Ejemplo</span><span class="value">Cobre / Oro</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enlace-box inter-box">
+                    <div class="enlace-glow"></div>
+                    <div class="enlace-header">
+                        <div class="animacion-enlace anim-puente">
+                            <div class="molecula m1">H₂O</div><div class="puente-line">---</div><div class="molecula m2">H₂O</div>
+                        </div>
+                        <div class="header-text"><h3>Puente de Hidrógeno</h3><span class="sub-bond">Interacción Fuerte</span></div>
+                    </div>
+                    <div class="enlace-body">
+                        <p>Fuerza intermolecular entre un Hidrógeno y uno muy electronegativo (F, O, N). Explica propiedades del agua.</p>
+                        <div class="enlace-stats">
+                            <div class="stat"><span class="label">Intensidad</span><span class="value">Fuerte</span></div>
+                            <div class="stat"><span class="label">Consecuencia</span><span class="value">Alta tensión sup.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="enlace-box vander-box">
+                    <div class="enlace-glow"></div>
+                    <div class="enlace-header">
+                        <div class="animacion-enlace anim-vander">
+                            <div class="nube-vd v1"></div><div class="nube-vd v2"></div>
+                        </div>
+                        <div class="header-text"><h3>Van der Waals</h3><span class="sub-bond">Dipolos Instantáneos</span></div>
+                    </div>
+                    <div class="enlace-body">
+                        <p>Fuerzas débiles y temporales debidas a asimetrías momentáneas en las nubes electrónicas.</p>
+                        <div class="enlace-stats">
+                            <div class="stat"><span class="label">Intensidad</span><span class="value">Muy Débil</span></div>
+                            <div class="stat"><span class="label">Permite</span><span class="value">Licuar gases nobles</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-radiacion" class="seccion hidden">
+            <h2 class="section-title">El Espectro Electromagnético</h2>
+            
+            <div class="infografia-espectro glass-panel">
+                <div class="esp-row atm-row">
+                    <div class="esp-label">¿Penetra la atmósfera?</div>
+                    <div class="atm-bar yes">Sí</div><div class="atm-bar no">No</div><div class="atm-bar yes-part">Sí</div><div class="atm-bar no">No</div>
+                </div>
+
+                <div class="esp-row wave-row">
+                    <svg viewBox="0 0 1000 50" preserveAspectRatio="none">
+                        <path d="M 0,25 Q 50,0 100,25 T 200,25 T 280,25 T 350,25 T 410,25 T 460,25 T 500,25 T 530,25 T 555,25 T 575,25 T 590,25 T 605,25 T 615,25 T 625,25 T 635,25 T 645,25 T 655,25 T 665,25 T 675,25 T 685,25 T 695,25 T 705,25 T 715,25 T 725,25 T 735,25 T 745,25 T 755,25 T 765,25 T 775,25 T 785,25 T 795,25 T 805,25 T 810,25 T 815,25 T 820,25 T 825,25 T 830,25 T 835,25 T 840,25 T 845,25 T 850,25 T 855,25 T 860,25 T 865,25 T 870,25 T 875,25 T 880,25 T 885,25 T 890,25 T 895,25 T 900,25 T 905,25 T 910,25 T 915,25 T 920,25 T 925,25 T 930,25 T 935,25 T 940,25 T 945,25 T 950,25 T 955,25 T 960,25 T 965,25 T 970,25 T 975,25 T 980,25 T 985,25 T 990,25 T 995,25 T 1000,25" fill="none" stroke="#ff3333" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <div class="esp-cols-container">
+                    <div class="esp-col"><h4>Radioondas</h4><div class="math">10³ m</div><div class="icon-scale">🏢<br><span>Edificios</span></div><p class="esp-desc">Telecomunicaciones (TV, Radio, Móviles). No ionizantes.</p></div>
+                    <div class="esp-col"><h4>Microondas</h4><div class="math">10⁻² m</div><div class="icon-scale">🧍<br><span>Humanos</span></div><p class="esp-desc">Radares, Wi-Fi, hornos. Agitan moléculas de agua.</p></div>
+                    <div class="esp-col"><h4>Infrarrojo</h4><div class="math">10⁻⁵ m</div><div class="icon-scale">🦋<br><span>Mariposa</span></div><p class="esp-desc">Emitida por cuerpos calientes. Visión nocturna.</p></div>
+                    <div class="esp-col visible-col"><h4>Visible</h4><div class="math">0.5×10⁻⁶ m</div><div class="icon-scale">🦠<br><span>Protozoos</span></div><p class="esp-desc">Única porción captada por el ojo (colores).</p></div>
+                    <div class="esp-col"><h4>Ultravioleta</h4><div class="math">10⁻⁸ m</div><div class="icon-scale">🧬<br><span>Moléculas</span></div><p class="esp-desc">Esterilización y bronceado. Daña el ADN en exceso.</p></div>
+                    <div class="esp-col"><h4>Rayos X</h4><div class="math">10⁻¹⁰ m</div><div class="icon-scale">⚛️<br><span>Átomos</span></div><p class="esp-desc">Uso médico. Atraviesan tejidos blandos, ionizantes.</p></div>
+                    <div class="esp-col"><h4>Rayos gamma</h4><div class="math">10⁻¹² m</div><div class="icon-scale">🔴<br><span>Núcleo</span></div><p class="esp-desc">Reactores nucleares, supernovas. Altamente destructivos.</p></div>
+                </div>
+
+                <div class="esp-row freq-row">
+                    <div class="esp-label">Frecuencia (Hz)</div>
+                    <div class="gradient-bar freq-grad"><span>10⁴</span><span>10⁸</span><span>10¹²</span><span>10¹⁵</span><span>10¹⁶</span><span>10¹⁸</span><span>10²⁰</span></div>
+                </div>
+                <div class="esp-row temp-row">
+                    <div class="esp-label">Temperatura</div>
+                    <div class="gradient-bar temp-grad"><span>~0 K</span><span>1 K</span><span>100 K</span><span>10,000 K</span><span style="text-align: right;">10,000,000 K</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec-lab" class="seccion hidden">
+            <h2 class="section-title">Laboratorio Químico Virtual</h2>
+            <p class="text-center">Selecciona 1 o 2 reactivos para generar una reacción química completa.</p>
+            
+            <div class="lab-workspace">
+                <div class="mezclador glass-panel">
+                    <div class="slot-container">
+                        <input type="number" class="coef-input" id="coef1" value="1" min="1" max="9" title="Coeficiente Estequiométrico">
+                        <input type="text" class="formula-input" id="formula1" placeholder="Reactivo 1" oninput="formatearSubindices(this)" autocomplete="off">
+                    </div>
+                    
+                    <div class="lab-plus">+</div>
+                    
+                    <div class="slot-container">
+                        <input type="number" class="coef-input" id="coef2" value="1" min="1" max="9" title="Coeficiente Estequiométrico">
+                        <input type="text" class="formula-input" id="formula2" placeholder="Reactivo 2&#10;(Opcional)" oninput="formatearSubindices(this)" autocomplete="off">
+                    </div>
+                    
+                    <button class="btn-reaccionar" id="btn-reaccionar" onclick="procesarReaccion()">Procesar Reacción</button>
+                    <button class="btn-reset-lab" onclick="vaciarSlots()" title="Limpiar Matraces">🗑️</button>
+                </div>
+
+                <div class="resultado-reaccion glass-panel hidden" id="panel-resultado">
+                    <div class="res-badge" id="res-tipo-reaccion">Tipo de Reacción</div>
+                    <h3 id="res-ecuacion">A + B → AB</h3>
+                    <h4 id="res-nombre-reaccion" style="color: #fff; margin-bottom: 15px; font-size: 22px; font-weight: 600;">Nombre del Producto o Reacción</h4>
+                    <p id="res-desc">Descripción de la reacción.</p>
+                </div>
+            </div>
+
+            <div class="lab-selector glass-panel">
+                <div class="lab-search-bar">
+                    <input type="text" id="buscador-lab" placeholder="🔍 Buscar elemento (ej. Zinc) o compuesto (ej. Agua)..." onkeyup="filtrarLab()">
+                </div>
+                
+                <div class="lab-controles-lista">
+                    <button class="nav-btn active" id="btn-tab-elem" onclick="cambiarTabLab('elementos')">Elementos (118)</button>
+                    <button class="nav-btn" id="btn-tab-comp" onclick="cambiarTabLab('compuestos')">Compuestos Complejos</button>
+                </div>
+
+                <div class="lab-grid scroll-custom" id="lab-lista">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="vista-elemento" class="vista-completa hidden">
+        <button class="btn-volver" onclick="cerrarVistaElemento()">← Volver a la Tabla</button>
+        <div class="elemento-layout">
+            <div class="info-lateral glass-panel scroll-custom">
+                <div class="cabecera-el">
+                    <h1 id="det-simbolo">X</h1>
+                    <div class="titulos"><h2 id="det-nombre">Nombre</h2><span id="det-z" class="badge">Z: 0</span></div>
+                </div>
+                <hr>
+                <div class="datos-grid">
+                    <div><strong>Masa Atómica:</strong> <span id="det-masa"></span> u</div>
+                    <div><strong>Categoría:</strong> <span id="det-cat"></span></div>
+                    <div><strong>e- de Valencia:</strong> <span id="det-valencia"></span></div>
+                    <div><strong>Estado Natural:</strong> <span id="det-estado"></span></div>
+                </div>
+                <hr>
+                <h3>Configuración Electrónica</h3>
+                <div id="det-conf" class="caja-codigo"></div>
+                <hr>
+                <h3>Estructura de Lewis</h3>
+                <div id="contenedor-lewis" class="lewis-box"></div>
+                <hr>
+                <h3>Comportamiento Químico</h3>
+                <p><strong>Enlaces Típicos:</strong> <span id="det-enlaces"></span></p>
+            </div>
+            
+            <div class="visor-3d-principal">
+                <button class="btn-pausa" id="btn-pausa-atomo" onclick="togglePausaAtomo()">Pausar Animación</button>
+                <div class="instrucciones-3d">Arrastra para rotar • Rueda para zoom</div>
+                <div id="canvas-elemento-principal"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
