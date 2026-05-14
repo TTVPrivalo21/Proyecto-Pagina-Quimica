@@ -1,134 +1,134 @@
 // ================= TABLA PERIODICA =================
 const elementos = [
     // PERIODO 1
-    { z: 1, s: 'H', n: 'Hidrógeno', m: 1.008, cat: 'nomet', c: 1, r: 1, conf: '1s¹', val: 1, enlace: 'Covalente (ej. H2O)', estado: 'Gas' },
-    { z: 2, s: 'He', n: 'Helio', m: 4.002, cat: 'gas', c: 18, r: 1, conf: '1s²', val: 2, enlace: 'Inerte', estado: 'Gas' },
+    { z: 1, s: 'H', n: 'Hidrógeno', m: 1.008, cat: 'nomet', c: 1, r: 1, conf: '1s¹', val: 1, enlace: 'Covalente (ej. H2O)', estado: 'Gas', den: '0.0000899*' },
+    { z: 2, s: 'He', n: 'Helio', m: 4.002, cat: 'gas', c: 18, r: 1, conf: '1s²', val: 2, enlace: 'Inerte', estado: 'Gas', den: '0.0001785*' },
     // PERIODO 2
-    { z: 3, s: 'Li', n: 'Litio', m: 6.94, cat: 'alc', c: 1, r: 2, conf: '[He] 2s¹', val: 1, enlace: 'Iónico', estado: 'Sólido' },
-    { z: 4, s: 'Be', n: 'Berilio', m: 9.012, cat: 'alct', c: 2, r: 2, conf: '[He] 2s²', val: 2, enlace: 'Iónico/Covalente', estado: 'Sólido' },
-    { z: 5, s: 'B', n: 'Boro', m: 10.81, cat: 'meta', c: 13, r: 2, conf: '[He] 2s² 2p¹', val: 3, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 6, s: 'C', n: 'Carbono', m: 12.011, cat: 'nomet', c: 14, r: 2, conf: '[He] 2s² 2p²', val: 4, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 7, s: 'N', n: 'Nitrógeno', m: 14.007, cat: 'nomet', c: 15, r: 2, conf: '[He] 2s² 2p³', val: 5, enlace: 'Covalente', estado: 'Gas' },
-    { z: 8, s: 'O', n: 'Oxígeno', m: 15.999, cat: 'nomet', c: 16, r: 2, conf: '[He] 2s² 2p⁴', val: 6, enlace: 'Covalente / Iónico', estado: 'Gas' },
-    { z: 9, s: 'F', n: 'Flúor', m: 18.998, cat: 'nomet', c: 17, r: 2, conf: '[He] 2s² 2p⁵', val: 7, enlace: 'Iónico / Polar', estado: 'Gas' },
-    { z: 10, s: 'Ne', n: 'Neón', m: 20.180, cat: 'gas', c: 18, r: 2, conf: '[He] 2s² 2p⁶', val: 8, enlace: 'Inerte', estado: 'Gas' },
+    { z: 3, s: 'Li', n: 'Litio', m: 6.94, cat: 'alc', c: 1, r: 2, conf: '[He] 2s¹', val: 1, enlace: 'Iónico', estado: 'Sólido', den: '0.534' },
+    { z: 4, s: 'Be', n: 'Berilio', m: 9.012, cat: 'alct', c: 2, r: 2, conf: '[He] 2s²', val: 2, enlace: 'Iónico/Covalente', estado: 'Sólido', den: '1.848' },
+    { z: 5, s: 'B', n: 'Boro', m: 10.81, cat: 'meta', c: 13, r: 2, conf: '[He] 2s² 2p¹', val: 3, enlace: 'Covalente', estado: 'Sólido', den: '2.34' },
+    { z: 6, s: 'C', n: 'Carbono', m: 12.011, cat: 'nomet', c: 14, r: 2, conf: '[He] 2s² 2p²', val: 4, enlace: 'Covalente', estado: 'Sólido', den: '2.267' },
+    { z: 7, s: 'N', n: 'Nitrógeno', m: 14.007, cat: 'nomet', c: 15, r: 2, conf: '[He] 2s² 2p³', val: 5, enlace: 'Covalente', estado: 'Gas', den: '0.001251*' },
+    { z: 8, s: 'O', n: 'Oxígeno', m: 15.999, cat: 'nomet', c: 16, r: 2, conf: '[He] 2s² 2p⁴', val: 6, enlace: 'Covalente / Iónico', estado: 'Gas', den: '0.001429*' },
+    { z: 9, s: 'F', n: 'Flúor', m: 18.998, cat: 'nomet', c: 17, r: 2, conf: '[He] 2s² 2p⁵', val: 7, enlace: 'Iónico / Polar', estado: 'Gas', den: '0.001696*' },
+    { z: 10, s: 'Ne', n: 'Neón', m: 20.180, cat: 'gas', c: 18, r: 2, conf: '[He] 2s² 2p⁶', val: 8, enlace: 'Inerte', estado: 'Gas', den: '0.0009002*' },
     // PERIODO 3
-    { z: 11, s: 'Na', n: 'Sodio', m: 22.990, cat: 'alc', c: 1, r: 3, conf: '[Ne] 3s¹', val: 1, enlace: 'Iónico', estado: 'Sólido' },
-    { z: 12, s: 'Mg', n: 'Magnesio', m: 24.305, cat: 'alct', c: 2, r: 3, conf: '[Ne] 3s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido' },
-    { z: 13, s: 'Al', n: 'Aluminio', m: 26.982, cat: 'post', c: 13, r: 3, conf: '[Ne] 3s² 3p¹', val: 3, enlace: 'Metálico / Covalente', estado: 'Sólido' },
-    { z: 14, s: 'Si', n: 'Silicio', m: 28.085, cat: 'meta', c: 14, r: 3, conf: '[Ne] 3s² 3p²', val: 4, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 15, s: 'P', n: 'Fósforo', m: 30.974, cat: 'nomet', c: 15, r: 3, conf: '[Ne] 3s² 3p³', val: 5, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 16, s: 'S', n: 'Azufre', m: 32.06, cat: 'nomet', c: 16, r: 3, conf: '[Ne] 3s² 3p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 17, s: 'Cl', n: 'Cloro', m: 35.45, cat: 'nomet', c: 17, r: 3, conf: '[Ne] 3s² 3p⁵', val: 7, enlace: 'Polar / Iónico', estado: 'Gas' },
-    { z: 18, s: 'Ar', n: 'Argón', m: 39.948, cat: 'gas', c: 18, r: 3, conf: '[Ne] 3s² 3p⁶', val: 8, enlace: 'Inerte', estado: 'Gas' },
+    { z: 11, s: 'Na', n: 'Sodio', m: 22.990, cat: 'alc', c: 1, r: 3, conf: '[Ne] 3s¹', val: 1, enlace: 'Iónico', estado: 'Sólido', den: '0.968' },
+    { z: 12, s: 'Mg', n: 'Magnesio', m: 24.305, cat: 'alct', c: 2, r: 3, conf: '[Ne] 3s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido', den: '1.738' },
+    { z: 13, s: 'Al', n: 'Aluminio', m: 26.982, cat: 'post', c: 13, r: 3, conf: '[Ne] 3s² 3p¹', val: 3, enlace: 'Metálico / Covalente', estado: 'Sólido', den: '2.698' },
+    { z: 14, s: 'Si', n: 'Silicio', m: 28.085, cat: 'meta', c: 14, r: 3, conf: '[Ne] 3s² 3p²', val: 4, enlace: 'Covalente', estado: 'Sólido', den: '2.329' },
+    { z: 15, s: 'P', n: 'Fósforo', m: 30.974, cat: 'nomet', c: 15, r: 3, conf: '[Ne] 3s² 3p³', val: 5, enlace: 'Covalente', estado: 'Sólido', den: '1.82' },
+    { z: 16, s: 'S', n: 'Azufre', m: 32.06, cat: 'nomet', c: 16, r: 3, conf: '[Ne] 3s² 3p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido', den: '2.067' },
+    { z: 17, s: 'Cl', n: 'Cloro', m: 35.45, cat: 'nomet', c: 17, r: 3, conf: '[Ne] 3s² 3p⁵', val: 7, enlace: 'Polar / Iónico', estado: 'Gas', den: '0.003214*' },
+    { z: 18, s: 'Ar', n: 'Argón', m: 39.948, cat: 'gas', c: 18, r: 3, conf: '[Ne] 3s² 3p⁶', val: 8, enlace: 'Inerte', estado: 'Gas', den: '0.001784*' },
     // PERIODO 4
-    { z: 19, s: 'K', n: 'Potasio', m: 39.098, cat: 'alc', c: 1, r: 4, conf: '[Ar] 4s¹', val: 1, enlace: 'Iónico', estado: 'Sólido' },
-    { z: 20, s: 'Ca', n: 'Calcio', m: 40.078, cat: 'alct', c: 2, r: 4, conf: '[Ar] 4s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido' },
-    { z: 21, s: 'Sc', n: 'Escandio', m: 44.956, cat: 'tran', c: 3, r: 4, conf: '[Ar] 4s² 3d¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 22, s: 'Ti', n: 'Titanio', m: 47.867, cat: 'tran', c: 4, r: 4, conf: '[Ar] 4s² 3d²', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 23, s: 'V', n: 'Vanadio', m: 50.942, cat: 'tran', c: 5, r: 4, conf: '[Ar] 4s² 3d³', val: 5, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 24, s: 'Cr', n: 'Cromo', m: 51.996, cat: 'tran', c: 6, r: 4, conf: '[Ar] 4s¹ 3d⁵', val: 6, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 25, s: 'Mn', n: 'Manganeso', m: 54.938, cat: 'tran', c: 7, r: 4, conf: '[Ar] 4s² 3d⁵', val: 7, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 26, s: 'Fe', n: 'Hierro', m: 55.845, cat: 'tran', c: 8, r: 4, conf: '[Ar] 4s² 3d⁶', val: 3, enlace: 'Metálico / Iónico', estado: 'Sólido' },
-    { z: 27, s: 'Co', n: 'Cobalto', m: 58.933, cat: 'tran', c: 9, r: 4, conf: '[Ar] 4s² 3d⁷', val: 2, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 28, s: 'Ni', n: 'Níquel', m: 58.693, cat: 'tran', c: 10, r: 4, conf: '[Ar] 4s² 3d⁸', val: 2, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 29, s: 'Cu', n: 'Cobre', m: 63.546, cat: 'tran', c: 11, r: 4, conf: '[Ar] 4s¹ 3d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 30, s: 'Zn', n: 'Zinc', m: 65.38, cat: 'tran', c: 12, r: 4, conf: '[Ar] 4s² 3d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 31, s: 'Ga', n: 'Galio', m: 69.723, cat: 'post', c: 13, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 32, s: 'Ge', n: 'Germanio', m: 72.630, cat: 'meta', c: 14, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p²', val: 4, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 33, s: 'As', n: 'Arsénico', m: 74.922, cat: 'meta', c: 15, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p³', val: 5, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 34, s: 'Se', n: 'Selenio', m: 78.971, cat: 'nomet', c: 16, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 35, s: 'Br', n: 'Bromo', m: 79.904, cat: 'nomet', c: 17, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p⁵', val: 7, enlace: 'Polar / Iónico', estado: 'Líquido' },
-    { z: 36, s: 'Kr', n: 'Criptón', m: 83.798, cat: 'gas', c: 18, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p⁶', val: 8, enlace: 'Inerte', estado: 'Gas' },
+    { z: 19, s: 'K', n: 'Potasio', m: 39.098, cat: 'alc', c: 1, r: 4, conf: '[Ar] 4s¹', val: 1, enlace: 'Iónico', estado: 'Sólido', den: '0.862' },
+    { z: 20, s: 'Ca', n: 'Calcio', m: 40.078, cat: 'alct', c: 2, r: 4, conf: '[Ar] 4s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido', den: '1.55' },
+    { z: 21, s: 'Sc', n: 'Escandio', m: 44.956, cat: 'tran', c: 3, r: 4, conf: '[Ar] 4s² 3d¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '2.989' },
+    { z: 22, s: 'Ti', n: 'Titanio', m: 47.867, cat: 'tran', c: 4, r: 4, conf: '[Ar] 4s² 3d²', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '4.507' },
+    { z: 23, s: 'V', n: 'Vanadio', m: 50.942, cat: 'tran', c: 5, r: 4, conf: '[Ar] 4s² 3d³', val: 5, enlace: 'Metálico', estado: 'Sólido', den: '6.11' },
+    { z: 24, s: 'Cr', n: 'Cromo', m: 51.996, cat: 'tran', c: 6, r: 4, conf: '[Ar] 4s¹ 3d⁵', val: 6, enlace: 'Metálico', estado: 'Sólido', den: '7.15' },
+    { z: 25, s: 'Mn', n: 'Manganeso', m: 54.938, cat: 'tran', c: 7, r: 4, conf: '[Ar] 4s² 3d⁵', val: 7, enlace: 'Metálico', estado: 'Sólido', den: '7.44' },
+    { z: 26, s: 'Fe', n: 'Hierro', m: 55.845, cat: 'tran', c: 8, r: 4, conf: '[Ar] 4s² 3d⁶', val: 3, enlace: 'Metálico / Iónico', estado: 'Sólido', den: '7.874' },
+    { z: 27, s: 'Co', n: 'Cobalto', m: 58.933, cat: 'tran', c: 9, r: 4, conf: '[Ar] 4s² 3d⁷', val: 2, enlace: 'Metálico', estado: 'Sólido', den: '8.9' },
+    { z: 28, s: 'Ni', n: 'Níquel', m: 58.693, cat: 'tran', c: 10, r: 4, conf: '[Ar] 4s² 3d⁸', val: 2, enlace: 'Metálico', estado: 'Sólido', den: '8.908' },
+    { z: 29, s: 'Cu', n: 'Cobre', m: 63.546, cat: 'tran', c: 11, r: 4, conf: '[Ar] 4s¹ 3d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sólido', den: '8.96' },
+    { z: 30, s: 'Zn', n: 'Zinc', m: 65.38, cat: 'tran', c: 12, r: 4, conf: '[Ar] 4s² 3d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sólido', den: '7.134' },
+    { z: 31, s: 'Ga', n: 'Galio', m: 69.723, cat: 'post', c: 13, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '5.907' },
+    { z: 32, s: 'Ge', n: 'Germanio', m: 72.630, cat: 'meta', c: 14, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p²', val: 4, enlace: 'Covalente', estado: 'Sólido', den: '5.323' },
+    { z: 33, s: 'As', n: 'Arsénico', m: 74.922, cat: 'meta', c: 15, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p³', val: 5, enlace: 'Covalente', estado: 'Sólido', den: '5.727' },
+    { z: 34, s: 'Se', n: 'Selenio', m: 78.971, cat: 'nomet', c: 16, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido', den: '4.819' },
+    { z: 35, s: 'Br', n: 'Bromo', m: 79.904, cat: 'nomet', c: 17, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p⁵', val: 7, enlace: 'Polar / Iónico', estado: 'Líquido', den: '3.122' },
+    { z: 36, s: 'Kr', n: 'Criptón', m: 83.798, cat: 'gas', c: 18, r: 4, conf: '[Ar] 4s² 3d¹⁰ 4p⁶', val: 8, enlace: 'Inerte', estado: 'Gas', den: '0.003749*' },
     // PERIODO 5
-    { z: 37, s: 'Rb', n: 'Rubidio', m: 85.468, cat: 'alc', c: 1, r: 5, conf: '[Kr] 5s¹', val: 1, enlace: 'Iónico', estado: 'Sólido' },
-    { z: 38, s: 'Sr', n: 'Estroncio', m: 87.62, cat: 'alct', c: 2, r: 5, conf: '[Kr] 5s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido' },
-    { z: 39, s: 'Y', n: 'Itrio', m: 88.906, cat: 'tran', c: 3, r: 5, conf: '[Kr] 5s² 4d¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 40, s: 'Zr', n: 'Circonio', m: 91.224, cat: 'tran', c: 4, r: 5, conf: '[Kr] 5s² 4d²', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 41, s: 'Nb', n: 'Niobio', m: 92.906, cat: 'tran', c: 5, r: 5, conf: '[Kr] 5s¹ 4d⁴', val: 5, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 42, s: 'Mo', n: 'Molibdeno', m: 95.95, cat: 'tran', c: 6, r: 5, conf: '[Kr] 5s¹ 4d⁵', val: 6, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 43, s: 'Tc', n: 'Tecnecio', m: 98, cat: 'tran', c: 7, r: 5, conf: '[Kr] 5s² 4d⁵', val: 7, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 44, s: 'Ru', n: 'Rutenio', m: 101.07, cat: 'tran', c: 8, r: 5, conf: '[Kr] 5s¹ 4d⁷', val: 8, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 45, s: 'Rh', n: 'Rodio', m: 102.91, cat: 'tran', c: 9, r: 5, conf: '[Kr] 5s¹ 4d⁸', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 46, s: 'Pd', n: 'Paladio', m: 106.42, cat: 'tran', c: 10, r: 5, conf: '[Kr] 4d¹⁰', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 47, s: 'Ag', n: 'Plata', m: 107.87, cat: 'tran', c: 11, r: 5, conf: '[Kr] 5s¹ 4d¹⁰', val: 1, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 48, s: 'Cd', n: 'Cadmio', m: 112.41, cat: 'tran', c: 12, r: 5, conf: '[Kr] 5s² 4d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 49, s: 'In', n: 'Indio', m: 114.82, cat: 'post', c: 13, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 50, s: 'Sn', n: 'Estaño', m: 118.71, cat: 'post', c: 14, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p²', val: 4, enlace: 'Metálico / Covalente', estado: 'Sólido' },
-    { z: 51, s: 'Sb', n: 'Antimonio', m: 121.76, cat: 'meta', c: 15, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p³', val: 5, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 52, s: 'Te', n: 'Telurio', m: 127.60, cat: 'meta', c: 16, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido' },
-    { z: 53, s: 'I', n: 'Yodo', m: 126.90, cat: 'nomet', c: 17, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p⁵', val: 7, enlace: 'Covalente Polar', estado: 'Sólido' },
-    { z: 54, s: 'Xe', n: 'Xenón', m: 131.29, cat: 'gas', c: 18, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p⁶', val: 8, enlace: 'Inerte', estado: 'Gas' },
+    { z: 37, s: 'Rb', n: 'Rubidio', m: 85.468, cat: 'alc', c: 1, r: 5, conf: '[Kr] 5s¹', val: 1, enlace: 'Iónico', estado: 'Sólido', den: '1.532' },
+    { z: 38, s: 'Sr', n: 'Estroncio', m: 87.62, cat: 'alct', c: 2, r: 5, conf: '[Kr] 5s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido', den: '2.64' },
+    { z: 39, s: 'Y', n: 'Itrio', m: 88.906, cat: 'tran', c: 3, r: 5, conf: '[Kr] 5s² 4d¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '4.472' },
+    { z: 40, s: 'Zr', n: 'Circonio', m: 91.224, cat: 'tran', c: 4, r: 5, conf: '[Kr] 5s² 4d²', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '6.511' },
+    { z: 41, s: 'Nb', n: 'Niobio', m: 92.906, cat: 'tran', c: 5, r: 5, conf: '[Kr] 5s¹ 4d⁴', val: 5, enlace: 'Metálico', estado: 'Sólido', den: '8.57' },
+    { z: 42, s: 'Mo', n: 'Molibdeno', m: 95.95, cat: 'tran', c: 6, r: 5, conf: '[Kr] 5s¹ 4d⁵', val: 6, enlace: 'Metálico', estado: 'Sólido', den: '10.28' },
+    { z: 43, s: 'Tc', n: 'Tecnecio', m: 98, cat: 'tran', c: 7, r: 5, conf: '[Kr] 5s² 4d⁵', val: 7, enlace: 'Metálico', estado: 'Sintético', den: '11.5' },
+    { z: 44, s: 'Ru', n: 'Rutenio', m: 101.07, cat: 'tran', c: 8, r: 5, conf: '[Kr] 5s¹ 4d⁷', val: 8, enlace: 'Metálico', estado: 'Sólido', den: '12.37' },
+    { z: 45, s: 'Rh', n: 'Rodio', m: 102.91, cat: 'tran', c: 9, r: 5, conf: '[Kr] 5s¹ 4d⁸', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '12.41' },
+    { z: 46, s: 'Pd', n: 'Paladio', m: 106.42, cat: 'tran', c: 10, r: 5, conf: '[Kr] 4d¹⁰', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '12.023' },
+    { z: 47, s: 'Ag', n: 'Plata', m: 107.87, cat: 'tran', c: 11, r: 5, conf: '[Kr] 5s¹ 4d¹⁰', val: 1, enlace: 'Metálico', estado: 'Sólido', den: '10.49' },
+    { z: 48, s: 'Cd', n: 'Cadmio', m: 112.41, cat: 'tran', c: 12, r: 5, conf: '[Kr] 5s² 4d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sólido', den: '8.65' },
+    { z: 49, s: 'In', n: 'Indio', m: 114.82, cat: 'post', c: 13, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '7.31' },
+    { z: 50, s: 'Sn', n: 'Estaño', m: 118.71, cat: 'post', c: 14, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p²', val: 4, enlace: 'Metálico / Covalente', estado: 'Sólido', den: '7.287' },
+    { z: 51, s: 'Sb', n: 'Antimonio', m: 121.76, cat: 'meta', c: 15, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p³', val: 5, enlace: 'Covalente', estado: 'Sólido', den: '6.685' },
+    { z: 52, s: 'Te', n: 'Telurio', m: 127.60, cat: 'meta', c: 16, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido', den: '6.232' },
+    { z: 53, s: 'I', n: 'Yodo', m: 126.90, cat: 'nomet', c: 17, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p⁵', val: 7, enlace: 'Covalente Polar', estado: 'Sólido', den: '4.933' },
+    { z: 54, s: 'Xe', n: 'Xenón', m: 131.29, cat: 'gas', c: 18, r: 5, conf: '[Kr] 5s² 4d¹⁰ 5p⁶', val: 8, enlace: 'Inerte', estado: 'Gas', den: '0.005887*' },
     // PERIODO 6
-    { z: 55, s: 'Cs', n: 'Cesio', m: 132.91, cat: 'alc', c: 1, r: 6, conf: '[Xe] 6s¹', val: 1, enlace: 'Iónico', estado: 'Sólido' },
-    { z: 56, s: 'Ba', n: 'Bario', m: 137.33, cat: 'alct', c: 2, r: 6, conf: '[Xe] 6s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido' },
+    { z: 55, s: 'Cs', n: 'Cesio', m: 132.91, cat: 'alc', c: 1, r: 6, conf: '[Xe] 6s¹', val: 1, enlace: 'Iónico', estado: 'Sólido', den: '1.879' },
+    { z: 56, s: 'Ba', n: 'Bario', m: 137.33, cat: 'alct', c: 2, r: 6, conf: '[Xe] 6s²', val: 2, enlace: 'Iónico / Metálico', estado: 'Sólido', den: '3.51' },
     // LANTÁNIDOS
-    { z: 57, s: 'La', n: 'Lantano', m: 138.91, cat: 'lant', c: 4, r: 9, conf: '[Xe] 6s² 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 58, s: 'Ce', n: 'Cerio', m: 140.12, cat: 'lant', c: 5, r: 9, conf: '[Xe] 6s² 4f¹ 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 59, s: 'Pr', n: 'Praseodimio', m: 140.91, cat: 'lant', c: 6, r: 9, conf: '[Xe] 6s² 4f³', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 60, s: 'Nd', n: 'Neodimio', m: 144.24, cat: 'lant', c: 7, r: 9, conf: '[Xe] 6s² 4f⁴', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 61, s: 'Pm', n: 'Prometio', m: 145, cat: 'lant', c: 8, r: 9, conf: '[Xe] 6s² 4f⁵', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 62, s: 'Sm', n: 'Samario', m: 150.36, cat: 'lant', c: 9, r: 9, conf: '[Xe] 6s² 4f⁶', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 63, s: 'Eu', n: 'Europio', m: 151.96, cat: 'lant', c: 10, r: 9, conf: '[Xe] 6s² 4f⁷', val: 2, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 64, s: 'Gd', n: 'Gadolinio', m: 157.25, cat: 'lant', c: 11, r: 9, conf: '[Xe] 6s² 4f⁷ 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 65, s: 'Tb', n: 'Terbio', m: 158.93, cat: 'lant', c: 12, r: 9, conf: '[Xe] 6s² 4f⁹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 66, s: 'Dy', n: 'Disprosio', m: 162.50, cat: 'lant', c: 13, r: 9, conf: '[Xe] 6s² 4f¹⁰', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 67, s: 'Ho', n: 'Holmio', m: 164.93, cat: 'lant', c: 14, r: 9, conf: '[Xe] 6s² 4f¹¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 68, s: 'Er', n: 'Erbio', m: 167.26, cat: 'lant', c: 15, r: 9, conf: '[Xe] 6s² 4f¹²', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 69, s: 'Tm', n: 'Tulio', m: 168.93, cat: 'lant', c: 16, r: 9, conf: '[Xe] 6s² 4f¹³', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 70, s: 'Yb', n: 'Iterbio', m: 173.05, cat: 'lant', c: 17, r: 9, conf: '[Xe] 6s² 4f¹⁴', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 71, s: 'Lu', n: 'Lutecio', m: 174.97, cat: 'lant', c: 18, r: 9, conf: '[Xe] 6s² 4f¹⁴ 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
+    { z: 57, s: 'La', n: 'Lantano', m: 138.91, cat: 'lant', c: 4, r: 9, conf: '[Xe] 6s² 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '6.145' },
+    { z: 58, s: 'Ce', n: 'Cerio', m: 140.12, cat: 'lant', c: 5, r: 9, conf: '[Xe] 6s² 4f¹ 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '6.77' },
+    { z: 59, s: 'Pr', n: 'Praseodimio', m: 140.91, cat: 'lant', c: 6, r: 9, conf: '[Xe] 6s² 4f³', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '6.773' },
+    { z: 60, s: 'Nd', n: 'Neodimio', m: 144.24, cat: 'lant', c: 7, r: 9, conf: '[Xe] 6s² 4f⁴', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '7.007' },
+    { z: 61, s: 'Pm', n: 'Prometio', m: 145, cat: 'lant', c: 8, r: 9, conf: '[Xe] 6s² 4f⁵', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '7.26' },
+    { z: 62, s: 'Sm', n: 'Samario', m: 150.36, cat: 'lant', c: 9, r: 9, conf: '[Xe] 6s² 4f⁶', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '7.52' },
+    { z: 63, s: 'Eu', n: 'Europio', m: 151.96, cat: 'lant', c: 10, r: 9, conf: '[Xe] 6s² 4f⁷', val: 2, enlace: 'Metálico', estado: 'Sólido', den: '5.243' },
+    { z: 64, s: 'Gd', n: 'Gadolinio', m: 157.25, cat: 'lant', c: 11, r: 9, conf: '[Xe] 6s² 4f⁷ 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '7.9' },
+    { z: 65, s: 'Tb', n: 'Terbio', m: 158.93, cat: 'lant', c: 12, r: 9, conf: '[Xe] 6s² 4f⁹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '8.229' },
+    { z: 66, s: 'Dy', n: 'Disprosio', m: 162.50, cat: 'lant', c: 13, r: 9, conf: '[Xe] 6s² 4f¹⁰', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '8.55' },
+    { z: 67, s: 'Ho', n: 'Holmio', m: 164.93, cat: 'lant', c: 14, r: 9, conf: '[Xe] 6s² 4f¹¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '8.795' },
+    { z: 68, s: 'Er', n: 'Erbio', m: 167.26, cat: 'lant', c: 15, r: 9, conf: '[Xe] 6s² 4f¹²', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '9.066' },
+    { z: 69, s: 'Tm', n: 'Tulio', m: 168.93, cat: 'lant', c: 16, r: 9, conf: '[Xe] 6s² 4f¹³', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '9.321' },
+    { z: 70, s: 'Yb', n: 'Iterbio', m: 173.05, cat: 'lant', c: 17, r: 9, conf: '[Xe] 6s² 4f¹⁴', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '6.965' },
+    { z: 71, s: 'Lu', n: 'Lutecio', m: 174.97, cat: 'lant', c: 18, r: 9, conf: '[Xe] 6s² 4f¹⁴ 5d¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '9.84' },
     // VUELTA PERIODO 6
-    { z: 72, s: 'Hf', n: 'Hafnio', m: 178.49, cat: 'tran', c: 4, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d²', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 73, s: 'Ta', n: 'Tantalio', m: 180.95, cat: 'tran', c: 5, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d³', val: 5, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 74, s: 'W', n: 'Wolframio', m: 183.84, cat: 'tran', c: 6, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁴', val: 6, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 75, s: 'Re', n: 'Renio', m: 186.21, cat: 'tran', c: 7, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁵', val: 7, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 76, s: 'Os', n: 'Osmio', m: 190.23, cat: 'tran', c: 8, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁶', val: 8, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 77, s: 'Ir', n: 'Iridio', m: 192.22, cat: 'tran', c: 9, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁷', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 78, s: 'Pt', n: 'Platino', m: 195.08, cat: 'tran', c: 10, r: 6, conf: '[Xe] 6s¹ 4f¹⁴ 5d⁹', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 79, s: 'Au', n: 'Oro', m: 196.97, cat: 'tran', c: 11, r: 6, conf: '[Xe] 6s¹ 4f¹⁴ 5d¹⁰', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 80, s: 'Hg', n: 'Mercurio', m: 200.59, cat: 'tran', c: 12, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰', val: 2, enlace: 'Metálico', estado: 'Líquido' },
-    { z: 81, s: 'Tl', n: 'Talio', m: 204.38, cat: 'post', c: 13, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p¹', val: 3, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 82, s: 'Pb', n: 'Plomo', m: 207.2, cat: 'post', c: 14, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²', val: 4, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 83, s: 'Bi', n: 'Bismuto', m: 208.98, cat: 'post', c: 15, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p³', val: 5, enlace: 'Metálico', estado: 'Sólido' },
-    { z: 84, s: 'Po', n: 'Polonio', m: 209, cat: 'post', c: 16, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido Radiactivo' },
-    { z: 85, s: 'At', n: 'Astato', m: 210, cat: 'meta', c: 17, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p⁵', val: 7, enlace: 'Polar', estado: 'Sólido Radiactivo' },
-    { z: 86, s: 'Rn', n: 'Radón', m: 222, cat: 'gas', c: 18, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p⁶', val: 8, enlace: 'Inerte', estado: 'Gas Radiactivo' },
+    { z: 72, s: 'Hf', n: 'Hafnio', m: 178.49, cat: 'tran', c: 4, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d²', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '13.31' },
+    { z: 73, s: 'Ta', n: 'Tantalio', m: 180.95, cat: 'tran', c: 5, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d³', val: 5, enlace: 'Metálico', estado: 'Sólido', den: '16.65' },
+    { z: 74, s: 'W', n: 'Wolframio', m: 183.84, cat: 'tran', c: 6, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁴', val: 6, enlace: 'Metálico', estado: 'Sólido', den: '19.25' },
+    { z: 75, s: 'Re', n: 'Renio', m: 186.21, cat: 'tran', c: 7, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁵', val: 7, enlace: 'Metálico', estado: 'Sólido', den: '21.02' },
+    { z: 76, s: 'Os', n: 'Osmio', m: 190.23, cat: 'tran', c: 8, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁶', val: 8, enlace: 'Metálico', estado: 'Sólido', den: '22.59' },
+    { z: 77, s: 'Ir', n: 'Iridio', m: 192.22, cat: 'tran', c: 9, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d⁷', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '22.56' },
+    { z: 78, s: 'Pt', n: 'Platino', m: 195.08, cat: 'tran', c: 10, r: 6, conf: '[Xe] 6s¹ 4f¹⁴ 5d⁹', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '21.45' },
+    { z: 79, s: 'Au', n: 'Oro', m: 196.97, cat: 'tran', c: 11, r: 6, conf: '[Xe] 6s¹ 4f¹⁴ 5d¹⁰', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '19.3' },
+    { z: 80, s: 'Hg', n: 'Mercurio', m: 200.59, cat: 'tran', c: 12, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰', val: 2, enlace: 'Metálico', estado: 'Líquido', den: '13.534' },
+    { z: 81, s: 'Tl', n: 'Talio', m: 204.38, cat: 'post', c: 13, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p¹', val: 3, enlace: 'Metálico', estado: 'Sólido', den: '11.85' },
+    { z: 82, s: 'Pb', n: 'Plomo', m: 207.2, cat: 'post', c: 14, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²', val: 4, enlace: 'Metálico', estado: 'Sólido', den: '11.34' },
+    { z: 83, s: 'Bi', n: 'Bismuto', m: 208.98, cat: 'post', c: 15, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p³', val: 5, enlace: 'Metálico', estado: 'Sólido', den: '9.807' },
+    { z: 84, s: 'Po', n: 'Polonio', m: 209, cat: 'post', c: 16, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p⁴', val: 6, enlace: 'Covalente', estado: 'Sólido Radiactivo', den: '9.32' },
+    { z: 85, s: 'At', n: 'Astato', m: 210, cat: 'meta', c: 17, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p⁵', val: 7, enlace: 'Polar', estado: 'Sólido Radiactivo', den: '7.0' },
+    { z: 86, s: 'Rn', n: 'Radón', m: 222, cat: 'gas', c: 18, r: 6, conf: '[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p⁶', val: 8, enlace: 'Inerte', estado: 'Gas Radiactivo', den: '0.00973*' },
     // PERIODO 7
-    { z: 87, s: 'Fr', n: 'Francio', m: 223, cat: 'alc', c: 1, r: 7, conf: '[Rn] 7s¹', val: 1, enlace: 'Iónico', estado: 'Sólido Radiactivo' },
-    { z: 88, s: 'Ra', n: 'Radio', m: 226, cat: 'alct', c: 2, r: 7, conf: '[Rn] 7s²', val: 2, enlace: 'Iónico', estado: 'Sólido Radiactivo' },
+    { z: 87, s: 'Fr', n: 'Francio', m: 223, cat: 'alc', c: 1, r: 7, conf: '[Rn] 7s¹', val: 1, enlace: 'Iónico', estado: 'Sólido Radiactivo', den: '1.87' },
+    { z: 88, s: 'Ra', n: 'Radio', m: 226, cat: 'alct', c: 2, r: 7, conf: '[Rn] 7s²', val: 2, enlace: 'Iónico', estado: 'Sólido Radiactivo', den: '5.5' },
     // ACTINOIDES
-    { z: 89, s: 'Ac', n: 'Actinio', m: 227, cat: 'acti', c: 4, r: 10, conf: '[Rn] 7s² 6d¹', val: 3, enlace: 'Metálico', estado: 'Sólido Radiactivo' },
-    { z: 90, s: 'Th', n: 'Torio', m: 232.04, cat: 'acti', c: 5, r: 10, conf: '[Rn] 7s² 6d²', val: 4, enlace: 'Metálico', estado: 'Sólido Radiactivo' },
-    { z: 91, s: 'Pa', n: 'Protactinio', m: 231.04, cat: 'acti', c: 6, r: 10, conf: '[Rn] 7s² 5f² 6d¹', val: 5, enlace: 'Metálico', estado: 'Sólido Radiactivo' },
-    { z: 92, s: 'U', n: 'Uranio', m: 238.03, cat: 'acti', c: 7, r: 10, conf: '[Rn] 7s² 5f³ 6d¹', val: 6, enlace: 'Metálico', estado: 'Sólido Radiactivo' },
-    { z: 93, s: 'Np', n: 'Neptunio', m: 237, cat: 'acti', c: 8, r: 10, conf: '[Rn] 7s² 5f⁴ 6d¹', val: 5, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 94, s: 'Pu', n: 'Plutonio', m: 244, cat: 'acti', c: 9, r: 10, conf: '[Rn] 7s² 5f⁶', val: 4, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 95, s: 'Am', n: 'Americio', m: 243, cat: 'acti', c: 10, r: 10, conf: '[Rn] 7s² 5f⁷', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 96, s: 'Cm', n: 'Curio', m: 247, cat: 'acti', c: 11, r: 10, conf: '[Rn] 7s² 5f⁷ 6d¹', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 97, s: 'Bk', n: 'Berkelio', m: 247, cat: 'acti', c: 12, r: 10, conf: '[Rn] 7s² 5f⁹', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 98, s: 'Cf', n: 'Californio', m: 251, cat: 'acti', c: 13, r: 10, conf: '[Rn] 7s² 5f¹⁰', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 99, s: 'Es', n: 'Einstenio', m: 252, cat: 'acti', c: 14, r: 10, conf: '[Rn] 7s² 5f¹¹', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 100, s: 'Fm', n: 'Fermio', m: 257, cat: 'acti', c: 15, r: 10, conf: '[Rn] 7s² 5f¹²', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 101, s: 'Md', n: 'Mendelevio', m: 258, cat: 'acti', c: 16, r: 10, conf: '[Rn] 7s² 5f¹³', val: 3, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 102, s: 'No', n: 'Nobelio', m: 259, cat: 'acti', c: 17, r: 10, conf: '[Rn] 7s² 5f¹⁴', val: 2, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 103, s: 'Lr', n: 'Lawrencio', m: 262, cat: 'acti', c: 18, r: 10, conf: '[Rn] 7s² 5f¹⁴ 7p¹', val: 3, enlace: 'Metálico', estado: 'Sintético' },
+    { z: 89, s: 'Ac', n: 'Actinio', m: 227, cat: 'acti', c: 4, r: 10, conf: '[Rn] 7s² 6d¹', val: 3, enlace: 'Metálico', estado: 'Sólido Radiactivo', den: '10.07' },
+    { z: 90, s: 'Th', n: 'Torio', m: 232.04, cat: 'acti', c: 5, r: 10, conf: '[Rn] 7s² 6d²', val: 4, enlace: 'Metálico', estado: 'Sólido Radiactivo', den: '11.72' },
+    { z: 91, s: 'Pa', n: 'Protactinio', m: 231.04, cat: 'acti', c: 6, r: 10, conf: '[Rn] 7s² 5f² 6d¹', val: 5, enlace: 'Metálico', estado: 'Sólido Radiactivo', den: '15.37' },
+    { z: 92, s: 'U', n: 'Uranio', m: 238.03, cat: 'acti', c: 7, r: 10, conf: '[Rn] 7s² 5f³ 6d¹', val: 6, enlace: 'Metálico', estado: 'Sólido Radiactivo', den: '19.05' },
+    { z: 93, s: 'Np', n: 'Neptunio', m: 237, cat: 'acti', c: 8, r: 10, conf: '[Rn] 7s² 5f⁴ 6d¹', val: 5, enlace: 'Metálico', estado: 'Sintético', den: '20.45' },
+    { z: 94, s: 'Pu', n: 'Plutonio', m: 244, cat: 'acti', c: 9, r: 10, conf: '[Rn] 7s² 5f⁶', val: 4, enlace: 'Metálico', estado: 'Sintético', den: '19.84' },
+    { z: 95, s: 'Am', n: 'Americio', m: 243, cat: 'acti', c: 10, r: 10, conf: '[Rn] 7s² 5f⁷', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '13.67' },
+    { z: 96, s: 'Cm', n: 'Curio', m: 247, cat: 'acti', c: 11, r: 10, conf: '[Rn] 7s² 5f⁷ 6d¹', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '13.51' },
+    { z: 97, s: 'Bk', n: 'Berkelio', m: 247, cat: 'acti', c: 12, r: 10, conf: '[Rn] 7s² 5f⁹', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '14.78' },
+    { z: 98, s: 'Cf', n: 'Californio', m: 251, cat: 'acti', c: 13, r: 10, conf: '[Rn] 7s² 5f¹⁰', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '15.1' },
+    { z: 99, s: 'Es', n: 'Einstenio', m: 252, cat: 'acti', c: 14, r: 10, conf: '[Rn] 7s² 5f¹¹', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '8.84' },
+    { z: 100, s: 'Fm', n: 'Fermio', m: 257, cat: 'acti', c: 15, r: 10, conf: '[Rn] 7s² 5f¹²', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '9.7' },
+    { z: 101, s: 'Md', n: 'Mendelevio', m: 258, cat: 'acti', c: 16, r: 10, conf: '[Rn] 7s² 5f¹³', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '10.3' },
+    { z: 102, s: 'No', n: 'Nobelio', m: 259, cat: 'acti', c: 17, r: 10, conf: '[Rn] 7s² 5f¹⁴', val: 2, enlace: 'Metálico', estado: 'Sintético', den: '9.9' },
+    { z: 103, s: 'Lr', n: 'Lawrencio', m: 262, cat: 'acti', c: 18, r: 10, conf: '[Rn] 7s² 5f¹⁴ 7p¹', val: 3, enlace: 'Metálico', estado: 'Sintético', den: '14.4' },
     // VUELTA PERIODO 7
-    { z: 104, s: 'Rf', n: 'Rutherfordio', m: 267, cat: 'tran', c: 4, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d²', val: 4, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 105, s: 'Db', n: 'Dubnio', m: 268, cat: 'tran', c: 5, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d³', val: 5, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 106, s: 'Sg', n: 'Seaborgio', m: 269, cat: 'tran', c: 6, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁴', val: 6, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 107, s: 'Bh', n: 'Bohrio', m: 270, cat: 'tran', c: 7, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁵', val: 7, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 108, s: 'Hs', n: 'Hassio', m: 277, cat: 'tran', c: 8, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁶', val: 8, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 109, s: 'Mt', n: 'Meitnerio', m: 278, cat: 'desc', c: 9, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁷', val: '-', enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 110, s: 'Ds', n: 'Darmstadtio', m: 281, cat: 'desc', c: 10, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁸', val: '-', enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 111, s: 'Rg', n: 'Roentgenio', m: 282, cat: 'desc', c: 11, r: 7, conf: '[Rn] 7s¹ 5f¹⁴ 6d¹⁰', val: '-', enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 112, s: 'Cn', n: 'Copernicio', m: 285, cat: 'tran', c: 12, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sintético' },
-    { z: 113, s: 'Nh', n: 'Nihonio', m: 286, cat: 'desc', c: 13, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p¹', val: 3, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 114, s: 'Fl', n: 'Flerovio', m: 289, cat: 'desc', c: 14, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p²', val: 4, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 115, s: 'Mc', n: 'Moscovio', m: 290, cat: 'desc', c: 15, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p³', val: 5, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 116, s: 'Lv', n: 'Livermorio', m: 293, cat: 'desc', c: 16, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p⁴', val: 6, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 117, s: 'Ts', n: 'Teneso', m: 294, cat: 'desc', c: 17, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p⁵', val: 7, enlace: 'Desconocido', estado: 'Sintético' },
-    { z: 118, s: 'Og', n: 'Oganesón', m: 294, cat: 'desc', c: 18, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p⁶', val: 8, enlace: 'Gas Noble', estado: 'Sintético' }
+    { z: 104, s: 'Rf', n: 'Rutherfordio', m: 267, cat: 'tran', c: 4, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d²', val: 4, enlace: 'Desconocido', estado: 'Sintético', den: '23.2' },
+    { z: 105, s: 'Db', n: 'Dubnio', m: 268, cat: 'tran', c: 5, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d³', val: 5, enlace: 'Desconocido', estado: 'Sintético', den: '29.3' },
+    { z: 106, s: 'Sg', n: 'Seaborgio', m: 269, cat: 'tran', c: 6, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁴', val: 6, enlace: 'Desconocido', estado: 'Sintético', den: '35.0' },
+    { z: 107, s: 'Bh', n: 'Bohrio', m: 270, cat: 'tran', c: 7, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁵', val: 7, enlace: 'Desconocido', estado: 'Sintético', den: '37.1' },
+    { z: 108, s: 'Hs', n: 'Hassio', m: 277, cat: 'tran', c: 8, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁶', val: 8, enlace: 'Desconocido', estado: 'Sintético', den: '40.7' },
+    { z: 109, s: 'Mt', n: 'Meitnerio', m: 278, cat: 'desc', c: 9, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁷', val: '-', enlace: 'Desconocido', estado: 'Sintético', den: '37.4' },
+    { z: 110, s: 'Ds', n: 'Darmstadtio', m: 281, cat: 'desc', c: 10, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d⁸', val: '-', enlace: 'Desconocido', estado: 'Sintético', den: '34.8' },
+    { z: 111, s: 'Rg', n: 'Roentgenio', m: 282, cat: 'desc', c: 11, r: 7, conf: '[Rn] 7s¹ 5f¹⁴ 6d¹⁰', val: '-', enlace: 'Desconocido', estado: 'Sintético', den: '28.7' },
+    { z: 112, s: 'Cn', n: 'Copernicio', m: 285, cat: 'tran', c: 12, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰', val: 2, enlace: 'Metálico', estado: 'Sintético', den: '23.7' },
+    { z: 113, s: 'Nh', n: 'Nihonio', m: 286, cat: 'desc', c: 13, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p¹', val: 3, enlace: 'Desconocido', estado: 'Sintético', den: '16.0' },
+    { z: 114, s: 'Fl', n: 'Flerovio', m: 289, cat: 'desc', c: 14, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p²', val: 4, enlace: 'Desconocido', estado: 'Sintético', den: '14.0' },
+    { z: 115, s: 'Mc', n: 'Moscovio', m: 290, cat: 'desc', c: 15, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p³', val: 5, enlace: 'Desconocido', estado: 'Sintético', den: '13.5' },
+    { z: 116, s: 'Lv', n: 'Livermorio', m: 293, cat: 'desc', c: 16, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p⁴', val: 6, enlace: 'Desconocido', estado: 'Sintético', den: '12.9' },
+    { z: 117, s: 'Ts', n: 'Teneso', m: 294, cat: 'desc', c: 17, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p⁵', val: 7, enlace: 'Desconocido', estado: 'Sintético', den: '7.2' },
+    { z: 118, s: 'Og', n: 'Oganesón', m: 294, cat: 'desc', c: 18, r: 7, conf: '[Rn] 7s² 5f¹⁴ 6d¹⁰ 7p⁶', val: 8, enlace: 'Gas Noble', estado: 'Sintético', den: '5.0' }
 ];
 
 // ================= COMPUESTOS =================
@@ -603,6 +603,232 @@ function cambiarSeccion(id) {
     event.target.classList.add('active');
 
     if (id === 'sec-modelos' && !escenaModelos) initModelosHistoricos();
+    if (id === 'sec-formulas') {
+        const fila = document.querySelector('#formulas-categorias');
+        const primero = fila && fila.querySelector('.formulas-tab-btn');
+        if (primero) cambiarSubFormulas('quimica', primero);
+    }
+}
+
+// ===== NUEVA NAVEGACIÓN POR SUBCATEGORÍAS =====
+const formulasDB = {
+    fisica: {
+        cinematica: {
+            titulo: 'Cinemática (MRU y MRUA)',
+            formulas: [
+                { nombre: 'Velocidad media', eq: 'v<sub>m</sub> = Δx / Δt', vars: '<strong>v<sub>m</sub></strong> = velocidad media<br><strong>Δx</strong> = desplazamiento<br><strong>Δt</strong> = intervalo de tiempo' },
+                { nombre: 'MRU', eq: 'x = x<sub>0</sub> + v · t', vars: '<strong>x</strong> = posición final<br><strong>x<sub>0</sub></strong> = posición inicial<br><strong>v</strong> = velocidad constante<br><strong>t</strong> = tiempo' },
+                { nombre: 'MRUA — velocidad', eq: 'v = v<sub>0</sub> + a · t', vars: '<strong>v</strong> = velocidad en el instante t<br><strong>v<sub>0</sub></strong> = velocidad inicial<br><strong>a</strong> = aceleración constante<br><strong>t</strong> = tiempo' },
+                { nombre: 'MRUA — posición', eq: 'x = x<sub>0</sub> + v<sub>0</sub>t + ½at²', vars: '<strong>x</strong> = posición<br><strong>x<sub>0</sub></strong> = posición inicial<br><strong>v<sub>0</sub></strong> = velocidad inicial<br><strong>a</strong> = aceleración<br><strong>t</strong> = tiempo' },
+                { nombre: 'Sin tiempo (MRUA)', eq: 'v² = v<sub>0</sub>² + 2a · Δx', vars: '<strong>v</strong> = velocidad final<br><strong>v<sub>0</sub></strong> = velocidad inicial<br><strong>a</strong> = aceleración<br><strong>Δx</strong> = desplazamiento' },
+            ]
+        },
+        dinamica: {
+            titulo: 'Dinámica y Energía Mecánica',
+            formulas: [
+                { nombre: 'Segunda ley de Newton', eq: 'F = m · a', vars: '<strong>F</strong> = fuerza resultante (N)<br><strong>m</strong> = masa (kg)<br><strong>a</strong> = aceleración (m·s<sup>−2</sup>)' },
+                { nombre: 'Peso', eq: 'W = m · g', vars: '<strong>W</strong> = peso<br><strong>m</strong> = masa<br><strong>g</strong> = aceleración de la gravedad' },
+                { nombre: 'Fuerza centrípeta', eq: 'F<sub>c</sub> = m v² / r', vars: '<strong>F<sub>c</sub></strong> = fuerza hacia el centro<br><strong>m</strong> = masa<br><strong>v</strong> = rapidez tangencial<br><strong>r</strong> = radio de curvatura' },
+                { nombre: 'Energía cinética', eq: 'E<sub>c</sub> = ½ m v²', vars: '<strong>E<sub>c</sub></strong> = energía cinética (J)<br><strong>m</strong> = masa<br><strong>v</strong> = rapidez' },
+                { nombre: 'Energía potencial gravitatoria', eq: 'E<sub>p</sub> = m g h', vars: '<strong>E<sub>p</sub></strong> = energía potencial (J)<br><strong>m</strong> = masa<br><strong>g</strong> = gravedad<br><strong>h</strong> = altura' },
+                { nombre: 'Trabajo (constante y colineal)', eq: 'W = F · d · cos θ', vars: '<strong>W</strong> = trabajo (J)<br><strong>F</strong> = fuerza constante<br><strong>d</strong> = desplazamiento<br><strong>θ</strong> = ángulo entre F y d' },
+                { nombre: 'Potencia media', eq: 'P = W / Δt', vars: '<strong>P</strong> = potencia (W)<br><strong>W</strong> = trabajo realizado<br><strong>Δt</strong> = tiempo empleado' },
+            ]
+        },
+        fluidos: {
+            titulo: 'Fluidos, Calor y Ondas',
+            formulas: [
+                { nombre: 'Gasto o Caudal', eq: 'Q = A · v', vars: '<strong>Q</strong> = gasto o caudal (m³/s)<br><strong>A</strong> = área de la sección transversal (m²)<br><strong>v</strong> = velocidad del fluido (m/s)' },
+                { nombre: 'Ecuación de Continuidad', eq: 'A<sub>1</sub> · v<sub>1</sub> = A<sub>2</sub> · v<sub>2</sub>', vars: '<strong>A<sub>1</sub>, A<sub>2</sub></strong> = áreas de la sección 1 y 2<br><strong>v<sub>1</sub>, v<sub>2</sub></strong> = velocidades en cada sección<br>El caudal se conserva en fluido incompresible' },
+                { nombre: 'Presión', eq: 'P = F / A', vars: '<strong>P</strong> = presión (Pa)<br><strong>F</strong> = fuerza perpendicular (N)<br><strong>A</strong> = área (m²)' },
+                { nombre: 'Presión hidrostática', eq: 'P = ρ g h', vars: '<strong>P</strong> = presión del fluido<br><strong>ρ</strong> = densidad del fluido<br><strong>g</strong> = gravedad<br><strong>h</strong> = profundidad' },
+                { nombre: 'Principio de Arquímedes', eq: 'E = ρ<sub>fluido</sub> · g · V<sub>desalojado</sub>', vars: '<strong>E</strong> = empuje (flotación)<br><strong>ρ<sub>fluido</sub></strong> = densidad del fluido<br><strong>V<sub>desalojado</sub></strong> = volumen sumergido' },
+                { nombre: 'Calor sensible', eq: 'Q = m c ΔT', vars: '<strong>Q</strong> = calor transferido (J)<br><strong>m</strong> = masa<br><strong>c</strong> = calor específico<br><strong>ΔT</strong> = cambio de temperatura' },
+                { nombre: 'Eficiencia Carnot', eq: 'η = 1 − T<sub>c</sub> / T<sub>h</sub>', vars: '<strong>η</strong> = eficiencia máxima<br><strong>T<sub>c</sub></strong> = foco frío (K)<br><strong>T<sub>h</sub></strong> = foco caliente (K)' },
+                { nombre: 'Onda — velocidad de propagación', eq: 'v = λ · f', vars: '<strong>v</strong> = velocidad de onda<br><strong>λ</strong> = longitud de onda<br><strong>f</strong> = frecuencia (Hz)' },
+                { nombre: 'Ley de Snell', eq: 'n<sub>1</sub> sen θ<sub>1</sub> = n<sub>2</sub> sen θ<sub>2</sub>', vars: '<strong>n<sub>1</sub>, n<sub>2</sub></strong> = índices de refracción<br><strong>θ<sub>1</sub></strong> = ángulo de incidencia<br><strong>θ<sub>2</sub></strong> = ángulo de refracción' },
+            ]
+        },
+        termofluidos: {
+            titulo: 'Termodinámica y Fluidos',
+            formulas: [
+                { nombre: 'Gasto o Caudal (con diámetro)', eq: 'Q = A · v &nbsp;→&nbsp; A = (π · D²) / 4', vars: '<strong>Q</strong> = gasto (m³/s)<br><strong>A</strong> = área de la sección transversal (m²)<br><strong>D</strong> = diámetro del ducto (m)<br><strong>v</strong> = velocidad del fluido (m/s)' },
+                { nombre: 'Gasto (volumen / tiempo)', eq: 'G = V / t', vars: '<strong>G</strong> = gasto (m³/s)<br><strong>V</strong> = volumen (m³)<br><strong>t</strong> = tiempo (s)' },
+                { nombre: 'Densidad', eq: 'ρ = m / V', vars: '<strong>ρ</strong> = densidad (kg/m³)<br><strong>m</strong> = masa (kg)<br><strong>V</strong> = volumen (m³)' },
+                { nombre: 'Presión hidrostática', eq: 'P<sub>hid</sub> = ρ · g · h', vars: '<strong>P<sub>hid</sub></strong> = presión hidrostática (Pa)<br><strong>ρ</strong> = densidad del fluido (kg/m³)<br><strong>g</strong> = gravedad (9.81 m/s²)<br><strong>h</strong> = profundidad (m)' },
+                { nombre: 'Presión (fuerza / área)', eq: 'P = F / A', vars: '<strong>P</strong> = presión (Pa)<br><strong>F</strong> = fuerza aplicada (N)<br><strong>A</strong> = área (m²)' },
+                { nombre: 'Peso / Fuerza gravitacional', eq: 'F = W = m · g', vars: '<strong>F</strong> = fuerza (N)<br><strong>W</strong> = peso (N)<br><strong>m</strong> = masa (kg)<br><strong>g</strong> = 9.81 m/s²' },
+                { nombre: 'Presión atmosférica estándar', eq: 'P<sub>abs</sub> = 1.013 × 10⁵ Pa', vars: '<strong>P<sub>abs</sub></strong> = presión atmosférica estándar = 101 300 Pa = 1 atm' },
+                { nombre: 'Eficiencia térmica (Carnot — temperaturas)', eq: 'E = 1 − T<sub>2</sub> / T<sub>1</sub>', vars: '<strong>E</strong> = eficiencia (0 a 1)<br><strong>T<sub>1</sub></strong> = temperatura del foco caliente (K)<br><strong>T<sub>2</sub></strong> = temperatura del foco frío (K)' },
+                { nombre: 'Eficiencia térmica (calores)', eq: 'E = 1 − Q<sub>2</sub> / Q<sub>1</sub>', vars: '<strong>E</strong> = eficiencia<br><strong>Q<sub>1</sub></strong> = calor absorbido del foco caliente (J)<br><strong>Q<sub>2</sub></strong> = calor cedido al foco frío (J)' },
+                { nombre: 'Trabajo termodinámico / Equilibrio térmico', eq: 'W = P · (V<sub>f</sub> − V<sub>i</sub>)', vars: '<strong>W</strong> = trabajo realizado por el gas (J)<br><strong>P</strong> = presión constante (Pa)<br><strong>V<sub>f</sub></strong> = volumen final (m³)<br><strong>V<sub>i</sub></strong> = volumen inicial (m³)' },
+                { nombre: 'Energía potencial (trabajo mecánico)', eq: 'W = E<sub>p</sub> = m · g · h', vars: '<strong>W</strong> = trabajo (J)<br><strong>E<sub>p</sub></strong> = energía potencial gravitatoria (J)<br><strong>m</strong> = masa (kg)<br><strong>g</strong> = 9.81 m/s²<br><strong>h</strong> = altura (m)' },
+                { nombre: 'Variación de energía interna (1ª Ley Termodinámica)', eq: 'ΔU = Q − W', vars: '<strong>ΔU</strong> = variación de energía interna (cal o J)<br><strong>Q</strong> = calor que entra (+) o sale (−) del sistema (cal o J)<br><strong>W</strong> = trabajo efectuado por el sistema (+) o sobre este (−) (cal o J)' },
+                { nombre: 'Energía cinética clásica', eq: 'E<sub>c</sub> = ½ m v²', vars: '<strong>E<sub>c</sub></strong> = energía cinética (J)<br><strong>m</strong> = masa (kg)<br><strong>v</strong> = velocidad (m/s) &nbsp;— tu profe usa <em>c</em> en lugar de <em>v</em>' },
+                { nombre: 'Energía cinética (con momento lineal)', eq: 'E<sub>c</sub> = p² / 2m', vars: '<strong>E<sub>c</sub></strong> = energía cinética (J)<br><strong>p</strong> = momento lineal (kg·m/s), donde p = m·v<br><strong>m</strong> = masa (kg)' },
+            ]
+        },
+        clase: {
+            titulo: '📓 Fórmulas de Clase',
+            formulas: [
+                { nombre: 'Gasto con Diámetro', eq: 'Q = (π · D²/ 4) · v', vars: '<strong>Q</strong> = gasto (m³/s)<br><strong>D</strong> = diámetro del ducto (m)<br><strong>v</strong> = velocidad del fluido (m/s)' },
+                { nombre: 'Área de la sección (con diámetro)', eq: 'A = (π · D²) / 4', vars: '<strong>A</strong> = área transversal (m²)<br><strong>D</strong> = diámetro (m)' },
+                { nombre: 'Gasto volumétrico', eq: 'G = V / t', vars: '<strong>G</strong> = gasto (m³/s)<br><strong>V</strong> = volumen (m³)<br><strong>t</strong> = tiempo (s)' },
+                { nombre: 'Presión hidrostática', eq: 'P<sub>hid</sub> = ρ · g · h', vars: '<strong>ρ</strong> = densidad del fluido (kg/m³)<br><strong>g</strong> = 9.81 m/s²<br><strong>h</strong> = profundidad (m)' },
+                { nombre: 'Peso / Fuerza gravitacional', eq: 'F = W = m · g', vars: '<strong>m</strong> = masa (kg)<br><strong>g</strong> = 9.81 m/s²' },
+                { nombre: 'Presión (fuerza / área)', eq: 'P = F / A', vars: '<strong>F</strong> = fuerza (N)<br><strong>A</strong> = área (m²)' },
+                { nombre: 'Presión atmosférica estándar', eq: 'P<sub>abs</sub> = 1.013 × 10⁵ Pa', vars: 'Equivale a 1 atm = 101 300 Pa' },
+                { nombre: 'Densidad', eq: 'ρ = m / V', vars: '<strong>ρ</strong> = densidad (kg/m³)<br><strong>m</strong> = masa (kg)<br><strong>V</strong> = volumen (m³)' },
+                { nombre: 'Eficiencia térmica (temperaturas)', eq: 'E = 1 − T<sub>2</sub> / T<sub>1</sub>', vars: '<strong>T<sub>1</sub></strong> = temperatura foco caliente (K)<br><strong>T<sub>2</sub></strong> = temperatura foco frío (K)' },
+                { nombre: 'Eficiencia térmica (calores)', eq: 'E = 1 − Q<sub>2</sub> / Q<sub>1</sub>', vars: '<strong>Q<sub>1</sub></strong> = calor absorbido (J)<br><strong>Q<sub>2</sub></strong> = calor cedido (J)' },
+                { nombre: 'Variación de energía interna (1ª Ley)', eq: 'ΔU = Q − W', vars: '<strong>Q</strong> = calor que entra (+) o sale (−) del sistema (J o cal)<br><strong>W</strong> = trabajo realizado por el sistema (J o cal)' },
+                { nombre: 'Trabajo termodinámico', eq: 'W = P · (V<sub>f</sub> − V<sub>i</sub>)', vars: '<strong>P</strong> = presión constante (Pa)<br><strong>V<sub>f</sub></strong> = volumen final (m³)<br><strong>V<sub>i</sub></strong> = volumen inicial (m³)' },
+                { nombre: 'Energía potencial / Trabajo mecánico', eq: 'W = E<sub>p</sub> = m · g · h', vars: '<strong>m</strong> = masa (kg)<br><strong>g</strong> = 9.81 m/s²<br><strong>h</strong> = altura (m)' },
+                { nombre: 'Energía cinética clásica', eq: 'E<sub>c</sub> = ½ m v²', vars: '<strong>m</strong> = masa (kg)<br><strong>v</strong> = velocidad (m/s) — tu profe usa <em>c</em> en lugar de <em>v</em>' },
+                { nombre: 'Energía cinética con momento lineal', eq: 'E<sub>c</sub> = p² / 2m', vars: '<strong>p</strong> = momento lineal = m·v (kg·m/s)<br><strong>m</strong> = masa (kg)' },
+            ]
+        },
+        electricidad: {
+            titulo: 'Electricidad y Magnetismo (Básico)',
+            formulas: [
+                { nombre: 'Ley de Ohm', eq: 'V = I · R', vars: '<strong>V</strong> = voltaje (V)<br><strong>I</strong> = intensidad de corriente (A)<br><strong>R</strong> = resistencia eléctrica (Ω)' },
+                { nombre: 'Potencia eléctrica', eq: 'P = V · I = I²R = V²/R', vars: '<strong>P</strong> = potencia disipada (W)<br><strong>V</strong> = voltaje<br><strong>I</strong> = corriente<br><strong>R</strong> = resistencia' },
+                { nombre: 'Resistencias en serie', eq: 'R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + …', vars: '<strong>R<sub>eq</sub></strong> = resistencia equivalente<br><strong>R<sub>1</sub>, R<sub>2</sub>…</strong> = resistencias en serie' },
+                { nombre: 'Resistencias en paralelo', eq: '1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + …', vars: '<strong>R<sub>eq</sub></strong> = resistencia equivalente<br>La tensión es la misma en cada rama' },
+                { nombre: 'Fuerza sobre carga en campo B', eq: 'F = q v B sen θ', vars: '<strong>F</strong> = fuerza magnética (Lorentz)<br><strong>q</strong> = carga<br><strong>v</strong> = rapidez<br><strong>B</strong> = campo magnético' },
+                { nombre: 'Energía en campo eléctrico', eq: 'U = q V', vars: '<strong>U</strong> = energía potencial eléctrica (J)<br><strong>q</strong> = carga (C)<br><strong>V</strong> = diferencia de potencial (V)' },
+            ]
+        }
+    },
+    quimica: {
+        estequiometria: {
+            titulo: 'Estequiometría y Soluciones',
+            formulas: [
+                { nombre: 'Moles', eq: 'n = m / M', vars: '<strong>n</strong> = moles<br><strong>m</strong> = masa (g)<br><strong>M</strong> = masa molar (g·mol<sup>−1</sup>)' },
+                { nombre: 'Concentración molar', eq: 'M = n / V', vars: '<strong>M</strong> = molaridad (mol·L<sup>−1</sup>)<br><strong>n</strong> = moles de soluto<br><strong>V</strong> = volumen (L)' },
+                { nombre: 'Fracción molar', eq: 'X<sub>i</sub> = n<sub>i</sub> / n<sub>total</sub>', vars: '<strong>X<sub>i</sub></strong> = fracción molar del componente i<br><strong>n<sub>i</sub></strong> = moles del componente<br><strong>n<sub>total</sub></strong> = moles totales' },
+                { nombre: 'Dilución', eq: 'C<sub>1</sub>V<sub>1</sub> = C<sub>2</sub>V<sub>2</sub>', vars: '<strong>C</strong> = concentración (antes y después)<br><strong>V</strong> = volumen correspondiente' },
+                { nombre: 'Densidad', eq: 'ρ = m / V', vars: '<strong>ρ</strong> = densidad<br><strong>m</strong> = masa<br><strong>V</strong> = volumen' },
+                { nombre: '% masa en disolución', eq: '% = (m<sub>soluto</sub> / m<sub>disolución</sub>) · 100', vars: '<strong>m<sub>soluto</sub></strong> = masa del soluto<br><strong>m<sub>disolución</sub></strong> = masa total de la disolución' },
+            ]
+        },
+        acidos: {
+            titulo: 'Ácidos, Bases y Equilibrio en Disolución',
+            formulas: [
+                { nombre: 'pH', eq: 'pH = −log[H⁺]', vars: '<strong>pH</strong> = medida de acidez<br><strong>[H⁺]</strong> = concentración del ion hidrógeno (mol·L<sup>−1</sup>)' },
+                { nombre: 'pOH', eq: 'pOH = −log[OH⁻]', vars: '<strong>pOH</strong> = medida de basicidad<br><strong>[OH⁻]</strong> = concentración del ion hidróxido (mol·L<sup>−1</sup>)' },
+                { nombre: 'Producto iónico del agua (25 °C)', eq: 'K<sub>w</sub> = [H⁺][OH⁻] = 10<sup>−14</sup>', vars: '<strong>K<sub>w</sub></strong> = constante de autoionización del agua' },
+                { nombre: 'Relación pH + pOH', eq: 'pH + pOH = 14', vars: 'Válido a 25 °C en agua pura' },
+                { nombre: 'Henderson–Hasselbalch (buffer)', eq: 'pH = pK<sub>a</sub> + log([A⁻]/[HA])', vars: '<strong>pK<sub>a</sub></strong> = −log K<sub>a</sub> del par conjugado<br><strong>[A⁻]</strong> = forma desprotonada<br><strong>[HA]</strong> = forma ácida' },
+                { nombre: 'pKa', eq: 'pK<sub>a</sub> = −log K<sub>a</sub>', vars: '<strong>pK<sub>a</sub></strong> = escala logarítmica de fuerza del ácido<br><strong>K<sub>a</sub></strong> = constante de acidez' },
+            ]
+        },
+        gases: {
+            titulo: 'Gases y Termodinámica Química',
+            formulas: [
+                { nombre: 'Gas ideal', eq: 'PV = nRT', vars: '<strong>P</strong> = presión<br><strong>V</strong> = volumen<br><strong>n</strong> = moles<br><strong>R</strong> = constante de gases<br><strong>T</strong> = temperatura (K)' },
+                { nombre: 'Ley combinada de los gases', eq: '(P<sub>1</sub>V<sub>1</sub>) / T<sub>1</sub> = (P<sub>2</sub>V<sub>2</sub>) / T<sub>2</sub>', vars: '<strong>P, V, T</strong> = presión, volumen, temperatura (K)' },
+                { nombre: 'Densidad de un gas ideal', eq: 'PM = ρRT', vars: '<strong>M</strong> = masa molar del gas<br><strong>ρ</strong> = densidad<br><strong>R</strong> = constante de gases<br><strong>T</strong> = temperatura (K)' },
+                { nombre: 'Presión parcial (Dalton)', eq: 'P<sub>i</sub> = X<sub>i</sub> · P<sub>total</sub>', vars: '<strong>P<sub>i</sub></strong> = presión parcial del gas i<br><strong>X<sub>i</sub></strong> = fracción molar' },
+                { nombre: 'Energía libre de Gibbs', eq: 'ΔG = ΔH − TΔS', vars: '<strong>ΔG</strong> = cambio de energía libre<br><strong>ΔH</strong> = cambio de entalpía<br><strong>ΔS</strong> = cambio de entropía' },
+                { nombre: 'Espontaneidad', eq: 'ΔG < 0 → proceso espontáneo', vars: '<strong>ΔG</strong> negativo indica proceso espontáneo a P y T constantes' },
+                { nombre: 'Equilibrio y energía libre', eq: 'ΔG° = −RT ln K', vars: '<strong>ΔG°</strong> = energía libre estándar<br><strong>K</strong> = constante de equilibrio' },
+            ]
+        },
+        cinetica: {
+            titulo: 'Cinética y Electroquímica',
+            formulas: [
+                { nombre: 'Velocidad media de reacción', eq: 'v = −(1/ν) · d[A]/dt', vars: '<strong>ν</strong> = coeficiente estequiométrico<br><strong>[A]</strong> = concentración de A<br><strong>t</strong> = tiempo' },
+                { nombre: 'Arrhenius', eq: 'k = A · e<sup>−Ea/(RT)</sup>', vars: '<strong>k</strong> = constante de velocidad<br><strong>Ea</strong> = energía de activación<br><strong>R</strong> = constante de gases<br><strong>T</strong> = temperatura (K)' },
+                { nombre: 'Relación Q y K', eq: 'Q < K → hacia productos; Q > K → hacia reactivos', vars: '<strong>Q</strong> = cociente de reacción<br><strong>K</strong> = constante de equilibrio' },
+                { nombre: 'Ecuación de Nernst (25 °C)', eq: 'E = E° − (0,05916 V / n) · log Q', vars: '<strong>E</strong> = potencial en condiciones no estándar<br><strong>E°</strong> = potencial estándar<br><strong>n</strong> = moles de e⁻' },
+            ]
+        }
+    },
+    constantes: {
+        fisicas: {
+            titulo: 'Constantes Físicas y Químicas',
+            formulas: [
+                { nombre: 'Número de Avogadro', eq: 'N<sub>A</sub> ≈ 6,022 · 10<sup>23</sup> mol<sup>−1</sup>', vars: '<strong>N<sub>A</sub></strong> = número de partículas por mol' },
+                { nombre: 'Constante de los gases', eq: 'R ≈ 8,314 J·mol<sup>−1</sup>·K<sup>−1</sup>', vars: '<strong>R</strong> = enlaza P, V, n, T en el gas ideal' },
+                { nombre: 'Constante de Faraday', eq: 'F ≈ 96 485 C·mol<sup>−1</sup>', vars: '<strong>F</strong> = carga eléctrica de un mol de electrones' },
+                { nombre: 'Velocidad de la luz en el vacío', eq: 'c ≈ 2,998 · 10<sup>8</sup> m·s<sup>−1</sup>', vars: '<strong>c</strong> = velocidad de la luz en el vacío' },
+                { nombre: 'Carga elemental', eq: 'e ≈ 1,602 · 10<sup>−19</sup> C', vars: '<strong>e</strong> = carga del protón o electrón' },
+                { nombre: 'Masa del electrón', eq: 'm<sub>e</sub> ≈ 9,11 · 10<sup>−31</sup> kg', vars: '<strong>m<sub>e</sub></strong> = masa en reposo del electrón' },
+                { nombre: 'Aceleración de la gravedad (aprox.)', eq: 'g ≈ 9,81 m·s<sup>−2</sup>', vars: '<strong>g</strong> = aceleración gravitacional terrestre' },
+                { nombre: 'Presión atmosférica estándar', eq: '1 atm = 101 325 Pa', vars: '<strong>atm</strong> = atmósfera<br><strong>Pa</strong> = pascal (N·m<sup>−2</sup>)' },
+            ]
+        },
+        matematicas: {
+            titulo: 'Matemáticas Útiles en Ciencias',
+            formulas: [
+                { nombre: 'Teorema de Pitágoras', eq: 'a² + b² = c²', vars: '<strong>a, b</strong> = catetos<br><strong>c</strong> = hipotenusa' },
+                { nombre: 'Área del círculo', eq: 'A = π r²', vars: '<strong>A</strong> = área<br><strong>r</strong> = radio' },
+                { nombre: 'Volumen de la esfera', eq: 'V = (4/3) π r³', vars: '<strong>V</strong> = volumen<br><strong>r</strong> = radio' },
+                { nombre: 'Volumen del cilindro', eq: 'V = π r² h', vars: '<strong>r</strong> = radio de la base<br><strong>h</strong> = altura' },
+                { nombre: 'Porcentaje de variación', eq: '% = ((valor<sub>f</sub> − valor<sub>i</sub>) / valor<sub>i</sub>) · 100', vars: '<strong>valor<sub>i</sub></strong> = inicial<br><strong>valor<sub>f</sub></strong> = final' },
+                { nombre: 'Logaritmo de un producto', eq: 'log(a·b) = log a + log b', vars: '<strong>a, b</strong> = factores positivos' },
+                { nombre: 'Cambio de base', eq: 'log<sub>a</sub> x = ln x / ln a', vars: '<strong>a</strong> = base (a > 0, a ≠ 1)<br><strong>ln</strong> = logaritmo natural' },
+            ]
+        },
+        temperatura: {
+            titulo: 'Conversiones de Temperatura',
+            formulas: [
+                { nombre: 'Celsius ↔ Kelvin', eq: 'T(K) = T(°C) + 273,15', vars: '<strong>T(K)</strong> = temperatura en kelvin<br><strong>T(°C)</strong> = temperatura en Celsius' },
+                { nombre: 'Celsius ↔ Fahrenheit', eq: 'T(°F) = (9/5) T(°C) + 32', vars: '<strong>T(°F)</strong> = temperatura en Fahrenheit<br><strong>9/5</strong> = relación entre escalas<br><strong>32</strong> = desplazamiento de cero' },
+            ]
+        }
+    }
+};
+
+let currentFormulasCat = 'quimica';
+
+function cambiarSubFormulas(subId, btn) {
+    currentFormulasCat = subId;
+    document.querySelectorAll('.formulas-tab-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    // Hide all subcats panels
+    document.querySelectorAll('.formulas-subcats').forEach(p => p.classList.add('hidden'));
+    // Hide detalle panel
+    document.getElementById('formulas-detalle-panel').classList.add('hidden');
+
+    // Show the corresponding subcats
+    const subcatsEl = document.getElementById('formulas-subcats-' + subId);
+    if (subcatsEl) subcatsEl.classList.remove('hidden');
+}
+
+function abrirSubtema(categoria, subtema, btn) {
+    // Highlight clicked card
+    const parent = btn.closest('.subcats-grid');
+    if (parent) parent.querySelectorAll('.subcat-card').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+
+    const data = formulasDB[categoria] && formulasDB[categoria][subtema];
+    if (!data) return;
+
+    // Hide subcats
+    document.querySelectorAll('.formulas-subcats').forEach(p => p.classList.add('hidden'));
+
+    // Build formula cards
+    const titulo = document.getElementById('formulas-detalle-titulo');
+    const grid = document.getElementById('formulas-detalle-grid');
+    titulo.innerHTML = data.titulo;
+    grid.innerHTML = data.formulas.map(f => `
+        <div class="formula-card-item">
+            <div class="formula-card-name">${f.nombre}</div>
+            <code class="formula-card-eq">${f.eq}</code>
+            <div class="formula-card-vars">${f.vars}</div>
+        </div>
+    `).join('');
+
+    document.getElementById('formulas-detalle-panel').classList.remove('hidden');
+}
+
+function volverSubcats() {
+    document.getElementById('formulas-detalle-panel').classList.add('hidden');
+    const subcatsEl = document.getElementById('formulas-subcats-' + currentFormulasCat);
+    if (subcatsEl) subcatsEl.classList.remove('hidden');
 }
 
 let animacionAtomoId;
@@ -619,6 +845,11 @@ function abrirVistaElemento(el) {
     document.getElementById('det-cat').innerText = nombresCat[el.cat];
     document.getElementById('det-valencia').innerText = el.val;
     document.getElementById('det-estado').innerText = el.estado;
+    const denVal = el.den;
+    const esGas = denVal && denVal.endsWith('*');
+    const denNum = esGas ? denVal.replace('*','') : denVal;
+    const denUnidad = esGas ? ' g/L (gas)' : ' g/cm³';
+    document.getElementById('det-densidad').innerText = denVal ? denNum + denUnidad : 'Desconocida';
     document.getElementById('det-conf').innerText = el.conf;
     document.getElementById('det-enlaces').innerText = el.enlace;
 
@@ -871,9 +1102,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 else o.classList.remove('highlight');
             });
 
+            // data-orden arranca en 1, index del array en 0, entonces index+1 <= ordenHover
             let nuevoTextoHTML = "";
             secuenciaBase.forEach((textoOrb, index) => {
-                if (index < ordenHover) nuevoTextoHTML += `<span class="sec-activa">${textoOrb}</span>`;
+                if (index + 1 <= ordenHover) nuevoTextoHTML += `<span class="sec-activa">${textoOrb}</span>`;
                 else nuevoTextoHTML += textoOrb;
                 if (index < secuenciaBase.length - 1) nuevoTextoHTML += " → ";
             });
@@ -1080,3 +1312,2181 @@ window.onload = function () {
     if (onloadAnterior) onloadAnterior();
     initLaboratorio();
 };
+// =====================================================
+// ============== OPERACIONES FÍSICAS =================
+// =====================================================
+
+function opsGetModo() {
+    const el = document.getElementById('ops-field-modo');
+    return el ? el.value : '';
+}
+
+function opsParseField(id) {
+    const el = document.getElementById(`ops-field-${id}`);
+    if (!el || String(el.value).trim() === '') return NaN;
+    return parseFloat(String(el.value).replace(',', '.'));
+}
+
+function opsSelectModo(opciones) {
+    return {
+        id: 'modo',
+        label: '¿Qué quieres obtener?',
+        type: 'select',
+        unit: '',
+        hint: '',
+        opciones
+    };
+}
+
+const opsTemas = {
+    ec: {
+        titulo: 'Energía Cinética',
+        formula: 'Ec = ½ · m · v²',
+        desc: 'Elige qué calcular; ingresa las otras dos (m y v positivas cuando apliquen). Deja vacío el campo de la incógnita.',
+        campos: [
+            opsSelectModo([
+                { value: 'Ec', label: 'Energía cinética Ec' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'v', label: 'Velocidad v' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'vel', label: 'Velocidad (v)', unit: 'm/s', hint: 'Vacío si calculas v' },
+            { id: 'ec', label: 'Energía cinética (Ec)', unit: 'J', hint: 'Vacío si calculas Ec' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Ec';
+            const m = opsParseField('masa'), vel = opsParseField('vel'), Ec = opsParseField('ec');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'Ec') {
+                if (!pos(m) || !pos(vel)) return { error: 'Para Ec ingresa m y v (positivas). Deja Ec vacío.' };
+                return { vals: { modo, masa: String(m), vel: String(vel) } };
+            }
+            if (modo === 'm') {
+                if (!pos(Ec) || !pos(vel)) return { error: 'Para m ingresa Ec y v (positivas). Deja m vacío.' };
+                return { vals: { modo, ec: String(Ec), vel: String(vel) } };
+            }
+            if (modo === 'v') {
+                if (!pos(Ec) || !pos(m)) return { error: 'Para v ingresa Ec y m (positivas). Deja v vacío.' };
+                return { vals: { modo, ec: String(Ec), masa: String(m) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'Ec') {
+                const m = parseFloat(v.masa), vel = parseFloat(v.vel);
+                const Ec = 0.5 * m * vel * vel;
+                return {
+                    valor: Ec.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `Fórmula: Ec = ½ · m · v²`,
+                        `Sustituyendo: Ec = ½ · ${m} kg · (${vel} m/s)²`,
+                        `Ec = ${Ec.toFixed(4)} J`
+                    ]
+                };
+            }
+            if (modo === 'm') {
+                const Ec = parseFloat(v.ec), vel = parseFloat(v.vel);
+                const m = 2 * Ec / (vel * vel);
+                return {
+                    valor: m.toFixed(4), unidad: 'kg',
+                    pasos: [
+                        `Despeje: m = 2Ec / v²`,
+                        `m = 2 · ${Ec} / ${vel}²`,
+                        `m = ${m.toFixed(4)} kg`
+                    ]
+                };
+            }
+            if (modo === 'v') {
+                const Ec = parseFloat(v.ec), m = parseFloat(v.masa);
+                const vel = Math.sqrt(2 * Ec / m);
+                return {
+                    valor: vel.toFixed(4), unidad: 'm/s',
+                    pasos: [
+                        `Despeje: v = √(2Ec / m)`,
+                        `v = √(2 · ${Ec} / ${m})`,
+                        `v = ${vel.toFixed(4)} m/s`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    ep: {
+        titulo: 'Energía Potencial Gravitacional',
+        formula: 'Ep = m · g · h',
+        desc: 'g = 9.81 m/s². Elige qué calcular; deja vacío el campo de la incógnita (m y h positivas cuando apliquen).',
+        campos: [
+            opsSelectModo([
+                { value: 'Ep', label: 'Energía potencial Ep' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'h', label: 'Altura h' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'altura', label: 'Altura (h)', unit: 'm', hint: 'Vacío si calculas h' },
+            { id: 'ep', label: 'Energía potencial (Ep)', unit: 'J', hint: 'Vacío si calculas Ep' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Ep';
+            const m = opsParseField('masa'), h = opsParseField('altura'), Ep = opsParseField('ep');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            const g = 9.81;
+            if (modo === 'Ep') {
+                if (!pos(m) || !pos(h)) return { error: 'Para Ep ingresa m y h (positivas). Deja Ep vacío.' };
+                return { vals: { modo, masa: String(m), altura: String(h) } };
+            }
+            if (modo === 'm') {
+                if (!pos(Ep) || !pos(h)) return { error: 'Para m ingresa Ep y h (positivas). Deja m vacío.' };
+                return { vals: { modo, ep: String(Ep), altura: String(h) } };
+            }
+            if (modo === 'h') {
+                if (!pos(Ep) || !pos(m)) return { error: 'Para h ingresa Ep y m (positivas). Deja h vacío.' };
+                return { vals: { modo, ep: String(Ep), masa: String(m) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const g = 9.81;
+            const modo = v.modo;
+            if (modo === 'Ep') {
+                const m = parseFloat(v.masa), h = parseFloat(v.altura);
+                const Ep = m * g * h;
+                return {
+                    valor: Ep.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `Fórmula: Ep = m · g · h`,
+                        `g = 9.81 m/s²`,
+                        `Ep = ${m} · 9.81 · ${h} = ${Ep.toFixed(4)} J`
+                    ]
+                };
+            }
+            if (modo === 'm') {
+                const Ep = parseFloat(v.ep), h = parseFloat(v.altura);
+                const m = Ep / (g * h);
+                return {
+                    valor: m.toFixed(4), unidad: 'kg',
+                    pasos: [
+                        `Despeje: m = Ep / (g · h)`,
+                        `m = ${Ep} / (9.81 · ${h})`,
+                        `m = ${m.toFixed(4)} kg`
+                    ]
+                };
+            }
+            if (modo === 'h') {
+                const Ep = parseFloat(v.ep), m = parseFloat(v.masa);
+                const h = Ep / (m * g);
+                return {
+                    valor: h.toFixed(4), unidad: 'm',
+                    pasos: [
+                        `Despeje: h = Ep / (m · g)`,
+                        `h = ${Ep} / (${m} · 9.81)`,
+                        `h = ${h.toFixed(4)} m`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    trabajo: {
+        titulo: 'Trabajo Mecánico',
+        formula: 'W = F · d · cos(θ)',
+        desc: 'Elige qué calcular. Siempre indica el ángulo θ entre F y d. cos(θ) no puede ser 0 al despejar F o d.',
+        campos: [
+            opsSelectModo([
+                { value: 'W', label: 'Trabajo W' },
+                { value: 'F', label: 'Fuerza F' },
+                { value: 'd', label: 'Desplazamiento d' }
+            ]),
+            { id: 'fuerza', label: 'Fuerza (F)', unit: 'N', hint: 'Vacío si calculas F' },
+            { id: 'dist', label: 'Desplazamiento (d)', unit: 'm', hint: 'Vacío si calculas d' },
+            { id: 'trab', label: 'Trabajo (W)', unit: 'J', hint: 'Vacío si calculas W' },
+            { id: 'angulo', label: 'Ángulo θ (entre F y d)', unit: '°', hint: 'ej. 0' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'W';
+            const F = opsParseField('fuerza'), d = opsParseField('dist'), W = opsParseField('trab');
+            const ang = opsParseField('angulo');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (!Number.isFinite(ang)) return { error: 'Ingresa el ángulo θ en grados.' };
+            const rad = ang * Math.PI / 180;
+            const c = Math.cos(rad);
+            if (Math.abs(c) < 1e-9) return { error: 'cos(θ) es 0: no se puede despejar F ni d con esta orientación.' };
+            if (modo === 'W') {
+                if (!pos(F) || !pos(d)) return { error: 'Para W ingresa F y d (positivas). Deja W vacío.' };
+                return { vals: { modo, fuerza: String(F), dist: String(d), angulo: String(ang) } };
+            }
+            if (modo === 'F') {
+                if (!Number.isFinite(W) || !pos(d)) return { error: 'Para F ingresa W y d (d > 0). Deja F vacío.' };
+                return { vals: { modo, trab: String(W), dist: String(d), angulo: String(ang) } };
+            }
+            if (modo === 'd') {
+                if (!Number.isFinite(W) || !pos(F)) return { error: 'Para d ingresa W y F (F > 0). Deja d vacío.' };
+                return { vals: { modo, trab: String(W), fuerza: String(F), angulo: String(ang) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            const ang = parseFloat(v.angulo);
+            const rad = ang * Math.PI / 180;
+            const c = Math.cos(rad);
+            if (modo === 'W') {
+                const F = parseFloat(v.fuerza), d = parseFloat(v.dist);
+                const W = F * d * c;
+                return {
+                    valor: W.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `Fórmula: W = F · d · cos(θ)`,
+                        `cos(${ang}°) = ${c.toFixed(6)}`,
+                        `W = ${F} · ${d} · ${c.toFixed(6)} = ${W.toFixed(4)} J`
+                    ]
+                };
+            }
+            if (modo === 'F') {
+                const W = parseFloat(v.trab), d = parseFloat(v.dist);
+                const F = W / (d * c);
+                return {
+                    valor: F.toFixed(4), unidad: 'N',
+                    pasos: [
+                        `Despeje: F = W / (d · cos θ)`,
+                        `F = ${W} / (${d} · ${c.toFixed(6)})`,
+                        `F = ${F.toFixed(4)} N`
+                    ]
+                };
+            }
+            if (modo === 'd') {
+                const W = parseFloat(v.trab), F = parseFloat(v.fuerza);
+                const d = W / (F * c);
+                return {
+                    valor: d.toFixed(4), unidad: 'm',
+                    pasos: [
+                        `Despeje: d = W / (F · cos θ)`,
+                        `d = ${W} / (${F} · ${c.toFixed(6)})`,
+                        `d = ${d.toFixed(4)} m`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    potencia: {
+        titulo: 'Potencia',
+        formula: 'P = W / t',
+        desc: 'Elige qué calcular (W trabajo en julios, t en segundos; valores positivos cuando apliquen).',
+        campos: [
+            opsSelectModo([
+                { value: 'P', label: 'Potencia P' },
+                { value: 'W', label: 'Trabajo W' },
+                { value: 't', label: 'Tiempo t' }
+            ]),
+            { id: 'trabajo', label: 'Trabajo (W)', unit: 'J', hint: 'Vacío si calculas W' },
+            { id: 'tiempo', label: 'Tiempo (t)', unit: 's', hint: 'Vacío si calculas t' },
+            { id: 'pot', label: 'Potencia (P)', unit: 'W', hint: 'Vacío si calculas P' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'P';
+            const W = opsParseField('trabajo'), t = opsParseField('tiempo'), P = opsParseField('pot');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'P') {
+                if (!pos(W) || !pos(t)) return { error: 'Para P ingresa W y t (positivos). Deja P vacío.' };
+                return { vals: { modo, trabajo: String(W), tiempo: String(t) } };
+            }
+            if (modo === 'W') {
+                if (!pos(P) || !pos(t)) return { error: 'Para W ingresa P y t (positivos). Deja W vacío.' };
+                return { vals: { modo, pot: String(P), tiempo: String(t) } };
+            }
+            if (modo === 't') {
+                if (!pos(P) || !pos(W)) return { error: 'Para t ingresa P y W (positivos). Deja t vacío.' };
+                return { vals: { modo, pot: String(P), trabajo: String(W) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'P') {
+                const W = parseFloat(v.trabajo), t = parseFloat(v.tiempo);
+                const P = W / t;
+                return {
+                    valor: P.toFixed(4), unidad: 'W',
+                    pasos: [
+                        `Fórmula: P = W / t`,
+                        `P = ${W} J / ${t} s = ${P.toFixed(4)} W`,
+                        `≈ ${(P / 745.7).toFixed(6)} hp`
+                    ]
+                };
+            }
+            if (modo === 'W') {
+                const P = parseFloat(v.pot), t = parseFloat(v.tiempo);
+                const W = P * t;
+                return {
+                    valor: W.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `Despeje: W = P · t`,
+                        `W = ${P} · ${t} = ${W.toFixed(4)} J`
+                    ]
+                };
+            }
+            if (modo === 't') {
+                const P = parseFloat(v.pot), W = parseFloat(v.trabajo);
+                const t = W / P;
+                return {
+                    valor: t.toFixed(4), unidad: 's',
+                    pasos: [
+                        `Despeje: t = W / P`,
+                        `t = ${W} / ${P} = ${t.toFixed(4)} s`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    calor: {
+        titulo: 'Calor Sensible (Q = mcΔT)',
+        formula: 'Q = m · c · ΔT',
+        desc: 'Siempre ingresa Ti y Tf. Elige si calculas Q, m o c (ΔT = Tf − Ti no puede ser 0 al despejar m o c).',
+        campos: [
+            opsSelectModo([
+                { value: 'Q', label: 'Calor Q' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'c', label: 'Calor específico c' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'ce', label: 'Calor específico (c)', unit: 'J/(kg·°C)', hint: 'Vacío si calculas c' },
+            { id: 'calorq', label: 'Calor (Q)', unit: 'J', hint: 'Vacío si calculas Q' },
+            { id: 'ti', label: 'Temperatura inicial (Ti)', unit: '°C', hint: 'ej. 20' },
+            { id: 'tf', label: 'Temperatura final (Tf)', unit: '°C', hint: 'ej. 80' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Q';
+            const m = opsParseField('masa'), c = opsParseField('ce'), Q = opsParseField('calorq');
+            const Ti = opsParseField('ti'), Tf = opsParseField('tf');
+            if (!Number.isFinite(Ti) || !Number.isFinite(Tf)) return { error: 'Ingresa Ti y Tf.' };
+            const dT = Tf - Ti;
+            if (modo !== 'Q' && Math.abs(dT) < 1e-12) return { error: 'ΔT = Tf − Ti no puede ser 0 para despejar m o c.' };
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'Q') {
+                if (!pos(m) || !pos(c)) return { error: 'Para Q ingresa m y c (positivos). Deja Q vacío.' };
+                return { vals: { modo, masa: String(m), ce: String(c), ti: String(Ti), tf: String(Tf) } };
+            }
+            if (modo === 'm') {
+                if (!Number.isFinite(Q) || !pos(c)) return { error: 'Para m ingresa Q y c (c > 0). Deja m vacío.' };
+                return { vals: { modo, calorq: String(Q), ce: String(c), ti: String(Ti), tf: String(Tf) } };
+            }
+            if (modo === 'c') {
+                if (!Number.isFinite(Q) || !pos(m)) return { error: 'Para c ingresa Q y m (m > 0). Deja c vacío.' };
+                return { vals: { modo, calorq: String(Q), masa: String(m), ti: String(Ti), tf: String(Tf) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            const Ti = parseFloat(v.ti), Tf = parseFloat(v.tf);
+            const dT = Tf - Ti;
+            if (modo === 'Q') {
+                const m = parseFloat(v.masa), c = parseFloat(v.ce);
+                const Q = m * c * dT;
+                return {
+                    valor: Q.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `Fórmula: Q = m · c · ΔT`,
+                        `ΔT = Tf − Ti = ${dT} °C`,
+                        `Q = ${m} · ${c} · ${dT} = ${Q.toFixed(4)} J`,
+                        `≈ ${(Q / 4186).toFixed(4)} kcal`,
+                        dT >= 0 ? `El sistema absorbe calor (endotérmico).` : `El sistema libera calor (exotérmico).`
+                    ]
+                };
+            }
+            if (modo === 'm') {
+                const Q = parseFloat(v.calorq), c = parseFloat(v.ce);
+                const m = Q / (c * dT);
+                return {
+                    valor: m.toFixed(4), unidad: 'kg',
+                    pasos: [
+                        `Despeje: m = Q / (c · ΔT)`,
+                        `ΔT = ${dT} °C`,
+                        `m = ${Q} / (${c} · ${dT}) = ${m.toFixed(4)} kg`
+                    ]
+                };
+            }
+            if (modo === 'c') {
+                const Q = parseFloat(v.calorq), m = parseFloat(v.masa);
+                const c = Q / (m * dT);
+                return {
+                    valor: c.toFixed(4), unidad: 'J/(kg·°C)',
+                    pasos: [
+                        `Despeje: c = Q / (m · ΔT)`,
+                        `ΔT = ${dT} °C`,
+                        `c = ${Q} / (${m} · ${dT}) = ${c.toFixed(4)} J/(kg·°C)`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    '2ley': {
+        titulo: '2ª Ley — Eficiencia Térmica (Carnot)',
+        formula: 'η = 1 − (Tc / Th)',
+        desc: 'Temperaturas en kelvin (K). Para despejar Th o Tc, ingresa η como decimal entre 0 y 1 (ej. 0.42 = 42%).',
+        campos: [
+            opsSelectModo([
+                { value: 'eta', label: 'Eficiencia η' },
+                { value: 'Th', label: 'Temperatura caliente Th' },
+                { value: 'Tc', label: 'Temperatura fría Tc' }
+            ]),
+            { id: 'th', label: 'Temperatura caliente (Th)', unit: 'K', hint: 'Vacío si calculas Th' },
+            { id: 'tc', label: 'Temperatura fría (Tc)', unit: 'K', hint: 'Vacío si calculas Tc' },
+            { id: 'eta', label: 'Eficiencia η (0 a 1)', unit: '', hint: 'Solo si despejas Th o Tc' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'eta';
+            const Th = opsParseField('th'), Tc = opsParseField('tc'), eta = opsParseField('eta');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'eta') {
+                if (!pos(Th) || !pos(Tc)) return { error: 'Para η ingresa Th y Tc (K, positivas). Deja η vacío.' };
+                if (Tc >= Th) return { error: 'Tc debe ser menor que Th.' };
+                return { vals: { modo, th: String(Th), tc: String(Tc) } };
+            }
+            if (modo === 'Th') {
+                if (!Number.isFinite(eta) || eta <= 0 || eta >= 1 || !pos(Tc)) return { error: 'Para Th ingresa η (entre 0 y 1) y Tc > 0. Deja Th vacío.' };
+                return { vals: { modo, eta: String(eta), tc: String(Tc) } };
+            }
+            if (modo === 'Tc') {
+                if (!Number.isFinite(eta) || eta <= 0 || eta >= 1 || !pos(Th)) return { error: 'Para Tc ingresa η (entre 0 y 1) y Th > 0. Deja Tc vacío.' };
+                return { vals: { modo, eta: String(eta), th: String(Th) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'eta') {
+                const Th = parseFloat(v.th), Tc = parseFloat(v.tc);
+                const eta = 1 - (Tc / Th);
+                const pct = (eta * 100).toFixed(2);
+                return {
+                    valor: pct, unidad: '%',
+                    pasos: [
+                        `η = 1 − (Tc / Th) = 1 − (${Tc} / ${Th})`,
+                        `η = ${eta.toFixed(6)} → ${pct}%`,
+                        `Nota: ninguna máquina real supera este límite.`
+                    ]
+                };
+            }
+            if (modo === 'Th') {
+                const eta = parseFloat(v.eta), Tc = parseFloat(v.tc);
+                const Th = Tc / (1 - eta);
+                return {
+                    valor: Th.toFixed(4), unidad: 'K',
+                    pasos: [
+                        `Despeje: Th = Tc / (1 − η)`,
+                        `Th = ${Tc} / (1 − ${eta}) = ${Th.toFixed(4)} K`
+                    ]
+                };
+            }
+            if (modo === 'Tc') {
+                const eta = parseFloat(v.eta), Th = parseFloat(v.th);
+                const Tc = (1 - eta) * Th;
+                return {
+                    valor: Tc.toFixed(4), unidad: 'K',
+                    pasos: [
+                        `Despeje: Tc = (1 − η) · Th`,
+                        `Tc = (1 − ${eta}) · ${Th} = ${Tc.toFixed(4)} K`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    dilatacion: {
+        titulo: 'Dilatación Térmica Lineal',
+        formula: 'ΔL = L₀ · α · ΔT',
+        desc: 'Elige qué calcular; el resto deben ser conocidos (evita divisiones por 0).',
+        campos: [
+            opsSelectModo([
+                { value: 'dL', label: 'Alargamiento ΔL' },
+                { value: 'L0', label: 'Longitud inicial L₀' },
+                { value: 'alpha', label: 'Coeficiente α' },
+                { value: 'dT', label: 'Variación ΔT' }
+            ]),
+            { id: 'dl', label: 'ΔL', unit: 'm', hint: 'Vacío si calculas ΔL' },
+            { id: 'l0', label: 'Longitud inicial (L₀)', unit: 'm', hint: 'Vacío si calculas L₀' },
+            { id: 'alpha', label: 'Coef. dilatación (α)', unit: '1/°C', hint: 'Vacío si calculas α' },
+            { id: 'dt', label: 'Variación de temp. (ΔT)', unit: '°C', hint: 'Vacío si calculas ΔT' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'dL';
+            const dL = opsParseField('dl'), L0 = opsParseField('l0'), alpha = opsParseField('alpha'), dT = opsParseField('dt');
+            const nz = (x) => Number.isFinite(x) && x !== 0;
+            const fin = (x) => Number.isFinite(x);
+            if (modo === 'dL') {
+                if (!nz(L0) || !nz(alpha) || !nz(dT)) return { error: 'Para ΔL ingresa L₀, α y ΔT (todos ≠ 0 donde aplique).' };
+                return { vals: { modo, l0: String(L0), alpha: String(alpha), dt: String(dT) } };
+            }
+            if (modo === 'L0') {
+                if (!nz(alpha) || !nz(dT) || !fin(dL)) return { error: 'Para L₀ ingresa ΔL, α y ΔT (α y ΔT ≠ 0).' };
+                return { vals: { modo, dl: String(dL), alpha: String(alpha), dt: String(dT) } };
+            }
+            if (modo === 'alpha') {
+                if (!nz(L0) || !nz(dT) || !fin(dL)) return { error: 'Para α ingresa ΔL, L₀ y ΔT (L₀ y ΔT ≠ 0).' };
+                return { vals: { modo, dl: String(dL), l0: String(L0), dt: String(dT) } };
+            }
+            if (modo === 'dT') {
+                if (!nz(L0) || !nz(alpha) || !fin(dL)) return { error: 'Para ΔT ingresa ΔL, L₀ y α (L₀ y α ≠ 0).' };
+                return { vals: { modo, dl: String(dL), l0: String(L0), alpha: String(alpha) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'dL') {
+                const L0 = parseFloat(v.l0), alpha = parseFloat(v.alpha), dT = parseFloat(v.dt);
+                const dL = L0 * alpha * dT;
+                const Lf = L0 + dL;
+                return {
+                    valor: dL.toFixed(6), unidad: 'm',
+                    pasos: [
+                        `ΔL = L₀ · α · ΔT = ${L0} · ${alpha} · ${dT}`,
+                        `ΔL = ${dL.toFixed(6)} m`,
+                        `Lf = L₀ + ΔL = ${Lf.toFixed(6)} m`
+                    ]
+                };
+            }
+            if (modo === 'L0') {
+                const dL = parseFloat(v.dl), alpha = parseFloat(v.alpha), dT = parseFloat(v.dt);
+                const L0 = dL / (alpha * dT);
+                return { valor: L0.toFixed(6), unidad: 'm', pasos: [`L₀ = ΔL / (α · ΔT) = ${L0.toFixed(6)} m`] };
+            }
+            if (modo === 'alpha') {
+                const dL = parseFloat(v.dl), L0 = parseFloat(v.l0), dT = parseFloat(v.dt);
+                const alpha = dL / (L0 * dT);
+                return { valor: alpha.toFixed(9), unidad: '1/°C', pasos: [`α = ΔL / (L₀ · ΔT) = ${alpha.toFixed(9)} 1/°C`] };
+            }
+            if (modo === 'dT') {
+                const dL = parseFloat(v.dl), L0 = parseFloat(v.l0), alpha = parseFloat(v.alpha);
+                const dT = dL / (L0 * alpha);
+                return { valor: dT.toFixed(6), unidad: '°C', pasos: [`ΔT = ΔL / (L₀ · α) = ${dT.toFixed(6)} °C`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    presion: {
+        titulo: 'Presión',
+        formula: 'P = F / A',
+        desc: 'Elige qué calcular e ingresa las otras dos (solo positivas). Deja vacío el campo de la incógnita.',
+        campos: [
+            opsSelectModo([
+                { value: 'P', label: 'Presión P' },
+                { value: 'F', label: 'Fuerza F' },
+                { value: 'A', label: 'Área A' }
+            ]),
+            { id: 'fuerza', label: 'Fuerza (F)', unit: 'N', hint: 'Vacío si calculas F' },
+            { id: 'area', label: 'Área (A)', unit: 'm²', hint: 'Vacío si calculas A' },
+            { id: 'pres', label: 'Presión (P)', unit: 'Pa', hint: 'Vacío si calculas P' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'P';
+            const F = opsParseField('fuerza'), A = opsParseField('area'), P = opsParseField('pres');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'P') {
+                if (!pos(F) || !pos(A)) return { error: 'Para P ingresa F y A (positivas). Deja P vacío.' };
+                return { vals: { modo, fuerza: String(F), area: String(A) } };
+            }
+            if (modo === 'F') {
+                if (!pos(P) || !pos(A)) return { error: 'Para F ingresa P y A (positivas). Deja F vacío.' };
+                return { vals: { modo, pres: String(P), area: String(A) } };
+            }
+            if (modo === 'A') {
+                if (!pos(P) || !pos(F)) return { error: 'Para A ingresa P y F (positivas). Deja A vacío.' };
+                return { vals: { modo, pres: String(P), fuerza: String(F) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'P') {
+                const F = parseFloat(v.fuerza), A = parseFloat(v.area);
+                const P = F / A;
+                return {
+                    valor: P.toFixed(4), unidad: 'Pa',
+                    pasos: [
+                        `Fórmula: P = F / A`,
+                        `P = ${F} N / ${A} m²`,
+                        `P = ${P.toFixed(4)} Pa`,
+                        `= ${(P / 1000).toFixed(6)} kPa`,
+                        `= ${(P / 101325).toFixed(8)} atm`
+                    ]
+                };
+            }
+            if (modo === 'F') {
+                const P = parseFloat(v.pres), A = parseFloat(v.area);
+                const F = P * A;
+                return {
+                    valor: F.toFixed(4), unidad: 'N',
+                    pasos: [
+                        `Fórmula: F = P · A`,
+                        `F = ${P} Pa · ${A} m²`,
+                        `F = ${F.toFixed(4)} N`
+                    ]
+                };
+            }
+            if (modo === 'A') {
+                const P = parseFloat(v.pres), F = parseFloat(v.fuerza);
+                const A = F / P;
+                return {
+                    valor: A.toFixed(8), unidad: 'm²',
+                    pasos: [
+                        `Fórmula: A = F / P`,
+                        `A = ${F} N / ${P} Pa`,
+                        `A = ${A.toFixed(8)} m²`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    phidro: {
+        titulo: 'Presión Hidrostática',
+        formula: 'P = ρ · g · h',
+        desc: 'g = 9.81 m/s². Elige qué calcular (valores positivos cuando apliquen).',
+        campos: [
+            opsSelectModo([
+                { value: 'P', label: 'Presión P' },
+                { value: 'rho', label: 'Densidad ρ' },
+                { value: 'h', label: 'Profundidad h' }
+            ]),
+            { id: 'rho', label: 'Densidad (ρ)', unit: 'kg/m³', hint: 'Vacío si calculas ρ' },
+            { id: 'altura', label: 'Profundidad (h)', unit: 'm', hint: 'Vacío si calculas h' },
+            { id: 'pres', label: 'Presión (P)', unit: 'Pa', hint: 'Vacío si calculas P' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'P';
+            const rho = opsParseField('rho'), h = opsParseField('altura'), P = opsParseField('pres');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'P') {
+                if (!pos(rho) || !pos(h)) return { error: 'Para P ingresa ρ y h (positivas). Deja P vacío.' };
+                return { vals: { modo, rho: String(rho), altura: String(h) } };
+            }
+            if (modo === 'rho') {
+                if (!pos(P) || !pos(h)) return { error: 'Para ρ ingresa P y h (positivas). Deja ρ vacío.' };
+                return { vals: { modo, pres: String(P), altura: String(h) } };
+            }
+            if (modo === 'h') {
+                if (!pos(P) || !pos(rho)) return { error: 'Para h ingresa P y ρ (positivas). Deja h vacío.' };
+                return { vals: { modo, pres: String(P), rho: String(rho) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const g = 9.81;
+            const modo = v.modo;
+            if (modo === 'P') {
+                const rho = parseFloat(v.rho), h = parseFloat(v.altura);
+                const P = rho * g * h;
+                return {
+                    valor: P.toFixed(4), unidad: 'Pa',
+                    pasos: [
+                        `P = ρ · g · h = ${rho} · 9.81 · ${h}`,
+                        `P = ${P.toFixed(4)} Pa`,
+                        `= ${(P / 1000).toFixed(4)} kPa`,
+                        `= ${(P / 101325).toFixed(6)} atm`
+                    ]
+                };
+            }
+            if (modo === 'rho') {
+                const P = parseFloat(v.pres), h = parseFloat(v.altura);
+                const rho = P / (g * h);
+                return { valor: rho.toFixed(4), unidad: 'kg/m³', pasos: [`ρ = P / (g · h) = ${rho.toFixed(4)} kg/m³`] };
+            }
+            if (modo === 'h') {
+                const P = parseFloat(v.pres), rho = parseFloat(v.rho);
+                const h = P / (rho * g);
+                return { valor: h.toFixed(4), unidad: 'm', pasos: [`h = P / (ρ · g) = ${h.toFixed(4)} m`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    patm: {
+        titulo: 'Presión Atmosférica — Conversión y Referencia',
+        formula: '1 atm = 101,325 Pa = 760 mmHg = 1.01325 bar',
+        desc: 'Convierte un valor de presión atmosférica a otras unidades comunes.',
+        campos: [
+            { id: 'patm', label: 'Presión (P)', unit: 'atm', hint: 'ej. 1.2' }
+        ],
+        calcular(v) {
+            const P = parseFloat(v.patm);
+            const Pa = P * 101325;
+            const kPa = Pa / 1000;
+            const bar = Pa / 100000;
+            const mmHg = Pa / 133.322;
+            const psi = Pa / 6894.76;
+            return {
+                valor: Pa.toFixed(2), unidad: 'Pa',
+                pasos: [
+                    `Valor ingresado: ${P} atm`,
+                    `→ ${Pa.toFixed(2)} Pa`,
+                    `→ ${kPa.toFixed(4)} kPa`,
+                    `→ ${bar.toFixed(6)} bar`,
+                    `→ ${mmHg.toFixed(4)} mmHg (Torr)`,
+                    `→ ${psi.toFixed(4)} psi`
+                ]
+            };
+        }
+    },
+    caudal: {
+        titulo: 'Caudal y Ecuación de Continuidad',
+        formula: 'Q = A · v  |  A₁v₁ = A₂v₂',
+        desc: 'El caudal volumétrico se conserva en un fluido incompresible (flujo continuo).',
+        campos: [
+            { id: 'a1', label: 'Área sección 1 (A₁)', unit: 'm²', hint: 'ej. 0.05' },
+            { id: 'v1', label: 'Velocidad sección 1 (v₁)', unit: 'm/s', hint: 'ej. 2' },
+            { id: 'a2', label: 'Área sección 2 (A₂)', unit: 'm²', hint: 'ej. 0.02' }
+        ],
+        calcular(v) {
+            const A1 = parseFloat(v.a1), v1 = parseFloat(v.v1), A2 = parseFloat(v.a2);
+            const Q = A1 * v1;
+            const v2 = Q / A2;
+            return {
+                valor: Q.toFixed(6), unidad: 'm³/s',
+                pasos: [
+                    `Caudal: Q = A₁ · v₁ = ${A1} m² · ${v1} m/s = ${Q.toFixed(6)} m³/s`,
+                    `Ecuación de continuidad: A₁v₁ = A₂v₂`,
+                    `v₂ = (A₁ · v₁) / A₂ = ${Q.toFixed(6)} / ${A2}`,
+                    `v₂ = ${v2.toFixed(4)} m/s`,
+                    A2 < A1 ? `La sección se reduce → el fluido se acelera (efecto Venturi).` : `La sección se amplía → el fluido desacelera.`
+                ]
+            };
+        }
+    },
+    bernoulli: {
+        titulo: 'Ecuación de Bernoulli',
+        formula: 'P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂',
+        desc: 'Conservación de energía en fluidos ideales. Calcula P₂ dado el estado inicial y las condiciones de la sección 2.',
+        campos: [
+            { id: 'rho', label: 'Densidad del fluido (ρ)', unit: 'kg/m³', hint: 'agua=1000' },
+            { id: 'p1', label: 'Presión P₁', unit: 'Pa', hint: 'ej. 200000' },
+            { id: 'v1', label: 'Velocidad v₁', unit: 'm/s', hint: 'ej. 2' },
+            { id: 'h1', label: 'Altura h₁', unit: 'm', hint: 'ej. 0' },
+            { id: 'v2', label: 'Velocidad v₂', unit: 'm/s', hint: 'ej. 5' },
+            { id: 'h2', label: 'Altura h₂', unit: 'm', hint: 'ej. 3' }
+        ],
+        calcular(v) {
+            const rho = parseFloat(v.rho), g = 9.81;
+            const P1 = parseFloat(v.p1), v1 = parseFloat(v.v1), h1 = parseFloat(v.h1);
+            const v2 = parseFloat(v.v2), h2 = parseFloat(v.h2);
+            const P2 = P1 + 0.5*rho*(v1*v1 - v2*v2) + rho*g*(h1 - h2);
+            return {
+                valor: P2.toFixed(2), unidad: 'Pa',
+                pasos: [
+                    `Ecuación: P₁ + ½ρv₁² + ρgh₁ = P₂ + ½ρv₂² + ρgh₂`,
+                    `Despejando P₂: P₂ = P₁ + ½ρ(v₁² − v₂²) + ρg(h₁ − h₂)`,
+                    `½ρ(v₁² − v₂²) = ½ · ${rho} · (${v1}² − ${v2}²) = ${(0.5*rho*(v1*v1-v2*v2)).toFixed(2)} Pa`,
+                    `ρg(h₁ − h₂) = ${rho} · 9.81 · (${h1} − ${h2}) = ${(rho*g*(h1-h2)).toFixed(2)} Pa`,
+                    `P₂ = ${P1} + ${(0.5*rho*(v1*v1-v2*v2)).toFixed(2)} + ${(rho*g*(h1-h2)).toFixed(2)}`,
+                    `P₂ = ${P2.toFixed(2)} Pa = ${(P2/1000).toFixed(4)} kPa`
+                ]
+            };
+        }
+    },
+    torricelli: {
+        titulo: 'Teorema de Torricelli',
+        formula: 'v = √(2 · g · h)',
+        desc: 'g = 9.81 m/s². Elige v o h; deja vacío el que calcules.',
+        campos: [
+            opsSelectModo([
+                { value: 'v', label: 'Velocidad v' },
+                { value: 'h', label: 'Altura h' }
+            ]),
+            { id: 'altura', label: 'Altura de la columna (h)', unit: 'm', hint: 'Vacío si calculas h' },
+            { id: 'vel', label: 'Velocidad (v)', unit: 'm/s', hint: 'Vacío si calculas v' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'v';
+            const h = opsParseField('altura'), vel = opsParseField('vel');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            const g = 9.81;
+            if (modo === 'v') {
+                if (!pos(h)) return { error: 'Para v ingresa h > 0. Deja v vacío.' };
+                return { vals: { modo, altura: String(h) } };
+            }
+            if (modo === 'h') {
+                if (!pos(vel)) return { error: 'Para h ingresa v > 0. Deja h vacío.' };
+                return { vals: { modo, vel: String(vel) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const g = 9.81;
+            if (v.modo === 'v') {
+                const h = parseFloat(v.altura);
+                const vel = Math.sqrt(2 * g * h);
+                return {
+                    valor: vel.toFixed(4), unidad: 'm/s',
+                    pasos: [
+                        `v = √(2gh) = √(2 · 9.81 · ${h})`,
+                        `v = ${vel.toFixed(4)} m/s`,
+                        `≈ ${(vel * 3.6).toFixed(4)} km/h`
+                    ]
+                };
+            }
+            if (v.modo === 'h') {
+                const vel = parseFloat(v.vel);
+                const h = (vel * vel) / (2 * g);
+                return {
+                    valor: h.toFixed(4), unidad: 'm',
+                    pasos: [
+                        `Despeje: h = v² / (2g)`,
+                        `h = ${vel}² / (2 · 9.81) = ${h.toFixed(4)} m`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    mrua_v: {
+        titulo: 'MRUA — Velocidad final',
+        formula: 'v = v₀ + a · t',
+        desc: 'Elige qué calcular; deja vacío el campo de la incógnita (t ≠ 0 al despejar a o t).',
+        campos: [
+            opsSelectModo([
+                { value: 'v', label: 'Velocidad final v' },
+                { value: 'v0', label: 'Velocidad inicial v₀' },
+                { value: 'a', label: 'Aceleración a' },
+                { value: 't', label: 'Tiempo t' }
+            ]),
+            { id: 'v0', label: 'Velocidad inicial (v₀)', unit: 'm/s', hint: 'Vacío si calculas v₀' },
+            { id: 'acel', label: 'Aceleración (a)', unit: 'm/s²', hint: 'Vacío si calculas a' },
+            { id: 'tiempo', label: 'Tiempo (t)', unit: 's', hint: 'Vacío si calculas t' },
+            { id: 'vf', label: 'Velocidad final (v)', unit: 'm/s', hint: 'Vacío si calculas v' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'v';
+            const v0 = opsParseField('v0'), a = opsParseField('acel'), t = opsParseField('tiempo'), vf = opsParseField('vf');
+            const nz = (x) => Number.isFinite(x) && x !== 0;
+            const fin = (x) => Number.isFinite(x);
+            if (modo === 'v') {
+                if (!fin(v0) || !fin(a) || !fin(t)) return { error: 'Para v ingresa v₀, a y t.' };
+                return { vals: { modo, v0: String(v0), acel: String(a), tiempo: String(t) } };
+            }
+            if (modo === 'v0') {
+                if (!fin(vf) || !fin(a) || !fin(t)) return { error: 'Para v₀ ingresa v, a y t.' };
+                return { vals: { modo, vf: String(vf), acel: String(a), tiempo: String(t) } };
+            }
+            if (modo === 'a') {
+                if (!fin(vf) || !fin(v0) || !nz(t)) return { error: 'Para a ingresa v, v₀ y t (t ≠ 0).' };
+                return { vals: { modo, vf: String(vf), v0: String(v0), tiempo: String(t) } };
+            }
+            if (modo === 't') {
+                if (!fin(vf) || !fin(v0) || !nz(a)) return { error: 'Para t ingresa v, v₀ y a (a ≠ 0).' };
+                return { vals: { modo, vf: String(vf), v0: String(v0), acel: String(a) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'v') {
+                const v0 = parseFloat(v.v0), a = parseFloat(v.acel), t = parseFloat(v.tiempo);
+                const vf = v0 + a * t;
+                return {
+                    valor: vf.toFixed(4), unidad: 'm/s',
+                    pasos: [
+                        `v = v₀ + a·t = ${v0} + (${a})·(${t})`,
+                        `v = ${vf.toFixed(4)} m/s`,
+                        `≈ ${(vf * 3.6).toFixed(4)} km/h`
+                    ]
+                };
+            }
+            if (modo === 'v0') {
+                const vf = parseFloat(v.vf), a = parseFloat(v.acel), t = parseFloat(v.tiempo);
+                const v0 = vf - a * t;
+                return { valor: v0.toFixed(4), unidad: 'm/s', pasos: [`v₀ = v − a·t = ${v0.toFixed(4)} m/s`] };
+            }
+            if (modo === 'a') {
+                const vf = parseFloat(v.vf), v0 = parseFloat(v.v0), t = parseFloat(v.tiempo);
+                const a = (vf - v0) / t;
+                return { valor: a.toFixed(4), unidad: 'm/s²', pasos: [`a = (v − v₀) / t = ${a.toFixed(4)} m/s²`] };
+            }
+            if (modo === 't') {
+                const vf = parseFloat(v.vf), v0 = parseFloat(v.v0), a = parseFloat(v.acel);
+                const t = (vf - v0) / a;
+                return { valor: t.toFixed(4), unidad: 's', pasos: [`t = (v − v₀) / a = ${t.toFixed(4)} s`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    mrua_x: {
+        titulo: 'MRUA — Desplazamiento',
+        formula: 'Δx = v₀·t + ½·a·t²',
+        desc: 'Elige la incógnita. Si despejas t con a ≠ 0, se usa la raíz no negativa más pequeña cuando hay dos.',
+        campos: [
+            opsSelectModo([
+                { value: 'dx', label: 'Desplazamiento Δx' },
+                { value: 'v0', label: 'Velocidad inicial v₀' },
+                { value: 'a', label: 'Aceleración a' },
+                { value: 't', label: 'Tiempo t' }
+            ]),
+            { id: 'dx', label: 'Desplazamiento (Δx)', unit: 'm', hint: 'Vacío si calculas Δx' },
+            { id: 'v0', label: 'Velocidad inicial (v₀)', unit: 'm/s', hint: 'Vacío si calculas v₀' },
+            { id: 'acel', label: 'Aceleración (a)', unit: 'm/s²', hint: 'Vacío si calculas a' },
+            { id: 'tiempo', label: 'Tiempo (t)', unit: 's', hint: 'Vacío si calculas t' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'dx';
+            const dx = opsParseField('dx'), v0 = opsParseField('v0'), a = opsParseField('acel'), t = opsParseField('tiempo');
+            const nz = (x) => Number.isFinite(x) && x !== 0;
+            const fin = (x) => Number.isFinite(x);
+            if (modo === 'dx') {
+                if (!fin(v0) || !fin(a) || !fin(t)) return { error: 'Para Δx ingresa v₀, a y t.' };
+                return { vals: { modo, v0: String(v0), acel: String(a), tiempo: String(t) } };
+            }
+            if (modo === 'v0') {
+                if (!fin(dx) || !fin(a) || !nz(t)) return { error: 'Para v₀ ingresa Δx, a y t (t ≠ 0).' };
+                return { vals: { modo, dx: String(dx), acel: String(a), tiempo: String(t) } };
+            }
+            if (modo === 'a') {
+                if (!fin(dx) || !fin(v0) || !nz(t)) return { error: 'Para a ingresa Δx, v₀ y t (t ≠ 0).' };
+                return { vals: { modo, dx: String(dx), v0: String(v0), tiempo: String(t) } };
+            }
+            if (modo === 't') {
+                if (!fin(dx) || !fin(v0) || !fin(a)) return { error: 'Para t ingresa Δx, v₀ y a.' };
+                if (Math.abs(a) < 1e-12 && Math.abs(v0) < 1e-12) return { error: 'Con a = 0 y v₀ = 0 no hay tiempo único.' };
+                if (Math.abs(a) < 1e-12 && Math.abs(v0) >= 1e-12) {
+                    const tLin = dx / v0;
+                    if (!Number.isFinite(tLin) || tLin < 0) return { error: 'No hay t ≥ 0 con MRU (a = 0) para esos datos.' };
+                    return { vals: { modo, dx: String(dx), v0: String(v0), acel: '0' } };
+                }
+                const D = v0 * v0 + 2 * a * dx;
+                if (D < -1e-9) return { error: 'Discriminante v₀² + 2a·Δx < 0: no hay tiempo real.' };
+                const sD = Math.sqrt(Math.max(0, D));
+                const t1 = (-v0 + sD) / a, t2 = (-v0 - sD) / a;
+                const cand = [t1, t2].filter(x => Number.isFinite(x) && x >= -1e-9);
+                if (!cand.length) return { error: 'No hay solución con t ≥ 0.' };
+                const tPick = Math.min(...cand.map(x => Math.max(0, x)));
+                return { vals: { modo, dx: String(dx), v0: String(v0), acel: String(a), tiempo: String(tPick) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'dx') {
+                const v0 = parseFloat(v.v0), a = parseFloat(v.acel), t = parseFloat(v.tiempo);
+                const dx = v0 * t + 0.5 * a * t * t;
+                return {
+                    valor: dx.toFixed(4), unidad: 'm',
+                    pasos: [
+                        `Δx = v₀·t + ½·a·t²`,
+                        `Δx = ${v0}·${t} + ½·${a}·${t}² = ${dx.toFixed(4)} m`
+                    ]
+                };
+            }
+            if (modo === 'v0') {
+                const dx = parseFloat(v.dx), a = parseFloat(v.acel), t = parseFloat(v.tiempo);
+                const v0 = (dx - 0.5 * a * t * t) / t;
+                return { valor: v0.toFixed(4), unidad: 'm/s', pasos: [`v₀ = (Δx − ½at²) / t = ${v0.toFixed(4)} m/s`] };
+            }
+            if (modo === 'a') {
+                const dx = parseFloat(v.dx), v0 = parseFloat(v.v0), t = parseFloat(v.tiempo);
+                const a = 2 * (dx - v0 * t) / (t * t);
+                return { valor: a.toFixed(4), unidad: 'm/s²', pasos: [`a = 2(Δx − v₀t) / t² = ${a.toFixed(4)} m/s²`] };
+            }
+            if (modo === 't') {
+                const dx = parseFloat(v.dx), v0 = parseFloat(v.v0), a = parseFloat(v.acel);
+                if (Math.abs(a) < 1e-12) {
+                    const t = dx / v0;
+                    return { valor: t.toFixed(4), unidad: 's', pasos: [`MRU: t = Δx / v₀ = ${t.toFixed(4)} s`] };
+                }
+                const tSol = parseFloat(v.tiempo);
+                return {
+                    valor: tSol.toFixed(4), unidad: 's',
+                    pasos: [
+                        `Ecuación ½a·t² + v₀·t − Δx = 0`,
+                        `Discriminante = v₀² + 2a·Δx`,
+                        `Se toma la solución t ≥ 0 más pequeña: t = ${tSol.toFixed(4)} s`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    tiempo_caida: {
+        titulo: 'Caída libre — Tiempo / altura',
+        formula: 't = √(2h / g)  |  h = ½ g t²',
+        desc: 'Desde reposo, sin aire. g = 9.81 m/s². Elige t o h.',
+        campos: [
+            opsSelectModo([
+                { value: 't', label: 'Tiempo t' },
+                { value: 'h', label: 'Altura h' }
+            ]),
+            { id: 'altura', label: 'Altura (h)', unit: 'm', hint: 'Vacío si calculas h' },
+            { id: 'tiempo', label: 'Tiempo (t)', unit: 's', hint: 'Vacío si calculas t' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 't';
+            const h = opsParseField('altura'), t = opsParseField('tiempo');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            const g = 9.81;
+            if (modo === 't') {
+                if (!pos(h)) return { error: 'Para t ingresa h > 0. Deja t vacío.' };
+                return { vals: { modo, altura: String(h) } };
+            }
+            if (modo === 'h') {
+                if (!pos(t)) return { error: 'Para h ingresa t > 0. Deja h vacío.' };
+                return { vals: { modo, tiempo: String(t) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const g = 9.81;
+            if (v.modo === 't') {
+                const h = parseFloat(v.altura);
+                const t = Math.sqrt(2 * h / g);
+                return {
+                    valor: t.toFixed(4), unidad: 's',
+                    pasos: [
+                        `t = √(2h/g) = √(2·${h}/9.81)`,
+                        `t = ${t.toFixed(4)} s`
+                    ]
+                };
+            }
+            if (v.modo === 'h') {
+                const t = parseFloat(v.tiempo);
+                const h = 0.5 * g * t * t;
+                return {
+                    valor: h.toFixed(4), unidad: 'm',
+                    pasos: [
+                        `Desde reposo: h = ½ g t²`,
+                        `h = ½ · 9.81 · ${t}² = ${h.toFixed(4)} m`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    newton: {
+        titulo: 'Segunda ley de Newton',
+        formula: 'F = m · a',
+        desc: 'Elige qué calcular. Para m, F y a deben tener el mismo signo y a ≠ 0.',
+        campos: [
+            opsSelectModo([
+                { value: 'F', label: 'Fuerza F' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'a', label: 'Aceleración a' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'acel', label: 'Aceleración (a)', unit: 'm/s²', hint: 'Vacío si calculas a' },
+            { id: 'fuerza', label: 'Fuerza (F)', unit: 'N', hint: 'Vacío si calculas F' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'F';
+            const m = opsParseField('masa'), a = opsParseField('acel'), F = opsParseField('fuerza');
+            const nz = (x) => Number.isFinite(x) && x !== 0;
+            const fin = (x) => Number.isFinite(x);
+            if (modo === 'F') {
+                if (!fin(m) || !fin(a)) return { error: 'Para F ingresa m y a.' };
+                return { vals: { modo, masa: String(m), acel: String(a) } };
+            }
+            if (modo === 'm') {
+                if (!fin(F) || !nz(a)) return { error: 'Para m ingresa F y a (a ≠ 0). F y a deben tener el mismo signo.' };
+                if (F * a <= 0) return { error: 'm = F/a debe ser positiva: F y a deben tener el mismo signo.' };
+                return { vals: { modo, fuerza: String(F), acel: String(a) } };
+            }
+            if (modo === 'a') {
+                if (!fin(F) || !nz(m)) return { error: 'Para a ingresa F y m (m ≠ 0).' };
+                return { vals: { modo, fuerza: String(F), masa: String(m) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'F') {
+                const m = parseFloat(v.masa), a = parseFloat(v.acel);
+                const F = m * a;
+                return {
+                    valor: F.toFixed(4), unidad: 'N',
+                    pasos: [`F = m · a = ${m} · ${a} = ${F.toFixed(4)} N`]
+                };
+            }
+            if (modo === 'm') {
+                const F = parseFloat(v.fuerza), a = parseFloat(v.acel);
+                const m = F / a;
+                return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = F / a = ${m.toFixed(4)} kg`] };
+            }
+            if (modo === 'a') {
+                const F = parseFloat(v.fuerza), m = parseFloat(v.masa);
+                const a = F / m;
+                return { valor: a.toFixed(4), unidad: 'm/s²', pasos: [`a = F / m = ${a.toFixed(4)} m/s²`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    fuerza_peso: {
+        titulo: 'Peso (fuerza gravitatoria)',
+        formula: 'W = m · g',
+        desc: 'g = 9.81 m/s². Elige W o m.',
+        campos: [
+            opsSelectModo([
+                { value: 'W', label: 'Peso W' },
+                { value: 'm', label: 'Masa m' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'peso', label: 'Peso (W)', unit: 'N', hint: 'Vacío si calculas W' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'W';
+            const m = opsParseField('masa'), W = opsParseField('peso');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            const g = 9.81;
+            if (modo === 'W') {
+                if (!pos(m)) return { error: 'Para W ingresa m > 0. Deja W vacío.' };
+                return { vals: { modo, masa: String(m) } };
+            }
+            if (modo === 'm') {
+                if (!pos(W)) return { error: 'Para m ingresa W > 0. Deja m vacío.' };
+                return { vals: { modo, peso: String(W) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const g = 9.81;
+            if (v.modo === 'W') {
+                const m = parseFloat(v.masa);
+                const W = m * g;
+                return { valor: W.toFixed(4), unidad: 'N', pasos: [`W = m · g = ${m} · 9.81 = ${W.toFixed(4)} N`] };
+            }
+            if (v.modo === 'm') {
+                const W = parseFloat(v.peso);
+                const m = W / g;
+                return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = W / g = ${m.toFixed(4)} kg`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    onda_vlf: {
+        titulo: 'Onda — Velocidad de propagación',
+        formula: 'v = λ · f',
+        desc: 'Elige v, λ o f (valores positivos cuando apliquen).',
+        campos: [
+            opsSelectModo([
+                { value: 'v', label: 'Velocidad v' },
+                { value: 'lambda', label: 'Longitud de onda λ' },
+                { value: 'f', label: 'Frecuencia f' }
+            ]),
+            { id: 'lambda', label: 'Longitud de onda (λ)', unit: 'm', hint: 'Vacío si calculas λ' },
+            { id: 'freq', label: 'Frecuencia (f)', unit: 'Hz', hint: 'Vacío si calculas f' },
+            { id: 'vel', label: 'Velocidad (v)', unit: 'm/s', hint: 'Vacío si calculas v' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'v';
+            const lam = opsParseField('lambda'), f = opsParseField('freq'), v = opsParseField('vel');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'v') {
+                if (!pos(lam) || !pos(f)) return { error: 'Para v ingresa λ y f (positivas). Deja v vacío.' };
+                return { vals: { modo, lambda: String(lam), freq: String(f) } };
+            }
+            if (modo === 'lambda') {
+                if (!pos(v) || !pos(f)) return { error: 'Para λ ingresa v y f (positivas). Deja λ vacío.' };
+                return { vals: { modo, vel: String(v), freq: String(f) } };
+            }
+            if (modo === 'f') {
+                if (!pos(v) || !pos(lam)) return { error: 'Para f ingresa v y λ (positivas). Deja f vacío.' };
+                return { vals: { modo, vel: String(v), lambda: String(lam) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'v') {
+                const lam = parseFloat(v.lambda), f = parseFloat(v.freq);
+                const vel = lam * f;
+                return {
+                    valor: vel.toFixed(4), unidad: 'm/s',
+                    pasos: [
+                        `v = λ · f = ${lam} · ${f}`,
+                        `v = ${vel.toFixed(4)} m/s`,
+                        `T = 1/f = ${(1 / f).toFixed(6)} s`
+                    ]
+                };
+            }
+            if (modo === 'lambda') {
+                const vel = parseFloat(v.vel), f = parseFloat(v.freq);
+                const lam = vel / f;
+                return { valor: lam.toFixed(6), unidad: 'm', pasos: [`λ = v / f = ${lam.toFixed(6)} m`] };
+            }
+            if (modo === 'f') {
+                const vel = parseFloat(v.vel), lam = parseFloat(v.lambda);
+                const f = vel / lam;
+                return { valor: f.toFixed(6), unidad: 'Hz', pasos: [`f = v / λ = ${f.toFixed(6)} Hz`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    periodo_f: {
+        titulo: 'Período y frecuencia angular',
+        formula: 'T = 1 / f ,  ω = 2πf = 2π / T',
+        desc: 'Elige f, T o ω. Para obtener f puedes dar T o ω (deja f vacío).',
+        campos: [
+            opsSelectModo([
+                { value: 'f', label: 'Frecuencia f' },
+                { value: 'T', label: 'Período T' },
+                { value: 'omega', label: 'Pulsación ω' }
+            ]),
+            { id: 'freq', label: 'Frecuencia (f)', unit: 'Hz', hint: 'Vacío si calculas f' },
+            { id: 'period', label: 'Período (T)', unit: 's', hint: 'Vacío si calculas T' },
+            { id: 'omega', label: 'ω', unit: 'rad/s', hint: 'Vacío si calculas ω' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'f';
+            const f = opsParseField('freq'), T = opsParseField('period'), om = opsParseField('omega');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'f') {
+                if (Number.isFinite(f)) return { error: 'Para f deja el campo f vacío e ingresa T o ω (> 0).' };
+                if (pos(T)) return { vals: { modo, sub: 'T', period: String(T) } };
+                if (pos(om)) return { vals: { modo, sub: 'omega', omega: String(om) } };
+                return { error: 'Ingresa T > 0 o ω > 0.' };
+            }
+            if (modo === 'T') {
+                if (!pos(f)) return { error: 'Para T ingresa f > 0. Deja T vacío.' };
+                return { vals: { modo, freq: String(f) } };
+            }
+            if (modo === 'omega') {
+                if (pos(f)) return { vals: { modo, sub: 'f', freq: String(f) } };
+                if (pos(T)) return { vals: { modo, sub: 'T', period: String(T) } };
+                return { error: 'Para ω ingresa f > 0 o T > 0. Deja ω vacío.' };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'f') {
+                if (v.sub === 'T') {
+                    const T = parseFloat(v.period);
+                    const f = 1 / T;
+                    const omega = 2 * Math.PI * f;
+                    return {
+                        valor: f.toFixed(6), unidad: 'Hz',
+                        pasos: [
+                            `f = 1/T = 1/${T} = ${f.toFixed(6)} Hz`,
+                            `ω = 2πf = ${omega.toFixed(4)} rad/s`
+                        ]
+                    };
+                }
+                const om = parseFloat(v.omega);
+                const f = om / (2 * Math.PI);
+                const T = 1 / f;
+                return {
+                    valor: f.toFixed(6), unidad: 'Hz',
+                    pasos: [
+                        `f = ω / (2π) = ${f.toFixed(6)} Hz`,
+                        `T = 1/f = ${T.toFixed(6)} s`
+                    ]
+                };
+            }
+            if (modo === 'T') {
+                const f = parseFloat(v.freq);
+                const T = 1 / f;
+                const omega = 2 * Math.PI * f;
+                return {
+                    valor: T.toFixed(6), unidad: 's',
+                    pasos: [
+                        `T = 1/f = ${T.toFixed(6)} s`,
+                        `ω = 2πf = ${omega.toFixed(4)} rad/s`
+                    ]
+                };
+            }
+            if (modo === 'omega') {
+                if (v.sub === 'f') {
+                    const f = parseFloat(v.freq);
+                    const omega = 2 * Math.PI * f;
+                    return {
+                        valor: omega.toFixed(4), unidad: 'rad/s',
+                        pasos: [`ω = 2πf = ${omega.toFixed(4)} rad/s`, `T = 1/f = ${(1 / f).toFixed(6)} s`]
+                    };
+                }
+                const T = parseFloat(v.period);
+                const omega = 2 * Math.PI / T;
+                const f = 1 / T;
+                return {
+                    valor: omega.toFixed(4), unidad: 'rad/s',
+                    pasos: [`ω = 2π/T = ${omega.toFixed(4)} rad/s`, `f = 1/T = ${f.toFixed(6)} Hz`]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    ohm: {
+        titulo: 'Ley de Ohm',
+        formula: 'V = I · R',
+        desc: 'Elige V, I o R (valores positivos).',
+        campos: [
+            opsSelectModo([
+                { value: 'V', label: 'Voltaje V' },
+                { value: 'I', label: 'Intensidad I' },
+                { value: 'R', label: 'Resistencia R' }
+            ]),
+            { id: 'volt', label: 'Voltaje (V)', unit: 'V', hint: 'Vacío si calculas V' },
+            { id: 'intens', label: 'Intensidad (I)', unit: 'A', hint: 'Vacío si calculas I' },
+            { id: 'resist', label: 'Resistencia (R)', unit: 'Ω', hint: 'Vacío si calculas R' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'V';
+            const V = opsParseField('volt'), I = opsParseField('intens'), R = opsParseField('resist');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'V') {
+                if (!pos(I) || !pos(R)) return { error: 'Para V ingresa I y R (positivas). Deja V vacío.' };
+                return { vals: { modo, intens: String(I), resist: String(R) } };
+            }
+            if (modo === 'I') {
+                if (!pos(V) || !pos(R)) return { error: 'Para I ingresa V y R (positivas). Deja I vacío.' };
+                return { vals: { modo, volt: String(V), resist: String(R) } };
+            }
+            if (modo === 'R') {
+                if (!pos(V) || !pos(I)) return { error: 'Para R ingresa V e I (positivas). Deja R vacío.' };
+                return { vals: { modo, volt: String(V), intens: String(I) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'V') {
+                const I = parseFloat(v.intens), R = parseFloat(v.resist);
+                const V = I * R;
+                return { valor: V.toFixed(4), unidad: 'V', pasos: [`V = I · R = ${V.toFixed(4)} V`] };
+            }
+            if (modo === 'I') {
+                const V = parseFloat(v.volt), R = parseFloat(v.resist);
+                const I = V / R;
+                return { valor: I.toFixed(4), unidad: 'A', pasos: [`I = V / R = ${I.toFixed(4)} A`] };
+            }
+            if (modo === 'R') {
+                const V = parseFloat(v.volt), I = parseFloat(v.intens);
+                const R = V / I;
+                return { valor: R.toFixed(4), unidad: 'Ω', pasos: [`R = V / I = ${R.toFixed(4)} Ω`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    potencia_elec: {
+        titulo: 'Potencia eléctrica',
+        formula: 'P = V · I',
+        desc: 'Elige P, V o I (valores positivos).',
+        campos: [
+            opsSelectModo([
+                { value: 'P', label: 'Potencia P' },
+                { value: 'V', label: 'Voltaje V' },
+                { value: 'I', label: 'Intensidad I' }
+            ]),
+            { id: 'pot', label: 'Potencia (P)', unit: 'W', hint: 'Vacío si calculas P' },
+            { id: 'volt', label: 'Voltaje (V)', unit: 'V', hint: 'Vacío si calculas V' },
+            { id: 'intens', label: 'Intensidad (I)', unit: 'A', hint: 'Vacío si calculas I' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'P';
+            const P = opsParseField('pot'), V = opsParseField('volt'), I = opsParseField('intens');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'P') {
+                if (!pos(V) || !pos(I)) return { error: 'Para P ingresa V e I (positivas). Deja P vacío.' };
+                return { vals: { modo, volt: String(V), intens: String(I) } };
+            }
+            if (modo === 'V') {
+                if (!pos(P) || !pos(I)) return { error: 'Para V ingresa P e I (positivas). Deja V vacío.' };
+                return { vals: { modo, pot: String(P), intens: String(I) } };
+            }
+            if (modo === 'I') {
+                if (!pos(P) || !pos(V)) return { error: 'Para I ingresa P y V (positivas). Deja I vacío.' };
+                return { vals: { modo, pot: String(P), volt: String(V) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'P') {
+                const V = parseFloat(v.volt), I = parseFloat(v.intens);
+                const P = V * I;
+                return {
+                    valor: P.toFixed(4), unidad: 'W',
+                    pasos: [`P = V · I = ${P.toFixed(4)} W`, `≈ ${(P / 1000).toFixed(6)} kW`]
+                };
+            }
+            if (modo === 'V') {
+                const P = parseFloat(v.pot), I = parseFloat(v.intens);
+                const V = P / I;
+                return { valor: V.toFixed(4), unidad: 'V', pasos: [`V = P / I = ${V.toFixed(4)} V`] };
+            }
+            if (modo === 'I') {
+                const P = parseFloat(v.pot), V = parseFloat(v.volt);
+                const I = P / V;
+                return { valor: I.toFixed(4), unidad: 'A', pasos: [`I = P / V = ${I.toFixed(4)} A`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    delta_ec: {
+        titulo: 'Teorema trabajo–energía (ΔEc)',
+        formula: 'W = ½m(v² − v₀²)',
+        desc: 'Elige la incógnita. Para m hace falta v² ≠ v₀²; para v o v₀ se usa la raíz positiva.',
+        campos: [
+            opsSelectModo([
+                { value: 'W', label: 'Trabajo W' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'v', label: 'Velocidad final v' },
+                { value: 'v0', label: 'Velocidad inicial v₀' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'v0', label: 'Velocidad inicial (v₀)', unit: 'm/s', hint: 'Vacío si calculas v₀' },
+            { id: 'v', label: 'Velocidad final (v)', unit: 'm/s', hint: 'Vacío si calculas v' },
+            { id: 'trabw', label: 'Trabajo (W)', unit: 'J', hint: 'Vacío si calculas W' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'W';
+            const m = opsParseField('masa'), v0 = opsParseField('v0'), vf = opsParseField('v'), W = opsParseField('trabw');
+            const fin = (x) => Number.isFinite(x);
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            if (modo === 'W') {
+                if (!pos(m) || !fin(v0) || !fin(vf)) return { error: 'Para W ingresa m > 0 y v₀ y v.' };
+                return { vals: { modo, masa: String(m), v0: String(v0), v: String(vf) } };
+            }
+            if (modo === 'm') {
+                if (!fin(W) || !fin(v0) || !fin(vf)) return { error: 'Para m ingresa W, v₀ y v.' };
+                if (Math.abs(vf * vf - v0 * v0) < 1e-12) return { error: 'v² − v₀² no puede ser 0 para despejar m.' };
+                return { vals: { modo, trabw: String(W), v0: String(v0), v: String(vf) } };
+            }
+            if (modo === 'v') {
+                if (!pos(m) || !fin(v0) || !fin(W)) return { error: 'Para v ingresa m > 0, v₀ y W. Deja v vacío.' };
+                const inside = v0 * v0 + 2 * W / m;
+                if (inside < -1e-9) return { error: 'v₀² + 2W/m debe ser ≥ 0.' };
+                return { vals: { modo, masa: String(m), v0: String(v0), trabw: String(W) } };
+            }
+            if (modo === 'v0') {
+                if (!pos(m) || !fin(vf) || !fin(W)) return { error: 'Para v₀ ingresa m > 0, v y W. Deja v₀ vacío.' };
+                const inside = vf * vf - 2 * W / m;
+                if (inside < -1e-9) return { error: 'v² − 2W/m debe ser ≥ 0.' };
+                return { vals: { modo, masa: String(m), v: String(vf), trabw: String(W) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'W') {
+                const m = parseFloat(v.masa), v0 = parseFloat(v.v0), vf = parseFloat(v.v);
+                const W = 0.5 * m * (vf * vf - v0 * v0);
+                return {
+                    valor: W.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `W = ½m(v² − v₀²)`,
+                        `W = ½ · ${m} · (${vf}² − ${v0}²) = ${W.toFixed(4)} J`
+                    ]
+                };
+            }
+            if (modo === 'm') {
+                const W = parseFloat(v.trabw), v0 = parseFloat(v.v0), vf = parseFloat(v.v);
+                const m = 2 * W / (vf * vf - v0 * v0);
+                return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = 2W / (v² − v₀²) = ${m.toFixed(4)} kg`] };
+            }
+            if (modo === 'v') {
+                const m = parseFloat(v.masa), v0 = parseFloat(v.v0), W = parseFloat(v.trabw);
+                const vf = Math.sqrt(Math.max(0, v0 * v0 + 2 * W / m));
+                return { valor: vf.toFixed(4), unidad: 'm/s', pasos: [`v = √(v₀² + 2W/m) = ${vf.toFixed(4)} m/s`] };
+            }
+            if (modo === 'v0') {
+                const m = parseFloat(v.masa), vf = parseFloat(v.v), W = parseFloat(v.trabw);
+                const v0 = Math.sqrt(Math.max(0, vf * vf - 2 * W / m));
+                return { valor: v0.toFixed(4), unidad: 'm/s', pasos: [`v₀ = √(v² − 2W/m) = ${v0.toFixed(4)} m/s`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    em_total: {
+        titulo: 'Energía mecánica total',
+        formula: 'Em = ½mv² + mgh',
+        desc: 'g = 9.81 m/s². Elige la incógnita (m > 0 cuando aplique; Em ≥ Ec + Ep físicamente al despejar v o h).',
+        campos: [
+            opsSelectModo([
+                { value: 'Em', label: 'Energía mecánica Em' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'v', label: 'Rapidez v' },
+                { value: 'h', label: 'Altura h' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'vel', label: 'Rapidez (v)', unit: 'm/s', hint: 'Vacío si calculas v' },
+            { id: 'altura', label: 'Altura (h)', unit: 'm', hint: 'Vacío si calculas h' },
+            { id: 'em', label: 'Em', unit: 'J', hint: 'Vacío si calculas Em' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Em';
+            const m = opsParseField('masa'), vel = opsParseField('vel'), h = opsParseField('altura'), Em = opsParseField('em');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            const fin = (x) => Number.isFinite(x);
+            const g = 9.81;
+            if (modo === 'Em') {
+                if (!pos(m) || !fin(vel) || !fin(h)) return { error: 'Para Em ingresa m > 0, v y h.' };
+                return { vals: { modo, masa: String(m), vel: String(vel), altura: String(h) } };
+            }
+            if (modo === 'm') {
+                if (!fin(Em) || !fin(vel) || !fin(h)) return { error: 'Para m ingresa Em, v y h.' };
+                const den = 0.5 * vel * vel + g * h;
+                if (Math.abs(den) < 1e-12) return { error: '½v² + gh no puede ser 0.' };
+                return { vals: { modo, em: String(Em), vel: String(vel), altura: String(h) } };
+            }
+            if (modo === 'v') {
+                if (!pos(m) || !fin(Em) || !fin(h)) return { error: 'Para v ingresa m > 0, Em y h. Deja v vacío.' };
+                const inside = 2 * (Em - m * g * h) / m;
+                if (inside < -1e-9) return { error: 'Se requiere Em ≥ mgh para una rapidez real.' };
+                return { vals: { modo, em: String(Em), masa: String(m), altura: String(h) } };
+            }
+            if (modo === 'h') {
+                if (!pos(m) || !fin(Em) || !fin(vel)) return { error: 'Para h ingresa m > 0, Em y v. Deja h vacío.' };
+                const inside = Em - 0.5 * m * vel * vel;
+                if (inside < -1e-9) return { error: 'Se requiere Em ≥ ½mv².' };
+                return { vals: { modo, em: String(Em), masa: String(m), vel: String(vel) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const g = 9.81;
+            const modo = v.modo;
+            if (modo === 'Em') {
+                const m = parseFloat(v.masa), vel = parseFloat(v.vel), h = parseFloat(v.altura);
+                const Ec = 0.5 * m * vel * vel, Ep = m * g * h, Em = Ec + Ep;
+                return {
+                    valor: Em.toFixed(4), unidad: 'J',
+                    pasos: [
+                        `Ec = ½mv² = ${Ec.toFixed(4)} J`,
+                        `Ep = mgh = ${Ep.toFixed(4)} J`,
+                        `Em = ${Em.toFixed(4)} J`
+                    ]
+                };
+            }
+            if (modo === 'm') {
+                const Em = parseFloat(v.em), vel = parseFloat(v.vel), h = parseFloat(v.altura);
+                const m = Em / (0.5 * vel * vel + g * h);
+                return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = Em / (½v² + gh) = ${m.toFixed(4)} kg`] };
+            }
+            if (modo === 'v') {
+                const Em = parseFloat(v.em), m = parseFloat(v.masa), h = parseFloat(v.altura);
+                const vel = Math.sqrt(Math.max(0, 2 * (Em - m * g * h) / m));
+                return { valor: vel.toFixed(4), unidad: 'm/s', pasos: [`v = √(2(Em − mgh)/m) = ${vel.toFixed(4)} m/s`] };
+            }
+            if (modo === 'h') {
+                const Em = parseFloat(v.em), m = parseFloat(v.masa), vel = parseFloat(v.vel);
+                const h = (Em - 0.5 * m * vel * vel) / (m * g);
+                return { valor: h.toFixed(4), unidad: 'm', pasos: [`h = (Em − ½mv²)/(mg) = ${h.toFixed(4)} m`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    fuerza_centripeta: {
+        titulo: 'Fuerza centrípeta',
+        formula: 'Fc = m · v² / r',
+        desc: 'Elige la incógnita (m, v, r > 0 cuando corresponda; Fc ≠ 0 al despejar r).',
+        campos: [
+            opsSelectModo([
+                { value: 'Fc', label: 'Fuerza Fc' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'v', label: 'Rapidez v' },
+                { value: 'r', label: 'Radio r' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'vel', label: 'Rapidez (v)', unit: 'm/s', hint: 'Vacío si calculas v' },
+            { id: 'radio', label: 'Radio (r)', unit: 'm', hint: 'Vacío si calculas r' },
+            { id: 'fc', label: 'Fc', unit: 'N', hint: 'Vacío si calculas Fc' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Fc';
+            const m = opsParseField('masa'), vel = opsParseField('vel'), r = opsParseField('radio'), Fc = opsParseField('fc');
+            const pos = (x) => Number.isFinite(x) && x > 0;
+            const nz = (x) => Number.isFinite(x) && x !== 0;
+            const fin = (x) => Number.isFinite(x);
+            if (modo === 'Fc') {
+                if (!pos(m) || !pos(vel) || !pos(r)) return { error: 'Para Fc ingresa m, v y r (positivos). Deja Fc vacío.' };
+                return { vals: { modo, masa: String(m), vel: String(vel), radio: String(r) } };
+            }
+            if (modo === 'm') {
+                if (!fin(Fc) || !pos(vel) || !pos(r)) return { error: 'Para m ingresa Fc, v y r (v,r > 0). Deja m vacío.' };
+                return { vals: { modo, fc: String(Fc), vel: String(vel), radio: String(r) } };
+            }
+            if (modo === 'v') {
+                if (!fin(Fc) || !pos(m) || !pos(r)) return { error: 'Para v ingresa Fc, m y r (m,r > 0). Deja v vacío.' };
+                const inside = Fc * r / m;
+                if (inside < -1e-9) return { error: 'Fc·r/m debe ser ≥ 0.' };
+                return { vals: { modo, fc: String(Fc), masa: String(m), radio: String(r) } };
+            }
+            if (modo === 'r') {
+                if (!fin(Fc) || !pos(m) || !pos(vel) || !nz(Fc)) return { error: 'Para r ingresa Fc (≠ 0), m y v (m,v > 0). Deja r vacío.' };
+                return { vals: { modo, fc: String(Fc), masa: String(m), vel: String(vel) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const modo = v.modo;
+            if (modo === 'Fc') {
+                const m = parseFloat(v.masa), vel = parseFloat(v.vel), r = parseFloat(v.radio);
+                const Fc = m * vel * vel / r;
+                return { valor: Fc.toFixed(4), unidad: 'N', pasos: [`Fc = mv²/r = ${Fc.toFixed(4)} N`] };
+            }
+            if (modo === 'm') {
+                const Fc = parseFloat(v.fc), vel = parseFloat(v.vel), r = parseFloat(v.radio);
+                const m = Fc * r / (vel * vel);
+                return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = Fc·r/v² = ${m.toFixed(4)} kg`] };
+            }
+            if (modo === 'v') {
+                const Fc = parseFloat(v.fc), m = parseFloat(v.masa), r = parseFloat(v.radio);
+                const vel = Math.sqrt(Math.max(0, Fc * r / m));
+                return { valor: vel.toFixed(4), unidad: 'm/s', pasos: [`v = √(Fc·r/m) = ${vel.toFixed(4)} m/s`] };
+            }
+            if (modo === 'r') {
+                const Fc = parseFloat(v.fc), m = parseFloat(v.masa), vel = parseFloat(v.vel);
+                const r = m * vel * vel / Fc;
+                return { valor: r.toFixed(4), unidad: 'm', pasos: [`r = mv²/Fc = ${r.toFixed(4)} m`] };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+
+    // ===== FÓRMULAS DE CLASE =====
+    gasto_diametro: {
+        titulo: 'Gasto con Diámetro (Q = A·v, A = πD²/4)',
+        formula: 'Q = (π · D² / 4) · v',
+        desc: 'Calcula el gasto a partir del diámetro del ducto y la velocidad del fluido.',
+        campos: [
+            opsSelectModo([
+                { value: 'Q', label: 'Gasto Q' },
+                { value: 'D', label: 'Diámetro D' },
+                { value: 'v', label: 'Velocidad v' }
+            ]),
+            { id: 'diam', label: 'Diámetro (D)', unit: 'm', hint: 'ej. 0.16 (16 cm)' },
+            { id: 'vel', label: 'Velocidad del fluido (v)', unit: 'm/s', hint: 'ej. 1.4' },
+            { id: 'gasto', label: 'Gasto (Q)', unit: 'm³/s', hint: 'Vacío si calculas Q' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Q';
+            const D = opsParseField('diam'), v = opsParseField('vel'), Q = opsParseField('gasto');
+            const pos = x => Number.isFinite(x) && x > 0;
+            if (modo === 'Q') {
+                if (!pos(D) || !pos(v)) return { error: 'Ingresa Diámetro y Velocidad (positivos). Deja Q vacío.' };
+                return { vals: { modo, diam: String(D), vel: String(v) } };
+            }
+            if (modo === 'D') {
+                if (!pos(Q) || !pos(v)) return { error: 'Ingresa Q y Velocidad para calcular D.' };
+                return { vals: { modo, gasto: String(Q), vel: String(v) } };
+            }
+            if (modo === 'v') {
+                if (!pos(Q) || !pos(D)) return { error: 'Ingresa Q y Diámetro para calcular v.' };
+                return { vals: { modo, gasto: String(Q), diam: String(D) } };
+            }
+            return { error: 'Modo no válido.' };
+        },
+        calcular(v) {
+            const pi = Math.PI;
+            if (v.modo === 'Q') {
+                const D = parseFloat(v.diam), vel = parseFloat(v.vel);
+                const A = pi * D * D / 4;
+                const Q = A * vel;
+                return {
+                    valor: Q.toFixed(6), unidad: 'm³/s',
+                    pasos: [
+                        `Paso 1 — Área: A = π · D² / 4 = π · ${D}² / 4`,
+                        `A = π · ${(D*D).toFixed(6)} / 4 = ${A.toFixed(6)} m²`,
+                        `Paso 2 — Gasto: Q = A · v = ${A.toFixed(6)} · ${vel}`,
+                        `Q = ${Q.toFixed(6)} m³/s`,
+                        `Equivale a ${(Q * 1000).toFixed(4)} L/s`
+                    ]
+                };
+            }
+            if (v.modo === 'D') {
+                const Q = parseFloat(v.gasto), vel = parseFloat(v.vel);
+                const A = Q / vel;
+                const D = Math.sqrt(4 * A / pi);
+                return {
+                    valor: D.toFixed(6), unidad: 'm',
+                    pasos: [
+                        `Despeje: A = Q / v = ${Q} / ${vel} = ${A.toFixed(6)} m²`,
+                        `D = √(4A / π) = √(4 · ${A.toFixed(6)} / π)`,
+                        `D = ${D.toFixed(6)} m = ${(D * 100).toFixed(4)} cm`
+                    ]
+                };
+            }
+            if (v.modo === 'v') {
+                const Q = parseFloat(v.gasto), D = parseFloat(v.diam);
+                const A = pi * D * D / 4;
+                const vel = Q / A;
+                return {
+                    valor: vel.toFixed(6), unidad: 'm/s',
+                    pasos: [
+                        `Área: A = π · D² / 4 = ${A.toFixed(6)} m²`,
+                        `v = Q / A = ${Q} / ${A.toFixed(6)}`,
+                        `v = ${vel.toFixed(6)} m/s`
+                    ]
+                };
+            }
+            return { error: 'Modo no válido.' };
+        }
+    },
+    gasto_vt: {
+        titulo: 'Gasto Volumétrico (G = V / t)',
+        formula: 'G = V / t',
+        desc: 'Calcula el gasto como volumen entre tiempo. Despeja G, V o t.',
+        campos: [
+            opsSelectModo([
+                { value: 'G', label: 'Gasto G' },
+                { value: 'V', label: 'Volumen V' },
+                { value: 't', label: 'Tiempo t' }
+            ]),
+            { id: 'vol', label: 'Volumen (V)', unit: 'm³', hint: 'Vacío si calculas V' },
+            { id: 'tiem', label: 'Tiempo (t)', unit: 's', hint: 'Vacío si calculas t' },
+            { id: 'gasto', label: 'Gasto (G)', unit: 'm³/s', hint: 'Vacío si calculas G' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'G';
+            const V = opsParseField('vol'), t = opsParseField('tiem'), G = opsParseField('gasto');
+            const pos = x => Number.isFinite(x) && x > 0;
+            if (modo === 'G' && (!pos(V) || !pos(t))) return { error: 'Ingresa V y t para calcular G.' };
+            if (modo === 'V' && (!pos(G) || !pos(t))) return { error: 'Ingresa G y t para calcular V.' };
+            if (modo === 't' && (!pos(G) || !pos(V))) return { error: 'Ingresa G y V para calcular t.' };
+            return { vals: { modo, vol: String(V), tiem: String(t), gasto: String(G) } };
+        },
+        calcular(v) {
+            if (v.modo === 'G') {
+                const V = parseFloat(v.vol), t = parseFloat(v.tiem);
+                const G = V / t;
+                return { valor: G.toFixed(6), unidad: 'm³/s', pasos: [`G = V / t = ${V} / ${t} = ${G.toFixed(6)} m³/s`, `Equivale a ${(G*1000).toFixed(4)} L/s`] };
+            }
+            if (v.modo === 'V') {
+                const G = parseFloat(v.gasto), t = parseFloat(v.tiem);
+                const V = G * t;
+                return { valor: V.toFixed(6), unidad: 'm³', pasos: [`V = G · t = ${G} · ${t} = ${V.toFixed(6)} m³`] };
+            }
+            const G = parseFloat(v.gasto), V = parseFloat(v.vol);
+            const t = V / G;
+            return { valor: t.toFixed(4), unidad: 's', pasos: [`t = V / G = ${V} / ${G} = ${t.toFixed(4)} s`] };
+        }
+    },
+    densidad: {
+        titulo: 'Densidad (ρ = m / V)',
+        formula: 'ρ = m / V',
+        desc: 'Despeja densidad, masa o volumen.',
+        campos: [
+            opsSelectModo([
+                { value: 'rho', label: 'Densidad ρ' },
+                { value: 'm', label: 'Masa m' },
+                { value: 'V', label: 'Volumen V' }
+            ]),
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'vol', label: 'Volumen (V)', unit: 'm³', hint: 'Vacío si calculas V' },
+            { id: 'dens', label: 'Densidad (ρ)', unit: 'kg/m³', hint: 'Vacío si calculas ρ' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'rho';
+            const m = opsParseField('masa'), V = opsParseField('vol'), r = opsParseField('dens');
+            const pos = x => Number.isFinite(x) && x > 0;
+            if (modo === 'rho' && (!pos(m) || !pos(V))) return { error: 'Ingresa m y V para calcular ρ.' };
+            if (modo === 'm' && (!pos(r) || !pos(V))) return { error: 'Ingresa ρ y V para calcular m.' };
+            if (modo === 'V' && (!pos(r) || !pos(m))) return { error: 'Ingresa ρ y m para calcular V.' };
+            return { vals: { modo, masa: String(m), vol: String(V), dens: String(r) } };
+        },
+        calcular(v) {
+            if (v.modo === 'rho') {
+                const m = parseFloat(v.masa), V = parseFloat(v.vol);
+                const r = m / V;
+                return { valor: r.toFixed(4), unidad: 'kg/m³', pasos: [`ρ = m / V = ${m} / ${V} = ${r.toFixed(4)} kg/m³`] };
+            }
+            if (v.modo === 'm') {
+                const r = parseFloat(v.dens), V = parseFloat(v.vol);
+                const m = r * V;
+                return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = ρ · V = ${r} · ${V} = ${m.toFixed(4)} kg`] };
+            }
+            const r = parseFloat(v.dens), m = parseFloat(v.masa);
+            const V = m / r;
+            return { valor: V.toFixed(6), unidad: 'm³', pasos: [`V = m / ρ = ${m} / ${r} = ${V.toFixed(6)} m³`] };
+        }
+    },
+    delta_u: {
+        titulo: 'Variación de Energía Interna (ΔU = Q − W)',
+        formula: 'ΔU = Q − W',
+        desc: 'Q positivo = calor que entra al sistema. W positivo = trabajo que realiza el sistema. Unidades: J o cal.',
+        campos: [
+            opsSelectModo([
+                { value: 'dU', label: 'ΔU (energía interna)' },
+                { value: 'Q', label: 'Q (calor)' },
+                { value: 'W', label: 'W (trabajo)' }
+            ]),
+            { id: 'calor', label: 'Calor (Q)', unit: 'J', hint: 'Vacío si calculas Q' },
+            { id: 'trab', label: 'Trabajo (W)', unit: 'J', hint: 'Vacío si calculas W' },
+            { id: 'du', label: 'ΔU', unit: 'J', hint: 'Vacío si calculas ΔU' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'dU';
+            const Q = opsParseField('calor'), W = opsParseField('trab'), dU = opsParseField('du');
+            const fin = x => Number.isFinite(x);
+            if (modo === 'dU' && (!fin(Q) || !fin(W))) return { error: 'Ingresa Q y W para calcular ΔU.' };
+            if (modo === 'Q' && (!fin(dU) || !fin(W))) return { error: 'Ingresa ΔU y W para calcular Q.' };
+            if (modo === 'W' && (!fin(dU) || !fin(Q))) return { error: 'Ingresa ΔU y Q para calcular W.' };
+            return { vals: { modo, calor: String(Q), trab: String(W), du: String(dU) } };
+        },
+        calcular(v) {
+            if (v.modo === 'dU') {
+                const Q = parseFloat(v.calor), W = parseFloat(v.trab);
+                const dU = Q - W;
+                return { valor: dU.toFixed(4), unidad: 'J', pasos: [`ΔU = Q − W = ${Q} − ${W} = ${dU.toFixed(4)} J`, `Si Q > W → el sistema gana energía interna`, `Si Q < W → el sistema pierde energía interna`] };
+            }
+            if (v.modo === 'Q') {
+                const dU = parseFloat(v.du), W = parseFloat(v.trab);
+                const Q = dU + W;
+                return { valor: Q.toFixed(4), unidad: 'J', pasos: [`Q = ΔU + W = ${dU} + ${W} = ${Q.toFixed(4)} J`] };
+            }
+            const dU = parseFloat(v.du), Q = parseFloat(v.calor);
+            const W = Q - dU;
+            return { valor: W.toFixed(4), unidad: 'J', pasos: [`W = Q − ΔU = ${Q} − ${dU} = ${W.toFixed(4)} J`] };
+        }
+    },
+    trabajo_termodinamico: {
+        titulo: 'Trabajo Termodinámico (W = P · ΔV)',
+        formula: 'W = P · (Vf − Vi)',
+        desc: 'Trabajo realizado por un gas a presión constante. P en Pa, volúmenes en m³.',
+        campos: [
+            opsSelectModo([
+                { value: 'W', label: 'Trabajo W' },
+                { value: 'P', label: 'Presión P' },
+                { value: 'Vf', label: 'Volumen final Vf' }
+            ]),
+            { id: 'pres', label: 'Presión (P)', unit: 'Pa', hint: 'Vacío si calculas P' },
+            { id: 'vi', label: 'Volumen inicial (Vi)', unit: 'm³', hint: 'ej. 0.002' },
+            { id: 'vf', label: 'Volumen final (Vf)', unit: 'm³', hint: 'Vacío si calculas Vf' },
+            { id: 'trab', label: 'Trabajo (W)', unit: 'J', hint: 'Vacío si calculas W' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'W';
+            const P = opsParseField('pres'), Vi = opsParseField('vi'), Vf = opsParseField('vf'), W = opsParseField('trab');
+            const pos = x => Number.isFinite(x) && x > 0;
+            const fin = x => Number.isFinite(x);
+            if (modo === 'W' && (!pos(P) || !fin(Vi) || !fin(Vf))) return { error: 'Ingresa P, Vi y Vf para calcular W.' };
+            if (modo === 'P' && (!fin(W) || !fin(Vi) || !fin(Vf) || Vf === Vi)) return { error: 'Ingresa W, Vi y Vf (Vf ≠ Vi) para calcular P.' };
+            if (modo === 'Vf' && (!fin(W) || !pos(P) || !fin(Vi))) return { error: 'Ingresa W, P y Vi para calcular Vf.' };
+            return { vals: { modo, pres: String(P), vi: String(Vi), vf: String(Vf), trab: String(W) } };
+        },
+        calcular(v) {
+            if (v.modo === 'W') {
+                const P = parseFloat(v.pres), Vi = parseFloat(v.vi), Vf = parseFloat(v.vf);
+                const W = P * (Vf - Vi);
+                return { valor: W.toFixed(4), unidad: 'J', pasos: [`W = P · (Vf − Vi) = ${P} · (${Vf} − ${Vi})`, `W = ${P} · ${(Vf-Vi).toFixed(6)} = ${W.toFixed(4)} J`, W > 0 ? `W > 0: el gas se expande y realiza trabajo sobre el entorno.` : `W < 0: el gas se comprime, el entorno realiza trabajo sobre él.`] };
+            }
+            if (v.modo === 'P') {
+                const W = parseFloat(v.trab), Vi = parseFloat(v.vi), Vf = parseFloat(v.vf);
+                const P = W / (Vf - Vi);
+                return { valor: P.toFixed(4), unidad: 'Pa', pasos: [`P = W / (Vf − Vi) = ${W} / (${Vf} − ${Vi}) = ${P.toFixed(4)} Pa`] };
+            }
+            const W = parseFloat(v.trab), P = parseFloat(v.pres), Vi = parseFloat(v.vi);
+            const Vf = W / P + Vi;
+            return { valor: Vf.toFixed(6), unidad: 'm³', pasos: [`Vf = W/P + Vi = ${W}/${P} + ${Vi} = ${Vf.toFixed(6)} m³`] };
+        }
+    },
+    ec_momento: {
+        titulo: 'Energía Cinética con Momento Lineal (Ec = p²/2m)',
+        formula: 'Ec = p² / 2m  |  p = m·v',
+        desc: 'Despeja Ec, p o m. El momento lineal p = m·v.',
+        campos: [
+            opsSelectModo([
+                { value: 'Ec', label: 'Energía cinética Ec' },
+                { value: 'p', label: 'Momento lineal p' },
+                { value: 'm', label: 'Masa m' }
+            ]),
+            { id: 'momento', label: 'Momento lineal (p = m·v)', unit: 'kg·m/s', hint: 'Vacío si calculas p' },
+            { id: 'masa', label: 'Masa (m)', unit: 'kg', hint: 'Vacío si calculas m' },
+            { id: 'ec', label: 'Energía cinética (Ec)', unit: 'J', hint: 'Vacío si calculas Ec' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'Ec';
+            const p = opsParseField('momento'), m = opsParseField('masa'), Ec = opsParseField('ec');
+            const pos = x => Number.isFinite(x) && x > 0;
+            if (modo === 'Ec' && (!pos(p) || !pos(m))) return { error: 'Ingresa p y m para calcular Ec.' };
+            if (modo === 'p' && (!pos(Ec) || !pos(m))) return { error: 'Ingresa Ec y m para calcular p.' };
+            if (modo === 'm' && (!pos(Ec) || !pos(p))) return { error: 'Ingresa Ec y p para calcular m.' };
+            return { vals: { modo, momento: String(p), masa: String(m), ec: String(Ec) } };
+        },
+        calcular(v) {
+            if (v.modo === 'Ec') {
+                const p = parseFloat(v.momento), m = parseFloat(v.masa);
+                const Ec = (p * p) / (2 * m);
+                return { valor: Ec.toFixed(4), unidad: 'J', pasos: [`Ec = p² / 2m = ${p}² / (2 · ${m})`, `Ec = ${p*p} / ${2*m} = ${Ec.toFixed(4)} J`] };
+            }
+            if (v.modo === 'p') {
+                const Ec = parseFloat(v.ec), m = parseFloat(v.masa);
+                const p = Math.sqrt(2 * m * Ec);
+                return { valor: p.toFixed(4), unidad: 'kg·m/s', pasos: [`p = √(2·m·Ec) = √(2 · ${m} · ${Ec}) = ${p.toFixed(4)} kg·m/s`] };
+            }
+            const Ec = parseFloat(v.ec), p = parseFloat(v.momento);
+            const m = (p * p) / (2 * Ec);
+            return { valor: m.toFixed(4), unidad: 'kg', pasos: [`m = p² / (2·Ec) = ${p*p} / ${2*Ec} = ${m.toFixed(4)} kg`] };
+        }
+    },
+    eficiencia_calores: {
+        titulo: 'Eficiencia Térmica por Calores (E = 1 − Q₂/Q₁)',
+        formula: 'E = 1 − Q₂ / Q₁',
+        desc: 'Q₁ = calor absorbido del foco caliente. Q₂ = calor cedido al foco frío.',
+        campos: [
+            opsSelectModo([
+                { value: 'E', label: 'Eficiencia E' },
+                { value: 'Q1', label: 'Calor absorbido Q₁' },
+                { value: 'Q2', label: 'Calor cedido Q₂' }
+            ]),
+            { id: 'q1', label: 'Calor absorbido (Q₁)', unit: 'J', hint: 'Vacío si calculas Q₁' },
+            { id: 'q2', label: 'Calor cedido (Q₂)', unit: 'J', hint: 'Vacío si calculas Q₂' },
+            { id: 'efic', label: 'Eficiencia E (0 a 1)', unit: '', hint: 'Vacío si calculas E' }
+        ],
+        validarEntradas() {
+            const modo = opsGetModo() || 'E';
+            const Q1 = opsParseField('q1'), Q2 = opsParseField('q2'), E = opsParseField('efic');
+            const pos = x => Number.isFinite(x) && x > 0;
+            if (modo === 'E' && (!pos(Q1) || !pos(Q2))) return { error: 'Ingresa Q₁ y Q₂ para calcular E.' };
+            if (modo === 'Q1' && (!pos(Q2) || !Number.isFinite(E) || E <= 0 || E >= 1)) return { error: 'Ingresa Q₂ y E (entre 0 y 1) para calcular Q₁.' };
+            if (modo === 'Q2' && (!pos(Q1) || !Number.isFinite(E) || E <= 0 || E >= 1)) return { error: 'Ingresa Q₁ y E (entre 0 y 1) para calcular Q₂.' };
+            return { vals: { modo, q1: String(Q1), q2: String(Q2), efic: String(E) } };
+        },
+        calcular(v) {
+            if (v.modo === 'E') {
+                const Q1 = parseFloat(v.q1), Q2 = parseFloat(v.q2);
+                const E = 1 - Q2 / Q1;
+                return { valor: (E * 100).toFixed(2), unidad: '%', pasos: [`E = 1 − Q₂/Q₁ = 1 − ${Q2}/${Q1}`, `E = ${E.toFixed(6)} → ${(E*100).toFixed(2)}%`] };
+            }
+            if (v.modo === 'Q1') {
+                const Q2 = parseFloat(v.q2), E = parseFloat(v.efic);
+                const Q1 = Q2 / (1 - E);
+                return { valor: Q1.toFixed(4), unidad: 'J', pasos: [`Q₁ = Q₂ / (1 − E) = ${Q2} / (1 − ${E}) = ${Q1.toFixed(4)} J`] };
+            }
+            const Q1 = parseFloat(v.q1), E = parseFloat(v.efic);
+            const Q2 = Q1 * (1 - E);
+            return { valor: Q2.toFixed(4), unidad: 'J', pasos: [`Q₂ = Q₁ · (1 − E) = ${Q1} · (1 − ${E}) = ${Q2.toFixed(4)} J`] };
+        }
+    }
+};
+
+/** Resultado Operaciones: enteros sin decimales; decimales sin ceros finales innecesarios */
+function fmtOpsNum(n) {
+    if (typeof n !== 'number' || !Number.isFinite(n)) return String(n);
+    const r = Math.round(n);
+    if (Math.abs(n - r) < 1e-9 * Math.max(1, Math.abs(n))) return String(r);
+    return n.toFixed(12).replace(/\.?0+$/, '').replace(/^-0$/, '0');
+}
+
+let opsActual = 'ec';
+
+function selOps(btn, tema) {
+    document.querySelectorAll('.ops-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    opsActual = tema;
+    renderOpsForm();
+    document.getElementById('ops-resultado').classList.add('hidden');
+}
+
+function renderOpsForm() {
+    const t = opsTemas[opsActual];
+    let html = `<div class="ops-header">
+        <div class="ops-titulo">${t.titulo}</div>
+        <div class="ops-formula">${t.formula}</div>
+        <div class="ops-desc">${t.desc}</div>
+    </div>
+    <div class="ops-campos">`;
+    t.campos.forEach(c => {
+        html += `<div class="ops-campo">
+            <label class="ops-label">${c.label}</label>
+            <div class="ops-input-wrap">`;
+        if (c.type === 'select' && c.opciones) {
+            html += `<select class="conv-select ops-field-select" id="ops-field-${c.id}">`;
+            c.opciones.forEach(o => {
+                html += `<option value="${o.value}">${o.label}</option>`;
+            });
+            html += `</select>`;
+            if (c.unit) html += `<span class="ops-unit">${c.unit}</span>`;
+        } else {
+            html += `<input type="number" class="conv-input" id="ops-field-${c.id}" placeholder="${c.hint || ''}" step="any">`;
+            html += `<span class="ops-unit">${c.unit}</span>`;
+        }
+        html += `
+            </div>
+        </div>`;
+    });
+    html += `</div>`;
+    document.getElementById('ops-content').innerHTML = html;
+}
+
+function calcularOps() {
+    const t = opsTemas[opsActual];
+    let vals;
+
+    if (typeof t.validarEntradas === 'function') {
+        const vr = t.validarEntradas();
+        if (vr.error) {
+            mostrarOpsError(vr.error);
+            return;
+        }
+        vals = vr.vals;
+    } else {
+        vals = {};
+        for (const c of t.campos) {
+            const el = document.getElementById(`ops-field-${c.id}`);
+            if (c.type === 'select') {
+                if (!el) {
+                    mostrarOpsError('Falta un campo del formulario.');
+                    return;
+                }
+                vals[c.id] = el.value;
+                continue;
+            }
+            if (!el || el.value === '' || isNaN(parseFloat(el.value))) {
+                mostrarOpsError(`Ingresa un valor válido en "${c.label}".`);
+                return;
+            }
+            vals[c.id] = el.value;
+        }
+    }
+
+    const res = t.calcular(vals);
+    if (res.error) { mostrarOpsError(res.error); return; }
+
+    const parsedValor = parseFloat(String(res.valor).replace(',', '.'));
+    const valorMostrar = Number.isFinite(parsedValor) ? fmtOpsNum(parsedValor) : res.valor;
+
+    let html = `<div class="ops-res-valor">Resultado: <strong>${valorMostrar} ${res.unidad}</strong></div>
+        <div class="ops-pasos-titulo">📋 Procedimiento paso a paso:</div>
+        <ol class="ops-pasos">`;
+    res.pasos.forEach(p => { html += `<li>${p}</li>`; });
+    html += `</ol>`;
+
+    const div = document.getElementById('ops-resultado');
+    div.innerHTML = html;
+    div.classList.remove('hidden', 'ops-error');
+}
+
+function mostrarOpsError(msg) {
+    const div = document.getElementById('ops-resultado');
+    div.innerHTML = `⚠️ ${msg}`;
+    div.classList.remove('hidden');
+    div.classList.add('ops-error');
+}
+
+document.addEventListener('DOMContentLoaded', renderOpsForm);
+
+// =====================================================
+// ============== CONVERSIONES DE UNIDADES =============
+// =====================================================
+
+function fmtConv(n) {
+    if (n === null || isNaN(n)) return '—';
+    if (Math.abs(n) >= 1e6 || (Math.abs(n) < 1e-4 && n !== 0)) return n.toExponential(6);
+    return parseFloat(n.toPrecision(8)).toString();
+}
+
+function convRow(label, val, unit) {
+    return `<div class="conv-row"><span class="conv-row-label">${label}</span><span class="conv-row-val">${fmtConv(val)} <small>${unit}</small></span></div>`;
+}
+
+function convertirTemp() {
+    const raw = parseFloat(document.getElementById('conv-temp-val').value);
+    const from = document.getElementById('conv-temp-from').value;
+    const out = document.getElementById('conv-temp-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    let C;
+    if (from === 'C') C = raw;
+    else if (from === 'K') C = raw - 273.15;
+    else if (from === 'F') C = (raw - 32) * 5/9;
+    else if (from === 'R') C = (raw - 491.67) * 5/9;
+    const K = C + 273.15, F = C * 9/5 + 32, R = (C + 273.15) * 9/5;
+    out.innerHTML = convRow('Celsius','°', '') + 
+        [['°Celsius', C, '°C'], ['Kelvin', K, 'K'], ['Fahrenheit', F, '°F'], ['Rankine', R, '°R']]
+        .filter(r => r[0] !== ({C:'°Celsius',K:'Kelvin',F:'Fahrenheit',R:'Rankine'}[from]))
+        .map(r => convRow(r[0], r[1], r[2])).join('');
+    out.innerHTML = [['°Celsius', C, '°C'], ['Kelvin', K, 'K'], ['Fahrenheit', F, '°F'], ['Rankine', R, '°R']]
+        .map(r => convRow(r[0], r[1], r[2])).join('');
+}
+
+function convertirEnergia() {
+    const raw = parseFloat(document.getElementById('conv-en-val').value);
+    const from = document.getElementById('conv-en-from').value;
+    const out = document.getElementById('conv-en-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toJ = { J:1, cal:4.184, kcal:4184, kJ:1000, eV:1.602176634e-19, BTU:1055.06, kWh:3600000 };
+    const J = raw * toJ[from];
+    const units = [['Joules',J,'J'],['Calorías',J/4.184,'cal'],['Kilocalorías',J/4184,'kcal'],
+        ['Kilojoules',J/1000,'kJ'],['Electronvoltios',J/1.602176634e-19,'eV'],['BTU',J/1055.06,'BTU'],['kWh',J/3600000,'kWh']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirPresion() {
+    const raw = parseFloat(document.getElementById('conv-pres-val').value);
+    const from = document.getElementById('conv-pres-from').value;
+    const out = document.getElementById('conv-pres-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toPa = { Pa:1, kPa:1000, atm:101325, bar:100000, mmHg:133.322, psi:6894.76 };
+    const Pa = raw * toPa[from];
+    const units = [['Pascales',Pa,'Pa'],['Kilopascales',Pa/1000,'kPa'],['Atmósferas',Pa/101325,'atm'],
+        ['Bar',Pa/100000,'bar'],['mmHg / Torr',Pa/133.322,'mmHg'],['PSI',Pa/6894.76,'psi']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirMasa() {
+    const raw = parseFloat(document.getElementById('conv-masa-val').value);
+    const from = document.getElementById('conv-masa-from').value;
+    const out = document.getElementById('conv-masa-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toKg = { kg:1, g:0.001, mg:1e-6, lb:0.453592, oz:0.0283495, ton:1000, u:1.66053906660e-27 };
+    const kg = raw * toKg[from];
+    const units = [['Kilogramos',kg,'kg'],['Gramos',kg*1000,'g'],['Miligramos',kg*1e6,'mg'],
+        ['Libras',kg/0.453592,'lb'],['Onzas',kg/0.0283495,'oz'],['Toneladas métricas',kg/1000,'t'],
+        ['Unidades atómicas (u)',kg/1.66053906660e-27,'u']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirLongitud() {
+    const raw = parseFloat(document.getElementById('conv-long-val').value);
+    const from = document.getElementById('conv-long-from').value;
+    const out = document.getElementById('conv-long-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toM = { m:1, km:1000, cm:0.01, mm:0.001, mi:1609.344, ft:0.3048, in:0.0254, nm:1e-9, 'Å':1e-10 };
+    const m = raw * toM[from];
+    const units = [['Metros',m,'m'],['Kilómetros',m/1000,'km'],['Centímetros',m*100,'cm'],
+        ['Milímetros',m*1000,'mm'],['Millas',m/1609.344,'mi'],['Pies',m/0.3048,'ft'],
+        ['Pulgadas',m/0.0254,'in'],['Nanómetros',m/1e-9,'nm'],['Ångström',m/1e-10,'Å']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirTiempo() {
+    const raw = parseFloat(document.getElementById('conv-tiempo-val').value);
+    const from = document.getElementById('conv-tiempo-from').value;
+    const out = document.getElementById('conv-tiempo-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toS = { s:1, ms:0.001, min:60, h:3600, d:86400 };
+    const s = raw * toS[from];
+    const units = [['Segundos',s,'s'],['Milisegundos',s*1000,'ms'],['Minutos',s/60,'min'],['Horas',s/3600,'h'],['Días',s/86400,'d']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirVelocidad() {
+    const raw = parseFloat(document.getElementById('conv-vel-val').value);
+    const from = document.getElementById('conv-vel-from').value;
+    const out = document.getElementById('conv-vel-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toMs = { ms:1, kmh:1/3.6, mph:0.44704, kn:0.514444, fts:0.3048 };
+    const ms = raw * toMs[from];
+    const units = [['m/s',ms,'m/s'],['km/h',ms*3.6,'km/h'],['mph',ms/0.44704,'mph'],['Nudos',ms/0.514444,'kn'],['ft/s',ms/0.3048,'ft/s']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirPotencia() {
+    const raw = parseFloat(document.getElementById('conv-pot-val').value);
+    const from = document.getElementById('conv-pot-from').value;
+    const out = document.getElementById('conv-pot-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toW = { W:1, kW:1000, hp:745.699872, kcals:4184 };
+    const W = raw * toW[from];
+    const units = [['Watts',W,'W'],['Kilowatts',W/1000,'kW'],['Caballos de fuerza (hp)',W/745.699872,'hp'],['kcal/s',W/4184,'kcal/s']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}
+
+function convertirVolumen() {
+    const raw = parseFloat(document.getElementById('conv-vol-val').value);
+    const from = document.getElementById('conv-vol-from').value;
+    const out = document.getElementById('conv-vol-out');
+    if (isNaN(raw)) { out.innerHTML = ''; return; }
+    const toL = { L:1, mL:0.001, m3:1000, cm3:0.001, gal:3.785411784, fl_oz:0.0295735 };
+    const L = raw * toL[from];
+    const units = [['Litros',L,'L'],['Mililitros',L*1000,'mL'],['Metros cúbicos',L/1000,'m³'],
+        ['Centímetros cúbicos',L*1000,'cm³'],['Galones (US)',L/3.785411784,'gal'],['Onzas líquidas',L/0.0295735,'fl oz']];
+    out.innerHTML = units.map(r => convRow(r[0],r[1],r[2])).join('');
+}

@@ -18,6 +18,9 @@
             <button class="nav-btn" onclick="cambiarSeccion('sec-enlaces')">Enlaces Químicos</button>
             <button class="nav-btn" onclick="cambiarSeccion('sec-radiacion')">Espectro</button>
             <button class="nav-btn" onclick="cambiarSeccion('sec-lab')">Laboratorio</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-operaciones')">Operaciones</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-formulas')">Fórmulas</button>
+            <button class="nav-btn" onclick="cambiarSeccion('sec-conversiones')">Conversiones</button>
             <button class="nav-btn" id="btn-letra" onclick="toggleTamanoLetra()" style="border-left: 1px solid var(--glass-border); border-radius: 0 8px 8px 0; margin-left: 10px;">A⁺</button>
         </nav>
     </header>
@@ -330,6 +333,473 @@
                     </div>
             </div>
         </section>
+
+        <!-- ===== OPERACIONES ===== -->
+        <section id="sec-operaciones" class="seccion hidden">
+            <h2 class="section-title">Operaciones Físicas</h2>
+            <p class="text-center" style="margin-bottom:24px;">Selecciona un tema, ingresa los datos y obtén el resultado con procedimiento paso a paso.</p>
+
+            <div class="ops-layout">
+                <!-- Menú temas -->
+                <div class="ops-menu glass-panel">
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">Energía Mecánica</div>
+                        <button class="ops-btn active" onclick="selOps(this,'ec')">Energía Cinética</button>
+                        <button class="ops-btn" onclick="selOps(this,'ep')">Energía Potencial</button>
+                        <button class="ops-btn" onclick="selOps(this,'em_total')">Energía mecánica total</button>
+                        <button class="ops-btn" onclick="selOps(this,'delta_ec')">Trabajo neto (ΔEc)</button>
+                        <button class="ops-btn" onclick="selOps(this,'trabajo')">Trabajo Mecánico</button>
+                        <button class="ops-btn" onclick="selOps(this,'potencia')">Potencia</button>
+                    </div>
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">Cinemática y dinámica</div>
+                        <button class="ops-btn" onclick="selOps(this,'mrua_v')">MRUA: velocidad (v = v₀+at)</button>
+                        <button class="ops-btn" onclick="selOps(this,'mrua_x')">MRUA: desplazamiento</button>
+                        <button class="ops-btn" onclick="selOps(this,'tiempo_caida')">Caída libre: tiempo</button>
+                        <button class="ops-btn" onclick="selOps(this,'newton')">2ª ley Newton (F = ma)</button>
+                        <button class="ops-btn" onclick="selOps(this,'fuerza_peso')">Peso (W = mg)</button>
+                        <button class="ops-btn" onclick="selOps(this,'fuerza_centripeta')">Fuerza centrípeta</button>
+                    </div>
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">Termodinámica</div>
+                        <button class="ops-btn" onclick="selOps(this,'calor')">Calor (Q = mcΔT)</button>
+                        <button class="ops-btn" onclick="selOps(this,'2ley')">2ª Ley — Eficiencia</button>
+                        <button class="ops-btn" onclick="selOps(this,'dilatacion')">Dilatación Térmica</button>
+                    </div>
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">Ondas y oscilaciones</div>
+                        <button class="ops-btn" onclick="selOps(this,'onda_vlf')">Onda: v = λf</button>
+                        <button class="ops-btn" onclick="selOps(this,'periodo_f')">Período y ω desde f</button>
+                    </div>
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">Presión y fluidos</div>
+                        <button class="ops-btn" onclick="selOps(this,'presion')">Presión (P = F/A)</button>
+                        <button class="ops-btn" onclick="selOps(this,'phidro')">Presión Hidrostática</button>
+                        <button class="ops-btn" onclick="selOps(this,'patm')">Presión Atmosférica</button>
+                        <button class="ops-btn" onclick="selOps(this,'caudal')">Caudal / Continuidad</button>
+                        <button class="ops-btn" onclick="selOps(this,'bernoulli')">Ecuación de Bernoulli</button>
+                        <button class="ops-btn" onclick="selOps(this,'torricelli')">Teorema de Torricelli</button>
+                    </div>
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">Electricidad (CC)</div>
+                        <button class="ops-btn" onclick="selOps(this,'ohm')">Ley de Ohm (V = IR)</button>
+                        <button class="ops-btn" onclick="selOps(this,'potencia_elec')">Potencia eléctrica (P = VI)</button>
+                    </div>
+                    <div class="ops-grupo">
+                        <div class="ops-grupo-titulo">📓 Fórmulas de Clase</div>
+                        <button class="ops-btn" onclick="selOps(this,'gasto_diametro')">Gasto con Diámetro (Q = πD²/4 · v)</button>
+                        <button class="ops-btn" onclick="selOps(this,'gasto_vt')">Gasto volumétrico (G = V/t)</button>
+                        <button class="ops-btn" onclick="selOps(this,'densidad')">Densidad (ρ = m/V)</button>
+                        <button class="ops-btn" onclick="selOps(this,'delta_u')">Energía interna (ΔU = Q − W)</button>
+                        <button class="ops-btn" onclick="selOps(this,'trabajo_termodinamico')">Trabajo termodinámico (W = PΔV)</button>
+                        <button class="ops-btn" onclick="selOps(this,'ec_momento')">Ec con momento (p²/2m)</button>
+                        <button class="ops-btn" onclick="selOps(this,'eficiencia_calores')">Eficiencia por calores (E = 1−Q₂/Q₁)</button>
+                    </div>
+                </div>
+
+                <!-- Panel calculadora -->
+                <div class="ops-calc glass-panel">
+                    <div id="ops-content">
+                        <!-- JS renderiza aquí -->
+                    </div>
+                    <button class="btn-reaccionar" style="margin-top:18px;width:100%;" onclick="calcularOps()">Calcular</button>
+                    <div id="ops-resultado" class="ops-resultado hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FÓRMULAS ===== -->
+        <section id="sec-formulas" class="seccion hidden">
+            <h2 class="section-title">Fórmulas de consulta</h2>
+            <p class="text-center" style="margin-bottom:20px;">Referencias rápidas por tema: química general, física y constantes o relaciones matemáticas habituales en ciencias.</p>
+
+            <div class="formulas-tab-row glass-panel" id="formulas-categorias">
+                <button type="button" class="nav-btn formulas-tab-btn active" onclick="cambiarSubFormulas('quimica', this)">Química</button>
+                <button type="button" class="nav-btn formulas-tab-btn" onclick="cambiarSubFormulas('fisica', this)">Física</button>
+                <button type="button" class="nav-btn formulas-tab-btn" onclick="cambiarSubFormulas('constantes', this)">Constantes y matemáticas</button>
+            </div>
+
+            <!-- NUEVA NAVEGACIÓN POR SUBCATEGORÍAS -->
+            <div id="formulas-subcats-fisica" class="formulas-subcats hidden">
+                <p class="subcats-hint">Elige un tema para ver sus fórmulas:</p>
+                <div class="subcats-grid">
+                    <button class="subcat-card" onclick="abrirSubtema('fisica','cinematica', this)">
+                        <div class="subcat-icon">🏃</div>
+                        <h3>Cinemática</h3>
+                        <p>MRU y MRUA</p>
+                        <span class="subcat-count">5 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('fisica','dinamica', this)">
+                        <div class="subcat-icon">⚙️</div>
+                        <h3>Dinámica y Energía</h3>
+                        <p>Mecánica y trabajo</p>
+                        <span class="subcat-count">7 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('fisica','fluidos', this)">
+                        <div class="subcat-icon">🌊</div>
+                        <h3>Fluidos, Calor y Ondas</h3>
+                        <p>Presión, temperatura, refracción</p>
+                        <span class="subcat-count">9 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('fisica','electricidad', this)">
+                        <div class="subcat-icon">⚡</div>
+                        <h3>Electricidad y Magnetismo</h3>
+                        <p>Circuitos y fuerzas</p>
+                        <span class="subcat-count">6 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('fisica','termofluidos', this)">
+                        <div class="subcat-icon">🔥</div>
+                        <h3>Termodinámica y Fluidos</h3>
+                        <p>Gasto, presión, energía, eficiencia</p>
+                        <span class="subcat-count">14 fórmulas</span>
+                    </button>
+                    <button class="subcat-card subcat-card--clase" onclick="abrirSubtema('fisica','clase', this)">
+                        <div class="subcat-icon">📓</div>
+                        <h3>Fórmulas de Clase</h3>
+                        <p>Lo que ha dado el profe</p>
+                        <span class="subcat-count">14 fórmulas</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="formulas-subcats-quimica" class="formulas-subcats hidden">
+                <p class="subcats-hint">Elige un tema para ver sus fórmulas:</p>
+                <div class="subcats-grid">
+                    <button class="subcat-card" onclick="abrirSubtema('quimica','estequiometria', this)">
+                        <div class="subcat-icon">⚗️</div>
+                        <h3>Estequiometría</h3>
+                        <p>Moles y soluciones</p>
+                        <span class="subcat-count">6 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('quimica','acidos', this)">
+                        <div class="subcat-icon">🧪</div>
+                        <h3>Ácidos y Bases</h3>
+                        <p>pH, pOH y equilibrios</p>
+                        <span class="subcat-count">6 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('quimica','gases', this)">
+                        <div class="subcat-icon">💨</div>
+                        <h3>Gases y Termodinámica</h3>
+                        <p>Gas ideal y energía libre</p>
+                        <span class="subcat-count">7 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('quimica','cinetica', this)">
+                        <div class="subcat-icon">🔋</div>
+                        <h3>Cinética y Electroquímica</h3>
+                        <p>Velocidad y Nernst</p>
+                        <span class="subcat-count">4 fórmulas</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="formulas-subcats-constantes" class="formulas-subcats hidden">
+                <p class="subcats-hint">Elige un tema para ver sus fórmulas:</p>
+                <div class="subcats-grid">
+                    <button class="subcat-card" onclick="abrirSubtema('constantes','fisicas', this)">
+                        <div class="subcat-icon">🌌</div>
+                        <h3>Constantes Físicas</h3>
+                        <p>Avogadro, Faraday, c…</p>
+                        <span class="subcat-count">8 constantes</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('constantes','matematicas', this)">
+                        <div class="subcat-icon">📐</div>
+                        <h3>Matemáticas</h3>
+                        <p>Geometría y logaritmos</p>
+                        <span class="subcat-count">7 fórmulas</span>
+                    </button>
+                    <button class="subcat-card" onclick="abrirSubtema('constantes','temperatura', this)">
+                        <div class="subcat-icon">🌡️</div>
+                        <h3>Temperatura</h3>
+                        <p>Conversiones de escalas</p>
+                        <span class="subcat-count">2 fórmulas</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- VISTA DE FÓRMULAS EN TARJETAS (se genera con JS) -->
+            <div id="formulas-detalle-panel" class="hidden">
+                <button class="btn-volver-subtema" onclick="volverSubcats()">← Volver a temas</button>
+                <h3 id="formulas-detalle-titulo" class="formulas-detalle-titulo"></h3>
+                <div id="formulas-detalle-grid" class="formulas-detalle-grid"></div>
+            </div>
+
+        </section>
+
+        <!-- REMOVED OLD STATIC PANELS - now rendered by JS -->
+        <div style="display:none" id="formulas-data-store">
+            <div id="formulas-quimica" class="formulas-panel">
+                <div class="formulas-grid">
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Estequiometría y soluciones</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Moles</span><code class="f-eq">n = m / M</code><div class="f-vars"><strong>n</strong> = cantidad de sustancia (moles)<br><strong>m</strong> = masa (g o kg)<br><strong>M</strong> = masa molar (g·mol<sup>−1</sup>)</div></li>
+                            <li><span class="f-nombre">Concentración molar</span><code class="f-eq">M = n / V</code><div class="f-vars"><strong>M</strong> = molaridad (mol·L<sup>−1</sup>)<br><strong>n</strong> = moles de soluto<br><strong>V</strong> = volumen total de la disolución (L)</div></li>
+                            <li><span class="f-nombre">Fracción molar</span><code class="f-eq">X<sub>i</sub> = n<sub>i</sub> / n<sub>total</sub></code><div class="f-vars"><strong>X<sub>i</sub></strong> = fracción molar del componente <em>i</em><br><strong>n<sub>i</sub></strong> = moles de ese componente<br><strong>n<sub>total</sub></strong> = moles de todos los componentes</div></li>
+                            <li><span class="f-nombre">Dilución</span><code class="f-eq">C<sub>1</sub>V<sub>1</sub> = C<sub>2</sub>V<sub>2</sub></code><div class="f-vars"><strong>C</strong> = concentración (antes y después)<br><strong>V</strong> = volumen de disolución correspondiente<br><strong>1</strong> = estado inicial (antes de mezclar o diluir)<br><strong>2</strong> = estado final (después)</div></li>
+                            <li><span class="f-nombre">Densidad</span><code class="f-eq">ρ = m / V</code><div class="f-vars"><strong>ρ</strong> (rho) = densidad<br><strong>m</strong> = masa<br><strong>V</strong> = volumen</div></li>
+                            <li><span class="f-nombre">% masa en disolución</span><code class="f-eq">% = (m<sub>soluto</sub> / m<sub>disolución</sub>) · 100</code><div class="f-vars"><strong>%</strong> = porcentaje en masa<br><strong>m<sub>soluto</sub></strong> = masa del soluto<br><strong>m<sub>disolución</sub></strong> = masa de toda la disolución (soluto + disolvente)</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Ácido–base y equilibrio en disolución</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">pH</span><code class="f-eq">pH = −log[H⁺]</code><div class="f-vars"><strong>pH</strong> = medida de acidez<br><strong>[H⁺]</strong> = concentración molar del ion hidrógeno (mol·L<sup>−1</sup>)<br><strong>log</strong> = logaritmo decimal (base 10)</div></li>
+                            <li><span class="f-nombre">pOH</span><code class="f-eq">pOH = −log[OH⁻]</code><div class="f-vars"><strong>pOH</strong> = medida relacionada con la basicidad<br><strong>[OH⁻]</strong> = concentración del ion hidróxido (mol·L<sup>−1</sup>)</div></li>
+                            <li><span class="f-nombre">Producto iónico del agua (25 °C)</span><code class="f-eq">K<sub>w</sub> = [H⁺][OH⁻] = 10<sup>−14</sup></code><div class="f-vars"><strong>K<sub>w</sub></strong> = constante de equilibrio del autoionización del agua<br><strong>[H⁺]</strong> = concentración del ión hidrógeno (mol·L<sup>−1</sup>)<br><strong>[OH⁻]</strong> = concentración del ión hidróxido (mol·L<sup>−1</sup>)</div></li>
+                            <li><span class="f-nombre">Relación pH + pOH</span><code class="f-eq">pH + pOH = 14</code> <span class="f-nota">(25 °C)</span><div class="f-vars"><strong>14</strong> = −log K<sub>w</sub> en agua pura a 25 °C<br>válido cuando el disolvente es agua y la temperatura es 25 °C</div></li>
+                            <li><span class="f-nombre">Henderson–Hasselbalch (buffer)</span><code class="f-eq">pH = pK<sub>a</sub> + log([A⁻]/[HA])</code><div class="f-vars"><strong>pK<sub>a</sub></strong> = −log K<sub>a</sub> del par conjugado<br><strong>[A⁻]</strong> = forma desprotonada<br><strong>[HA]</strong> = forma ácida (protonada)</div></li>
+                            <li><span class="f-nombre">pK<sub>a</sub></span><code class="f-eq">pK<sub>a</sub> = −log K<sub>a</sub></code><div class="f-vars"><strong>pK<sub>a</sub></strong> = escala logarítmica de fuerza del ácido<br><strong>K<sub>a</sub></strong> = constante de acidez<br>cuanto <em>menor</em> pK<sub>a</sub>, más fuerte el ácido</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Gases y termodinámica química</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Gas ideal</span><code class="f-eq">PV = nRT</code><div class="f-vars"><strong>P</strong> = presión<br><strong>V</strong> = volumen<br><strong>n</strong> = moles de gas<br><strong>R</strong> = constante de los gases<br><strong>T</strong> = temperatura absoluta (K)</div></li>
+                            <li><span class="f-nombre">Ley combinada de los gases</span><code class="f-eq">(P<sub>1</sub>V<sub>1</sub>) / T<sub>1</sub> = (P<sub>2</sub>V<sub>2</sub>) / T<sub>2</sub></code><div class="f-vars"><strong>P</strong> = presión<br><strong>V</strong> = volumen<br><strong>T</strong> = temperatura absoluta (K)<br><strong>1</strong> = primer estado del gas<br><strong>2</strong> = segundo estado (misma cantidad de sustancia, n constante)</div></li>
+                            <li><span class="f-nombre">Densidad de un gas ideal</span><code class="f-eq">PM = ρRT</code><div class="f-vars"><strong>P</strong> = presión<br><strong>M</strong> = masa molar del gas<br><strong>ρ</strong> = densidad del gas<br><strong>R</strong> = constante de los gases ideales<br><strong>T</strong> = temperatura absoluta (K)</div></li>
+                            <li><span class="f-nombre">Fracción molar y presión parcial (Dalton)</span><code class="f-eq">P<sub>i</sub> = X<sub>i</sub> · P<sub>total</sub></code><div class="f-vars"><strong>P<sub>i</sub></strong> = presión parcial del gas <em>i</em><br><strong>X<sub>i</sub></strong> = fracción molar<br><strong>P<sub>total</sub></strong> = presión total de la mezcla</div></li>
+                            <li><span class="f-nombre">Energía libre de Gibbs</span><code class="f-eq">ΔG = ΔH − TΔS</code><div class="f-vars"><strong>ΔG</strong> = cambio de energía libre<br><strong>ΔH</strong> = cambio de entalpía<br><strong>T</strong> = temperatura (K)<br><strong>ΔS</strong> = cambio de entropía</div></li>
+                            <li><span class="f-nombre">Espontaneidad</span><code class="f-eq">ΔG &lt; 0 → proceso espontáneo</code><div class="f-vars"><strong>ΔG</strong> negativo indica que el proceso puede ocurrir de forma espontánea en las condiciones dadas (a presión y temperatura constantes)</div></li>
+                            <li><span class="f-nombre">Equilibrio y energía libre</span><code class="f-eq">ΔG° = −RT ln K</code><div class="f-vars"><strong>ΔG°</strong> = energía libre estándar de reacción<br><strong>R</strong> = constante de los gases<br><strong>T</strong> = temperatura (K)<br><strong>K</strong> = constante de equilibrio<br><strong>ln</strong> = logaritmo natural</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Cinética y electroquímica</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Velocidad media</span><code class="f-eq">v = −(1/ν) · d[A]/dt</code><div class="f-vars"><strong>v</strong> = velocidad de reacción<br><strong>ν</strong> (nu) = coeficiente estequiométrico de A (con signo)<br><strong>[A]</strong> = concentración de A<br><strong>t</strong> = tiempo</div></li>
+                            <li><span class="f-nombre">Arrhenius</span><code class="f-eq">k = A · e<sup>−E<sub>a</sub>/(RT)</sup></code><div class="f-vars"><strong>k</strong> = constante de velocidad<br><strong>A</strong> = factor preexponencial<br><strong>E<sub>a</sub></strong> = energía de activación<br><strong>R</strong> = constante de los gases<br><strong>T</strong> = temperatura (K)</div></li>
+                            <li><span class="f-nombre">Relación Q y K</span><code class="f-eq">Q &lt; K → hacia productos; Q &gt; K → hacia reactivos</code><div class="f-vars"><strong>Q</strong> = cociente de reacción con concentraciones en un instante dado<br><strong>K</strong> = constante de equilibrio</div></li>
+                            <li><span class="f-nombre">Ecuación de Nernst (25 °C)</span><code class="f-eq">E = E° − (0,05916 V / n) · log Q</code><div class="f-vars"><strong>E</strong> = potencial de celda en condiciones no estándar<br><strong>E°</strong> = potencial estándar<br><strong>n</strong> = moles de e⁻ transferidos por reacción tal como escrita<br><strong>Q</strong> = cociente de reacción</div></li>
+                            <li><span class="f-nombre">Faraday (moles de e⁻)</span><code class="f-eq">n = Q / (F · z)</code><div class="f-vars"><strong>n</strong> = moles de sustancia oxidada/reducida según la reacción<br><strong>Q</strong> = carga eléctrica (C)<br><strong>F</strong> = constante de Faraday<br><strong>z</strong> = número de moles de e⁻ por mol de especie considerada</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formulas-fisica" class="formulas-panel hidden">
+                <div class="formulas-grid">
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Cinemática (MRU y MRUA)</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Velocidad media</span><code class="f-eq">v<sub>m</sub> = Δx / Δt</code><div class="f-vars"><strong>v<sub>m</sub></strong> = velocidad media<br><strong>Δx</strong> = desplazamiento<br><strong>Δt</strong> = intervalo de tiempo</div></li>
+                            <li><span class="f-nombre">MRU</span><code class="f-eq">x = x<sub>0</sub> + v · t</code><div class="f-vars"><strong>x</strong> = posición final<br><strong>x<sub>0</sub></strong> = posición inicial<br><strong>v</strong> = velocidad constante<br><strong>t</strong> = tiempo</div></li>
+                            <li><span class="f-nombre">MRUA — velocidad</span><code class="f-eq">v = v<sub>0</sub> + a · t</code><div class="f-vars"><strong>v</strong> = velocidad en el instante <em>t</em><br><strong>v<sub>0</sub></strong> = velocidad inicial<br><strong>a</strong> = aceleración constante<br><strong>t</strong> = tiempo</div></li>
+                            <li><span class="f-nombre">MRUA — posición</span><code class="f-eq">x = x<sub>0</sub> + v<sub>0</sub>t + ½at²</code><div class="f-vars"><strong>x</strong> = posición<br><strong>x<sub>0</sub></strong> = posición inicial<br><strong>v<sub>0</sub></strong> = velocidad inicial<br><strong>a</strong> = aceleración<br><strong>t</strong> = tiempo</div></li>
+                            <li><span class="f-nombre">Sin tiempo (MRUA)</span><code class="f-eq">v² = v<sub>0</sub>² + 2a · Δx</code><div class="f-vars"><strong>v</strong> = velocidad final<br><strong>v<sub>0</sub></strong> = velocidad inicial<br><strong>a</strong> = aceleración<br><strong>Δx</strong> = desplazamiento</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Dinámica y energía mecánica</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Segunda ley de Newton</span><code class="f-eq">F = m · a</code><div class="f-vars"><strong>F</strong> = fuerza resultante (N)<br><strong>m</strong> = masa (kg)<br><strong>a</strong> = aceleración (m·s<sup>−2</sup>)</div></li>
+                            <li><span class="f-nombre">Peso</span><code class="f-eq">W = m · g</code><div class="f-vars"><strong>W</strong> = peso (fuerza de gravedad sobre el cuerpo)<br><strong>m</strong> = masa<br><strong>g</strong> = aceleración de la gravedad</div></li>
+                            <li><span class="f-nombre">Fuerza centrípeta</span><code class="f-eq">F<sub>c</sub> = m v² / r</code><div class="f-vars"><strong>F<sub>c</sub></strong> = fuerza hacia el centro de la trayectoria curva<br><strong>m</strong> = masa<br><strong>v</strong> = rapidez tangencial<br><strong>r</strong> = radio de curvatura</div></li>
+                            <li><span class="f-nombre">Energía cinética</span><code class="f-eq">E<sub>c</sub> = ½ m v²</code><div class="f-vars"><strong>E<sub>c</sub></strong> = energía cinética (J)<br><strong>m</strong> = masa<br><strong>v</strong> = rapidez</div></li>
+                            <li><span class="f-nombre">Energía potencial gravitatoria</span><code class="f-eq">E<sub>p</sub> = m g h</code><div class="f-vars"><strong>E<sub>p</sub></strong> = energía potencial (J)<br><strong>m</strong> = masa<br><strong>g</strong> = gravedad<br><strong>h</strong> = altura respecto al nivel de referencia</div></li>
+                            <li><span class="f-nombre">Trabajo (constante y colineal)</span><code class="f-eq">W = F · d · cos θ</code><div class="f-vars"><strong>W</strong> = trabajo (J)<br><strong>F</strong> = magnitud de la fuerza constante<br><strong>d</strong> = magnitud del desplazamiento<br><strong>θ</strong> = ángulo entre <strong>F</strong> y el desplazamiento</div></li>
+                            <li><span class="f-nombre">Potencia media</span><code class="f-eq">P = W / Δt</code><div class="f-vars"><strong>P</strong> = potencia media (W)<br><strong>W</strong> = trabajo realizado<br><strong>Δt</strong> = tiempo empleado</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Fluidos, calor y ondas</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Presión</span><code class="f-eq">P = F / A</code><div class="f-vars"><strong>P</strong> = presión (Pa)<br><strong>F</strong> = fuerza perpendicular a la superficie (N)<br><strong>A</strong> = área sobre la que se reparte la fuerza (m²)</div></li>
+                            <li><span class="f-nombre">Presión hidrostática</span><code class="f-eq">P = ρ g h</code><div class="f-vars"><strong>P</strong> = presión ejercida por la columna de fluido<br><strong>ρ</strong> = densidad del fluido<br><strong>g</strong> = gravedad<br><strong>h</strong> = profundidad vertical desde la superficie libre</div></li>
+                            <li><span class="f-nombre">Principio de Arquímedes</span><code class="f-eq">E = ρ<sub>fluido</sub> · g · V<sub>desalojado</sub></code><div class="f-vars"><strong>E</strong> = empuje (fuerza de flotación)<br><strong>ρ<sub>fluido</sub></strong> = densidad del fluido<br><strong>V<sub>desalojado</sub></strong> = volumen del fluido que ocupa la parte sumergida del cuerpo</div></li>
+                            <li><span class="f-nombre">Calor sensible</span><code class="f-eq">Q = m c ΔT</code><div class="f-vars"><strong>Q</strong> = calor transferido (J)<br><strong>m</strong> = masa<br><strong>c</strong> = calor específico del material<br><strong>ΔT</strong> = cambio de temperatura</div></li>
+                            <li><span class="f-nombre">Eficiencia Carnot</span><code class="f-eq">η = 1 − T<sub>c</sub> / T<sub>h</sub></code> <span class="f-nota">(T en K)</span><div class="f-vars"><strong>η</strong> (eta) = eficiencia máxima teórica<br><strong>T<sub>c</sub></strong> = temperatura del foco frío<br><strong>T<sub>h</sub></strong> = temperatura del foco caliente (ambas en kelvin)</div></li>
+                            <li><span class="f-nombre">Onda — velocidad de propagación</span><code class="f-eq">v = λ · f</code><div class="f-vars"><strong>v</strong> = velocidad de la onda<br><strong>λ</strong> (lambda) = longitud de onda<br><strong>f</strong> = frecuencia (Hz)</div></li>
+                            <li><span class="f-nombre">Ley de Snell</span><code class="f-eq">n<sub>1</sub> sen θ<sub>1</sub> = n<sub>2</sub> sen θ<sub>2</sub></code><div class="f-vars"><strong>n<sub>1</sub>, n<sub>2</sub></strong> = índices de refracción del medio 1 y del medio 2<br><strong>θ<sub>1</sub></strong> = ángulo de incidencia respecto a la normal<br><strong>θ<sub>2</sub></strong> = ángulo de refracción respecto a la normal</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Electricidad y magnetismo (básico)</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Ley de Ohm</span><code class="f-eq">V = I · R</code><div class="f-vars"><strong>V</strong> = diferencia de potencial o voltaje (V)<br><strong>I</strong> = intensidad de corriente (A)<br><strong>R</strong> = resistencia eléctrica (Ω)</div></li>
+                            <li><span class="f-nombre">Potencia eléctrica</span><code class="f-eq">P = V · I = I²R = V²/R</code><div class="f-vars"><strong>P</strong> = potencia disipada o entregada (W)<br><strong>V</strong> = voltaje (diferencia de potencial)<br><strong>I</strong> = intensidad de corriente<br><strong>R</strong> = resistencia (las igualdades P = VI = I²R = V²/R valen en circuitos óhmicos)</div></li>
+                            <li><span class="f-nombre">Resistencias en serie</span><code class="f-eq">R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + …</code><div class="f-vars"><strong>R<sub>eq</sub></strong> = resistencia equivalente<br><strong>R<sub>1</sub>, R<sub>2</sub>, …</strong> = resistencias conectadas una tras otra (misma corriente)</div></li>
+                            <li><span class="f-nombre">Resistencias en paralelo</span><code class="f-eq">1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + …</code><div class="f-vars"><strong>R<sub>eq</sub></strong> = resistencia equivalente de la asociación en paralelo<br>suma de inversos: la tensión es la misma en cada rama y las corrientes se reparten</div></li>
+                            <li><span class="f-nombre">Fuerza sobre carga en campo B</span><code class="f-eq">F = q v B sen θ</code><div class="f-vars"><strong>F</strong> = fuerza magnética (Lorentz, módulo en caso simple)<br><strong>q</strong> = carga<br><strong>v</strong> = rapidez<br><strong>B</strong> = campo magnético<br><strong>θ</strong> = ángulo entre <strong>v</strong> y <strong>B</strong></div></li>
+                            <li><span class="f-nombre">Energía en campo eléctrico</span><code class="f-eq">U = q V</code><div class="f-vars"><strong>U</strong> = energía potencial eléctrica (J)<br><strong>q</strong> = carga (C)<br><strong>V</strong> = diferencia de potencial (V)</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formulas-constantes" class="formulas-panel hidden">
+                <div class="formulas-grid">
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Constantes físicas y químicas (valor orientativo)</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Número de Avogadro</span><code class="f-eq">N<sub>A</sub> ≈ 6,022 · 10<sup>23</sup> mol<sup>−1</sup></code><div class="f-vars"><strong>N<sub>A</sub></strong> = número de partículas (átomos, moléculas, etc.) por cada mol de sustancia</div></li>
+                            <li><span class="f-nombre">Constante de los gases</span><code class="f-eq">R ≈ 8,314 J·mol<sup>−1</sup>·K<sup>−1</sup></code><div class="f-vars"><strong>R</strong> = constante que enlaza presión, volumen, moles y temperatura en el gas ideal (y aparece en termodinámica)</div></li>
+                            <li><span class="f-nombre">Constante de Faraday</span><code class="f-eq">F ≈ 96 485 C·mol<sup>−1</sup></code><div class="f-vars"><strong>F</strong> = carga eléctrica de un mol de electrones<br>se usa en electrolisis y electroquímica</div></li>
+                            <li><span class="f-nombre">Velocidad de la luz en el vacío</span><code class="f-eq">c ≈ 2,998 · 10<sup>8</sup> m·s<sup>−1</sup></code><div class="f-vars"><strong>c</strong> = velocidad de la luz (y de cualquier radiación electromagnética) en el vacío</div></li>
+                            <li><span class="f-nombre">Carga elemental</span><code class="f-eq">e ≈ 1,602 · 10<sup>−19</sup> C</code><div class="f-vars"><strong>e</strong> = magnitud de la carga del protón o del electrón (la más pequeña aislada en la materia ordinaria)</div></li>
+                            <li><span class="f-nombre">Masa del electrón</span><code class="f-eq">m<sub>e</sub> ≈ 9,11 · 10<sup>−31</sup> kg</code><div class="f-vars"><strong>m<sub>e</sub></strong> = masa en reposo del electrón</div></li>
+                            <li><span class="f-nombre">Aceleración de la gravedad (aprox.)</span><code class="f-eq">g ≈ 9,81 m·s<sup>−2</sup></code><div class="f-vars"><strong>g</strong> = aceleración con la que caen los cuerpos cerca de la superficie terrestre (valor orientativo, depende del lugar)</div></li>
+                            <li><span class="f-nombre">Presión atmosférica estándar</span><code class="f-eq">1 atm = 101 325 Pa</code><div class="f-vars"><strong>atm</strong> = atmósfera (unidad de presión)<br><strong>Pa</strong> = pascal (N·m<sup>−2</sup>)<br>el valor 101 325 es la presión estándar de referencia (1 atm)</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Matemáticas útiles en ciencias</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Teorema de Pitágoras</span><code class="f-eq">a² + b² = c²</code><div class="f-vars"><strong>a</strong> = longitud de un cateto<br><strong>b</strong> = longitud del otro cateto<br><strong>c</strong> = longitud de la hipotenusa (triángulo rectángulo)</div></li>
+                            <li><span class="f-nombre">Área del círculo</span><code class="f-eq">A = π r²</code><div class="f-vars"><strong>A</strong> = área<br><strong>r</strong> = radio<br><strong>π</strong> ≈ 3,14159…</div></li>
+                            <li><span class="f-nombre">Volumen de la esfera</span><code class="f-eq">V = (4/3) π r³</code><div class="f-vars"><strong>V</strong> = volumen<br><strong>r</strong> = radio de la esfera</div></li>
+                            <li><span class="f-nombre">Volumen del cilindro</span><code class="f-eq">V = π r² h</code><div class="f-vars"><strong>V</strong> = volumen<br><strong>r</strong> = radio de la base<br><strong>h</strong> = altura del cilindro</div></li>
+                            <li><span class="f-nombre">Porcentaje de variación</span><code class="f-eq">% = ((valor<sub>f</sub> − valor<sub>i</sub>) / valor<sub>i</sub>) · 100</code><div class="f-vars"><strong>valor<sub>i</sub></strong> = valor inicial<br><strong>valor<sub>f</sub></strong> = valor final<br><strong>%</strong> = cambio porcentual respecto al inicial</div></li>
+                            <li><span class="f-nombre">Logaritmo de un producto</span><code class="f-eq">log(a·b) = log a + log b</code><div class="f-vars"><strong>a</strong> = primer factor (argumento positivo)<br><strong>b</strong> = segundo factor (argumento positivo)<br><strong>log</strong> = logaritmo en cualquier base válida (la misma base en todos los términos)</div></li>
+                            <li><span class="f-nombre">Cambio de base (log natural)</span><code class="f-eq">log<sub>a</sub> x = ln x / ln a</code><div class="f-vars"><strong>x</strong> = argumento del logaritmo<br><strong>a</strong> = base (a &gt; 0, a ≠ 1)<br><strong>log<sub>a</sub> x</strong> = logaritmo de x en base a<br><strong>ln</strong> = logaritmo natural (base <em>e</em>)</div></li>
+                        </ul>
+                    </div>
+                    <div class="glass-panel formula-tarjeta">
+                        <h3 class="formula-grupo-titulo">Conversiones de temperatura</h3>
+                        <ul class="formula-lista">
+                            <li><span class="f-nombre">Celsius ↔ Kelvin</span><code class="f-eq">T(K) = T(°C) + 273,15</code><div class="f-vars"><strong>T(K)</strong> = temperatura en kelvin (escala absoluta)<br><strong>T(°C)</strong> = temperatura en grados Celsius</div></li>
+                            <li><span class="f-nombre">Celsius ↔ Fahrenheit</span><code class="f-eq">T(°F) = (9/5) T(°C) + 32</code><div class="f-vars"><strong>T(°F)</strong> = temperatura en grados Fahrenheit<br><strong>T(°C)</strong> = temperatura en grados Celsius<br><strong>9/5</strong> = relación entre el tamaño de un grado °F y un grado °C<br><strong>32</strong> = desplazamiento entre el cero de ambas escalas</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- ===== CONVERSIONES ===== -->
+        <section id="sec-conversiones" class="seccion hidden">
+            <h2 class="section-title">Conversiones de Unidades</h2>
+            <p class="text-center" style="margin-bottom:24px;">Ingresa un valor y convierte entre todas las unidades disponibles al instante.</p>
+
+            <div class="conv-grid">
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">🌡️ Temperatura</div>
+                    <input type="number" class="conv-input" id="conv-temp-val" placeholder="Valor" oninput="convertirTemp()">
+                    <select class="conv-select" id="conv-temp-from" onchange="convertirTemp()">
+                        <option value="C">°Celsius</option>
+                        <option value="K">Kelvin</option>
+                        <option value="F">°Fahrenheit</option>
+                        <option value="R">°Rankine</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-temp-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">⚡ Energía</div>
+                    <input type="number" class="conv-input" id="conv-en-val" placeholder="Valor" oninput="convertirEnergia()">
+                    <select class="conv-select" id="conv-en-from" onchange="convertirEnergia()">
+                        <option value="J">Joules (J)</option>
+                        <option value="cal">Calorías (cal)</option>
+                        <option value="kcal">Kilocalorías (kcal)</option>
+                        <option value="kJ">Kilojoules (kJ)</option>
+                        <option value="eV">Electronvoltios (eV)</option>
+                        <option value="BTU">BTU</option>
+                        <option value="kWh">kWh</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-en-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">🔵 Presión</div>
+                    <input type="number" class="conv-input" id="conv-pres-val" placeholder="Valor" oninput="convertirPresion()">
+                    <select class="conv-select" id="conv-pres-from" onchange="convertirPresion()">
+                        <option value="Pa">Pascales (Pa)</option>
+                        <option value="kPa">Kilopascales (kPa)</option>
+                        <option value="atm">Atmósferas (atm)</option>
+                        <option value="bar">Bar</option>
+                        <option value="mmHg">mmHg / Torr</option>
+                        <option value="psi">PSI (lb/in²)</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-pres-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">⚖️ Masa</div>
+                    <input type="number" class="conv-input" id="conv-masa-val" placeholder="Valor" oninput="convertirMasa()">
+                    <select class="conv-select" id="conv-masa-from" onchange="convertirMasa()">
+                        <option value="kg">Kilogramos (kg)</option>
+                        <option value="g">Gramos (g)</option>
+                        <option value="mg">Miligramos (mg)</option>
+                        <option value="lb">Libras (lb)</option>
+                        <option value="oz">Onzas (oz)</option>
+                        <option value="ton">Toneladas métricas</option>
+                        <option value="u">Unidades atómicas (u)</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-masa-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">📏 Longitud</div>
+                    <input type="number" class="conv-input" id="conv-long-val" placeholder="Valor" oninput="convertirLongitud()">
+                    <select class="conv-select" id="conv-long-from" onchange="convertirLongitud()">
+                        <option value="m">Metros (m)</option>
+                        <option value="km">Kilómetros (km)</option>
+                        <option value="cm">Centímetros (cm)</option>
+                        <option value="mm">Milímetros (mm)</option>
+                        <option value="mi">Millas</option>
+                        <option value="ft">Pies (ft)</option>
+                        <option value="in">Pulgadas (in)</option>
+                        <option value="nm">Nanómetros (nm)</option>
+                        <option value="Å">Ångström (Å)</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-long-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">⏱️ Tiempo</div>
+                    <input type="number" class="conv-input" id="conv-tiempo-val" placeholder="Valor" oninput="convertirTiempo()">
+                    <select class="conv-select" id="conv-tiempo-from" onchange="convertirTiempo()">
+                        <option value="s">Segundos (s)</option>
+                        <option value="ms">Milisegundos (ms)</option>
+                        <option value="min">Minutos</option>
+                        <option value="h">Horas</option>
+                        <option value="d">Días</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-tiempo-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">💨 Velocidad</div>
+                    <input type="number" class="conv-input" id="conv-vel-val" placeholder="Valor" oninput="convertirVelocidad()">
+                    <select class="conv-select" id="conv-vel-from" onchange="convertirVelocidad()">
+                        <option value="ms">m/s</option>
+                        <option value="kmh">km/h</option>
+                        <option value="mph">mph</option>
+                        <option value="kn">Nudos (kn)</option>
+                        <option value="fts">ft/s</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-vel-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">💡 Potencia</div>
+                    <input type="number" class="conv-input" id="conv-pot-val" placeholder="Valor" oninput="convertirPotencia()">
+                    <select class="conv-select" id="conv-pot-from" onchange="convertirPotencia()">
+                        <option value="W">Watts (W)</option>
+                        <option value="kW">Kilowatts (kW)</option>
+                        <option value="hp">Caballos de fuerza (hp)</option>
+                        <option value="kcals">kcal/s</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-pot-out"></div>
+                </div>
+
+                <div class="conv-card glass-panel">
+                    <div class="conv-card-title">📐 Volumen</div>
+                    <input type="number" class="conv-input" id="conv-vol-val" placeholder="Valor" oninput="convertirVolumen()">
+                    <select class="conv-select" id="conv-vol-from" onchange="convertirVolumen()">
+                        <option value="L">Litros (L)</option>
+                        <option value="mL">Mililitros (mL)</option>
+                        <option value="m3">Metros cúbicos (m³)</option>
+                        <option value="cm3">Centímetros cúbicos (cm³)</option>
+                        <option value="gal">Galones (US)</option>
+                        <option value="fl_oz">Onzas líquidas (fl oz)</option>
+                    </select>
+                    <div class="conv-resultados" id="conv-vol-out"></div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <div id="vista-elemento" class="vista-completa hidden">
@@ -346,6 +816,7 @@
                     <div><strong>Categoría:</strong> <span id="det-cat"></span></div>
                     <div><strong>e- de Valencia:</strong> <span id="det-valencia"></span></div>
                     <div><strong>Estado Natural:</strong> <span id="det-estado"></span></div>
+                    <div><strong>Densidad:</strong> <span id="det-densidad"></span></div>
                 </div>
                 <hr>
                 <h3>Configuración Electrónica</h3>
